@@ -1,0 +1,21 @@
+﻿TC ID,Title,Property,Priority,Feature,Status
+TC-GPI-01,7-Day Travel Period — Manual Input,Positive,High,Calendar,Pass
+TC-GPI-02,150-Day Travel Period — Manual Input,Positive,High,Calendar,Pass
+TC-GPI-03,365-Day Travel Period — Manual Input,Positive,High,Calendar,Pass
+TC-GPI-04,7-Day Travel Period — Calendar Selection,Positive,High,Calendar,Pass
+TC-GPI-05,Calendar Collapse via Center Button,Positive,Low,Calendar,Pass
+TC-GPI-06,150-Day Travel Period — Calendar Selection,Positive,High,Calendar,Pass
+TC-GPI-07,Return Date Change — Month Update,Positive,Medium,Calendar,Pass
+TC-GPI-08,Return Date Left Empty — Validation Check,Negative,High,Calendar,Pass
+TC-GPI-09,6-Day Period — Below Minimum Limit,Negative,High,Calendar,Pass
+TC-GPI-10,366-Day Period  (BVA),Negative,High,Calendar,Fail
+TC-GPI-11,400-Day Travel Period — Exceeds Maximum,Negative,High,Calendar,Pass
+TC-GPI-12,Departure Date Left Empty — Validation Check,Negative,High,Calendar,Pass
+TC-GPI-13,Past Year Selected as Return Date,Negative,High,Calendar,Pass
+TC-GPI-14,Back Button After Period Selection,Positive,Low,Calendar,Pass
+TC-GPI-15,Page Refresh After Period Selection,Positive,Low,Calendar,Pass
+TC-GPI-16,Past Date Inserted via Copy-Paste,Edge Case,Low,Calendar,Pass
+TC-GPI-17,Invalid Day Entry in Departure Field (32/01),Negative,Low,Calendar,Pass
+TC-GPI-18,Zero Date Entry (00/00/00) in Departure Field,Negative,Low,Calendar,Pass
+TC-GPI-19,Next → Back Navigation — Period Preserved,Positive,Medium,Calendar,Pass
+TC-GPI-20,Rapid  Repeated Clicking on Calendar Date,Edge Case,Medium,Calendar,Pass

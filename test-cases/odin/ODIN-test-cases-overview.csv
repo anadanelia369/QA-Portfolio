@@ -1,0 +1,38 @@
+﻿TC ID,Title,Type,Priority,Feature,Status
+TC-ODIN-01,OTP Verification Attempted After 15-Minute Expiry,Edge Case,High,Register,Pass
+TC-ODIN-02,Same Account Login on Two Devices Simultaneously,Edge Case,High,Login,Pass
+TC-ODIN-03,Multiple Failed Login Attempts — Account Block,Negative,High,Login,Pass
+TC-ODIN-04,Full Order Creation Flow — Standard,Positive,High,Order,Pass
+TC-ODIN-05,City Selected Without Choosing Country First,Negative,Medium,Order,Pass
+TC-ODIN-06,Arrival Date Set Before Departure Date,Negative,High,Trip,Pass
+TC-ODIN-07,App Closed Before Trip Save — Data Not Persisted,Edge Case,High,Trip,Pass
+TC-ODIN-08,Pending → Active → Completed Full Order Cycle,Positive,High,Order Flow,Pass
+TC-ODIN-09,Two Travelers Place Bid on Same Trip Simultaneously,Edge Case,High,Order Flow,"Not Executed "
+TC-ODIN-10,KYC Verification with Another Person's Document,Negative,Critical,Ident mat,Not Executed
+TC-ODIN-11,"Promo Code Assigned to User A, Used by User B",Negative,High,PROMO,Pass
+TC-ODIN-12,Payment Network Error During Transaction,Negative,High,Payment,Pass
+TC-ODIN-13,Trip Creation — 1 Pickup + 1 Delivery City,Positive,High,Trip,Pass
+TC-ODIN-14,Trip Creation — 4 Pickup + 4 Delivery Cities (Maximum),Positive,High,Trip,Pass
+TC-ODIN-15,Trip — En-Route Pickup Cities (Tbilisi → Gori → Kutaisi),Positive,High,Trip,Pass
+TC-ODIN-16,"Trip — Delivery Across Multiple US Cities (NY, NJ)",Positive,High,Trip,Pass
+TC-ODIN-17,Sender Receives Notification After Trip Confirmation,Positive,High,Trip,Pass
+TC-ODIN-18,Standard Order Creation — Full Valid Flow,Positive,High,Order,Pass
+TC-ODIN-19,Auction Order Creation — Full Valid Flow,Positive,High,Order,Pass
+TC-ODIN-20,Order — 1 Photo Upload,Positive,Medium,Order,Pass
+TC-ODIN-21,Order — 2 Photos Upload,Positive,Medium,Order,Pass
+TC-ODIN-22,Order — 5 Photos Upload (Maximum),Positive,High,Order,Pass
+TC-ODIN-23,Order — Incompatible File Format Upload,Negative,High,Order,Pass
+TC-ODIN-24,Traveler Makes Offer on Standard Order,Positive,High,Order Flow,Pass
+TC-ODIN-25,Sender Accepts Offer — Order Moves to Active,Positive,High,Order Flow,Pass
+TC-ODIN-26,Pickup Time Scheduled — Then Changed by Sender,Positive,High,Chat,Pass
+TC-ODIN-27,Chat — Third Party Invited to Conversation,Positive,High,Chat,Pass
+TC-ODIN-28,Chat — File Sent Between Sender and Traveler,Positive,Medium,Chat,Pass
+TC-ODIN-29,Wallet — Withdraw EUR via Card,Positive,High,Wallet,Pass
+TC-ODIN-30,Wallet — Withdraw USD via Card,Positive,High,Wallet,Pass
+TC-ODIN-31,Withdraw GEL via Card,Positive,High,Wallet,Pass
+TC-ODIN-32," Withdraw EUR via PayPal",Positive,High,Wallet,Pass
+TC-ODIN-33," Withdraw at Minimum Limit",Positive,High,Wallet,Pass
+TC-ODIN-34,Forgot Password — Only Latest OTP Valid After Resend,Edge Case,High,Login,Pass
+TC-ODIN-35,Password 7 Characters — BVA Below Minimum,Negative,High,Register,Pass
+TC-ODIN-36,Expired Card Payment Attempt,Negative,High,Payment,Pass
+TC-ODIN-37,Already-Used Promo Code Reuse Attempt,Negative,High,PROMO,Pass
