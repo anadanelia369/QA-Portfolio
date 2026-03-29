@@ -7,7 +7,7 @@ Manual QA tester with hands-on UAT experience at ODIN — a Georgian P2P parcel 
 Skilled in bug reporting, test case design (EP, BVA, Decision Tables), and REST API validation with Postman. Currently developing Java + Selenium automation skills. ISTQB FL planned (prep starts June 2026).
 
 > *"Every system has two realities: expected behavior and actual behavior. QA lives in the space between them."*
-
+→ [Observation is my API — how I think about testing](assets/observation-is-my-api.md)
 ---
 
 ## 📊 By the Numbers
