@@ -39,4 +39,4 @@ This demonstrates: parameter validation testing, using Postman Console for debug
 
 ## Screenshots
 
-*(to be added)*
+![Postman limit bug](../assets/postman-limit-bug.png)
