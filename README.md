@@ -49,10 +49,10 @@ Skilled in bug reporting, test case design (EP, BVA, Decision Tables), and REST 
 |--------|-------|------|----------|--------|
 | [ODIN-974](bug-reports/ODIN/ODIN-974.md) | Phone Country Code Auto-Changes on Back Navigation | Functional | High | Done |
 | [ODIN-995](bug-reports/ODIN/ODIN-995.md) | Time Picker Crash on Chat Screen | Functional | Critical | Done |
-| [ODIN-1009](bug-reports/ODIN/ODIN-1009.md) | *(see report)* | — | — | — |
-| [ODIN-1013](bug-reports/ODIN/ODIN-1013.md) | *(see report)* | — | — | — |
-| [ODIN-1052](bug-reports/ODIN/ODIN-1052.md) | *(see report)* | — | — | — |
-| [ODIN-1079](bug-reports/ODIN/ODIN-1079.md) | *(see report)* | — | — | — |
+| [ODIN-1009](bug-reports/ODIN/ODIN-1009.md) | Order Edit Shows Cached Data — Updates Multiple Times | Functional | Medium | Done |
+| [ODIN-1013](bug-reports/ODIN/ODIN-1013.md) | System Back Button Breaks Trip Flow | Navigation | High | Done |
+| [ODIN-1052](bug-reports/ODIN/ODIN-1052.md) | Phone Number Input Focus Jumps to City Field on First Tap | UX | Medium | Done |
+| [ODIN-1079](bug-reports/ODIN/ODIN-1079.md) | Offers Tab Displays Incorrect Date Range (17–17 Instead of 17–18) | Functional | Medium | Done |
 
 ### GPI Holding (Independent Testing)
 
