@@ -25,7 +25,9 @@
   --code-text:  #F0C87A;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
 
 html { scroll-behavior: smooth; }
 
@@ -952,7 +954,7 @@ h1              { animation-delay: 0.2s; }
         <span class="json-url">Dani.profile()</span>
       </div>
       <div class="json-body" style="font-size:0.76rem; line-height:1.85;">
-        <span class="jk">background</span> <span class="jb">→</span> <span class="jvs">8yr remote support @ Magticom</span><br>
+        <span class="jk">background</span> <span class="jb">→</span> <span class="jvs">8yr support (3+ remote) @ Magticom</span><br>
         <span class="jk">first_qa_signal</span> <span class="jb">→</span> <span class="jvs">2021, call center test</span><br>
         <span class="jk">course_score</span> <span class="jb">→</span> <span class="jv">100 / 100</span><br>
         <span class="jk">internship</span> <span class="jb">→</span> <span class="jvs">"ODIN P2P, Feb 2026"</span><br>
