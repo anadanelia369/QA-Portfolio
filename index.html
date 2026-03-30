@@ -276,6 +276,8 @@ h1 em {
   color: var(--amber2);
   line-height: 1;
   display: block;
+  outline: none;
+  border: none;
 }
 
 .stat-label {
@@ -505,19 +507,7 @@ h2 {
   font-weight: 900;
   color: var(--orange);
   line-height: 1;
-  position: relative;
-}
-
-.tc-count::after {
-  content: 'Test Cases';
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--ink3);
-  position: absolute;
-  bottom: 0.4rem;
-  left: calc(100% + 0.8rem);
-  white-space: nowrap;
+  display: inline-block;
 }
 
 .tc-tabs {
@@ -1101,8 +1091,9 @@ h1              { animation-delay: 0.2s; }
         <svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 4h10M3 8h7M3 12h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
         Test Cases
       </span>
-      <div style="display:flex; align-items:baseline; gap:0.8rem;">
+      <div style="display:flex; align-items:baseline; gap:0.8rem; margin-top:0.3rem;">
         <div class="tc-count">57</div>
+        <span style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--ink); line-height:1;">Test Cases</span>
       </div>
       <p class="section-desc" style="margin-top:0.8rem; margin-bottom:0;">Covering Registration, Login, Order Flow, Chat, Wallet, Calendar validation and more.</p>
     </div>
