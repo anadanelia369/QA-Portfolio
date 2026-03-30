@@ -256,6 +256,8 @@ h1 em {
   gap: 2rem;
   position: relative;
   overflow: hidden;
+  user-select: none;
+  pointer-events: none;
 }
 
 .stats-bar::before {
@@ -905,7 +907,7 @@ h1              { animation-delay: 0.2s; }
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stat">
-    <span class="stat-num">328</span>
+    <span class="stat-num" tabindex="-1">328</span>
     <span class="stat-label">Test Scenarios</span>
   </div>
   <div class="stat">
