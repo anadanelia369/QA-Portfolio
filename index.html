@@ -435,7 +435,7 @@ h2 {
 
 .bugs-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
 }
 
@@ -910,7 +910,7 @@ h1              { animation-delay: 0.2s; }
 <div class="stats-bar" aria-hidden="true">
   <div class="stat"><p class="stat-num">328</p><p class="stat-label">Test Scenarios</p></div>
   <div class="stat"><p class="stat-num">57</p><p class="stat-label">Test Cases</p></div>
-  <div class="stat"><p class="stat-num">10+</p><p class="stat-label">Bugs Logged</p></div>
+  <div class="stat"><p class="stat-num">9</p><p class="stat-label">Bugs Logged</p></div>
   <div class="stat"><p class="stat-num">3</p><p class="stat-label">Projects Tested</p></div>
 </div>
 
@@ -1069,11 +1069,38 @@ h1              { animation-delay: 0.2s; }
 
     <div class="bug-card">
       <div class="bug-meta">
+        <span class="bug-id">GPI-ANN-12</span>
+        <div><span class="badge badge-high">High</span><span class="badge badge-done">Done</span></div>
+      </div>
+      <h4>Calendar Allows 366-Day Insurance Period Without Validation</h4>
+      <p class="bug-sub">Functional · BVA · Production · Chrome</p>
+    </div>
+
+    <div class="bug-card">
+      <div class="bug-meta">
         <span class="bug-id">GPI-ANN-13</span>
         <div><span class="badge badge-high">High</span><span class="badge badge-security">Security</span></div>
       </div>
       <h4>Autofill Returns Stranger's Personal Data</h4>
       <p class="bug-sub">Security · Production · Chrome</p>
+    </div>
+
+    <div class="bug-card">
+      <div class="bug-meta">
+        <span class="bug-id">ODIN-1052</span>
+        <div><span class="badge badge-medium">Medium</span><span class="badge badge-done">Done</span></div>
+      </div>
+      <h4>Phone Number Input Focus Jumps to City Field on First Tap</h4>
+      <p class="bug-sub">UX/Focus · Android 14 / Realme 10</p>
+    </div>
+
+    <div class="bug-card">
+      <div class="bug-meta">
+        <span class="bug-id">ODIN-1079</span>
+        <div><span class="badge badge-medium">Medium</span><span class="badge badge-done">Done</span></div>
+      </div>
+      <h4>Offers Tab Displays Incorrect Date Range (17–17 Instead of 17–18)</h4>
+      <p class="bug-sub">Backend · Android 14 / Realme 10</p>
     </div>
   </div>
 </section>
@@ -1120,10 +1147,35 @@ h1              { animation-delay: 0.2s; }
         <tr><td class="tc-id">TC-ODIN-06</td><td>Arrival Date Set Before Departure Date</td><td>Negative</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
         <tr><td class="tc-id">TC-ODIN-07</td><td>App Closed Before Trip Save — Data Not Persisted</td><td>Edge Case</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
         <tr><td class="tc-id">TC-ODIN-08</td><td>Pending → Active → Completed Full Order Cycle</td><td>Positive</td><td>High</td><td>Order Flow</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-09</td><td>Wallet Balance Insufficient for Order Confirmation</td><td>Negative</td><td>High</td><td>Wallet</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-10</td><td>Chat Message Sent After Order Completion</td><td>Edge Case</td><td>Medium</td><td>Chat</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-11</td><td>Cross-Flow: Forgot Password Accepts Weak Regex</td><td>Security</td><td>High</td><td>Auth</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-ODIN-12</td><td>Dark Mode — Social Icons Invisible in Email OTP</td><td>UI</td><td>Medium</td><td>Auth</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-ODIN-09</td><td>Two Travelers Place Bid on Same Trip Simultaneously</td><td>Edge Case</td><td>High</td><td>Order Flow</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-10</td><td>KYC Verification with Another Person's Document</td><td>Negative</td><td>Critical</td><td>Ident mat</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-11</td><td>Promo Code Assigned to User A, Used by User B</td><td>Negative</td><td>High</td><td>PROMO</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-12</td><td>Payment Network Error During Transaction</td><td>Negative</td><td>High</td><td>Payment</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-13</td><td>Trip Creation — 1 Pickup + 1 Delivery City</td><td>Positive</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-14</td><td>Wallet Top-Up — Minimum Amount Boundary</td><td>BVA</td><td>High</td><td>Wallet</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-15</td><td>Profile Photo Upload — Oversized File</td><td>Negative</td><td>Medium</td><td>Profile</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-16</td><td>Push Notification Received After Order Status Change</td><td>Positive</td><td>High</td><td>Notifications</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-17</td><td>Order Search by Partial Tracking Number</td><td>Positive</td><td>Medium</td><td>Search</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-18</td><td>Chat Attachment — Unsupported File Format</td><td>Negative</td><td>Medium</td><td>Chat</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-19</td><td>Calendar — Trip Date in the Past</td><td>Negative</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-20</td><td>Order Cancellation After Sender Confirmation</td><td>Negative</td><td>High</td><td>Order Flow</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-21</td><td>Language Switch Mid-Session</td><td>Positive</td><td>Medium</td><td>Localization</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-22</td><td>Deep Link Opens Correct Order Detail Screen</td><td>Positive</td><td>Medium</td><td>Navigation</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-23</td><td>Biometric Login After Password Reset</td><td>Edge Case</td><td>High</td><td>Auth</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-24</td><td>Order History — Filter by Status</td><td>Positive</td><td>Medium</td><td>History</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-25</td><td>Network Lost During Order Submission</td><td>Edge Case</td><td>High</td><td>Order</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-26</td><td>Dark Mode Toggle — Full UI Check</td><td>UI</td><td>Medium</td><td>Accessibility</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-27</td><td>Multiple Cities Added to Single Trip</td><td>Positive</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-28</td><td>Sender Marks Package as Delivered — Receiver Not Confirmed</td><td>Edge Case</td><td>High</td><td>Order Flow</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-29</td><td>Phone Number Input Focus Jumps to City Field</td><td>UX</td><td>Medium</td><td>Registration</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-ODIN-30</td><td>Forgot Password — Weak Regex Accepted</td><td>Security</td><td>High</td><td>Auth</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-ODIN-31</td><td>Dark Mode — Social Icons Invisible in Email OTP</td><td>UI</td><td>Medium</td><td>Auth</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-ODIN-32</td><td>Offers Tab — Incorrect Date Range Display</td><td>Negative</td><td>Medium</td><td>Offers</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-ODIN-33</td><td>Order Name Overflow in Order History Card</td><td>UI</td><td>Medium</td><td>History</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-ODIN-34</td><td>Change Password — No Toast Notification</td><td>UI</td><td>Medium</td><td>Profile</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-ODIN-35</td><td>Profile Menu — Truncated Text on Long Name</td><td>UI</td><td>Low</td><td>Profile</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-ODIN-36</td><td>App Launch — Infinite Loading on Realme 10</td><td>Edge Case</td><td>High</td><td>Launch</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-37</td><td>Flight Notification Timing — Short Route Hypothesis</td><td>Exploratory</td><td>High</td><td>Notifications</td><td class="tc-pass">✓ Pass</td></tr>
       </tbody>
     </table>
   </div>
@@ -1144,7 +1196,7 @@ h1              { animation-delay: 0.2s; }
         <tr><td class="tc-id">TC-GPI-03</td><td>Valid Insurance Quote Submission</td><td>Positive</td><td>High</td><td>Quote</td><td class="tc-pass">✓ Pass</td></tr>
         <tr><td class="tc-id">TC-GPI-08</td><td>Invalid ID Document Combination</td><td>Security</td><td>High</td><td>Docs</td><td class="tc-fail">✗ Fail</td></tr>
         <tr><td class="tc-id">TC-GPI-09</td><td>Autofill Populates from Previous Session</td><td>Security</td><td>High</td><td>Forms</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-GPI-10</td><td>Payment Flow — Valid Card</td><td>Positive</td><td>High</td><td>Payment</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-GPI-10</td><td>Calendar Allows 366-Day Insurance Period (BVA)</td><td>BVA</td><td>High</td><td>Calendar</td><td class="tc-fail">✗ Fail</td></tr>
         <tr><td class="tc-id">TC-GPI-13</td><td>Policy Download After Purchase</td><td>Positive</td><td>Medium</td><td>Documents</td><td class="tc-pass">✓ Pass</td></tr>
         <tr><td class="tc-id">TC-GPI-16</td><td>Session Timeout During Application</td><td>Edge Case</td><td>High</td><td>Session</td><td class="tc-pass">✓ Pass</td></tr>
         <tr><td class="tc-id">TC-GPI-20</td><td>Mobile Responsive Form Validation</td><td>UI</td><td>Medium</td><td>Responsive</td><td class="tc-pass">✓ Pass</td></tr>
