@@ -3,904 +3,1328 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ana Danelia | QA Portfolio</title>
+<title>Ana Danelia — QA Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --purple: #7C3AED;
-    --purple-light: #A78BFA;
-    --blue: #2563EB;
-    --blue-light: #60A5FA;
-    --indigo: #4F46E5;
-    --bg: #0A0A14;
-    --bg2: #0F0F1E;
-    --bg3: #13132A;
-    --text: #F1F0FF;
-    --muted: #8B87B0;
-    --card: rgba(255,255,255,0.04);
-    --border: rgba(167,139,250,0.15);
-    --grad: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%);
-    --grad2: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #9333EA 100%);
+:root {
+  --bg:         #F7F3EE;
+  --bg2:        #EDE8E0;
+  --bg3:        #E5DDD2;
+  --ink:        #1C1410;
+  --ink2:       #4A3728;
+  --ink3:       #7A6558;
+  --orange:     #C8581A;
+  --orange2:    #E07840;
+  --amber:      #D4870A;
+  --amber2:     #F0A830;
+  --warm-red:   #B03A1A;
+  --card-bg:    #FFFFFF;
+  --card-border:#DDD5C8;
+  --code-bg:    #2A1F16;
+  --code-text:  #F0C87A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NOISE TEXTURE OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(247,243,238,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--orange);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--orange); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 8rem 3rem 5rem;
+  gap: 4rem;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 55%;
+  height: 65%;
+  background: radial-gradient(ellipse at 70% 60%, rgba(200,88,26,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-left { position: relative; z-index: 1; }
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1.5rem;
+}
+
+.hero-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: var(--orange);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--ink3);
+  max-width: 440px;
+  margin-bottom: 2.2rem;
+  line-height: 1.7;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: #fff;
+  border: 2px solid var(--orange);
+}
+
+.btn-primary:hover {
+  background: var(--warm-red);
+  border-color: var(--warm-red);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200,88,26,0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink2);
+  border: 2px solid var(--card-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+/* HERO JSON BLOCK */
+.hero-right {
+  position: relative;
+  z-index: 1;
+}
+
+.json-window {
+  background: var(--code-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(28,20,16,0.18), 0 4px 12px rgba(28,20,16,0.08);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.json-topbar {
+  background: #1A130C;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot-red { background: #FF5F56; }
+.dot-yellow { background: #FFBD2E; }
+.dot-green { background: #27C93F; }
+
+.json-url {
+  margin-left: 0.8rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(240,200,122,0.5);
+}
+
+.json-body {
+  padding: 1.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.9;
+  color: var(--code-text);
+}
+
+.jk { color: #E07840; }
+.jv { color: #F0C87A; }
+.jvs { color: #98D89E; }
+.jb { color: rgba(240,200,122,0.4); }
+
+/* STATS BAR */
+.stats-bar {
+  background: var(--ink);
+  padding: 2.5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,88,26,0.12) 0%, transparent 60%);
+}
+
+.stat {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--amber2);
+  line-height: 1;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(247,243,238,0.5);
+  margin-top: 0.4rem;
+  display: block;
+}
+
+/* SECTION COMMON */
+section {
+  padding: 5rem 3rem;
+  position: relative;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.8rem;
+}
+
+.section-eyebrow svg { width: 14px; height: 14px; }
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--ink3);
+  max-width: 480px;
+  margin-bottom: 3rem;
+}
+
+/* ABOUT */
+.about-section {
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: 1rem;
+  color: var(--ink2);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.highlight { color: var(--orange); font-weight: 600; }
+.highlight2 { color: var(--amber); font-weight: 600; }
+
+.about-json { /* reuse json-window styles */ }
+
+/* PROJECTS */
+.projects-section { background: var(--bg2); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.8rem;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--amber));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover::before { transform: scaleX(1); }
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(200,88,26,0.12);
+  border-color: rgba(200,88,26,0.3);
+}
+
+.project-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.project-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.project-card p {
+  font-size: 0.85rem;
+  color: var(--ink3);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  background: var(--bg2);
+  color: var(--ink2);
+  border: 1px solid var(--card-border);
+}
+
+/* BUGS SECTION */
+.bugs-section { background: var(--bg); }
+
+.bugs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.bug-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 1.4rem;
+  transition: all 0.22s ease;
+  cursor: default;
+}
+
+.bug-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(200,88,26,0.1);
+}
+
+.bug-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.bug-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--orange);
+  font-weight: 500;
+}
+
+.badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+}
+
+.badge-critical { background: #FDE8E8; color: #B03A1A; border: 1px solid #F5C0C0; }
+.badge-high { background: #FEF0E0; color: #C85C1A; border: 1px solid #F5D0A0; }
+.badge-medium { background: #FEF8E0; color: #A87008; border: 1px solid #F0DC90; }
+.badge-done { background: #E8F5EA; color: #287A36; border: 1px solid #A8D8B0; margin-left: 0.3rem; }
+.badge-security { background: #F0E8F8; color: #7030A0; border: 1px solid #D0A8F0; margin-left: 0.3rem; }
+
+.bug-card h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+.bug-card .bug-sub {
+  font-size: 0.75rem;
+  color: var(--ink3);
+}
+
+/* TEST CASES */
+.tc-section { background: var(--bg2); }
+
+.tc-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tc-count {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--orange);
+  line-height: 1;
+  position: relative;
+}
+
+.tc-count::after {
+  content: 'Test Cases';
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink3);
+  position: absolute;
+  bottom: 0.4rem;
+  left: calc(100% + 0.8rem);
+  white-space: nowrap;
+}
+
+.tc-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tc-tab {
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--ink2);
+  transition: all 0.2s;
+}
+
+.tc-tab.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+
+.tc-panel { display: none; }
+.tc-panel.active { display: block; }
+
+.tc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+}
+
+.tc-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  background: var(--bg2);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.tc-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--bg2);
+  color: var(--ink2);
+}
+
+.tc-table tr:last-child td { border-bottom: none; }
+
+.tc-table tr:hover td { background: rgba(200,88,26,0.04); }
+
+.tc-id { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--orange); font-weight: 500; }
+.tc-pass { color: #287A36; font-weight: 700; font-size: 0.78rem; }
+.tc-fail { color: #B03A1A; font-weight: 700; font-size: 0.78rem; }
+
+/* POSTMAN DIARY */
+.postman-section {
+  background: var(--ink);
+  color: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.postman-section::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200,88,26,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.postman-section h2 { color: var(--bg); }
+.postman-section .section-eyebrow { color: var(--amber2); }
+.postman-section .section-desc { color: rgba(247,243,238,0.55); }
+
+.postman-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.bug-spotlight {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.bug-spotlight-header {
+  padding: 1rem 1.4rem;
+  background: rgba(200,88,26,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.code-block {
+  background: var(--code-bg);
+  padding: 1.2rem 1.4rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--code-text);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.code-comment { color: rgba(240,200,122,0.38); }
+.code-keyword { color: var(--orange2); }
+.code-string { color: #98D89E; }
+.code-pass { color: #5BC870; font-weight: 600; }
+
+.bug-spotlight-footer {
+  padding: 0.9rem 1.4rem;
+  font-size: 0.78rem;
+  color: rgba(247,243,238,0.45);
+  line-height: 1.5;
+}
+
+.topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.topic-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.topic-name {
+  font-size: 0.82rem;
+  color: rgba(247,243,238,0.7);
+  font-weight: 500;
+}
+
+.topic-bar-wrap {
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.topic-bar {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--orange), var(--amber2));
+}
+
+/* TECH STACK */
+.stack-section { background: var(--bg); }
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.stack-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 1.4rem;
+  transition: all 0.2s;
+}
+
+.stack-card:hover {
+  box-shadow: 0 6px 20px rgba(200,88,26,0.08);
+  border-color: rgba(200,88,26,0.25);
+}
+
+.stack-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+  display: block;
+}
+
+.stack-card h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.8rem;
+}
+
+.stack-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--bg2);
+  color: var(--ink2);
+  border-radius: 4px;
+  border: 1px solid var(--card-border);
+  font-weight: 500;
+}
+
+.chip-accent {
+  background: rgba(200,88,26,0.1);
+  color: var(--orange);
+  border-color: rgba(200,88,26,0.25);
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--bg);
+}
+
+.footer-role {
+  font-size: 0.75rem;
+  color: rgba(247,243,238,0.45);
+  margin-top: 0.2rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(247,243,238,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.footer-links a:hover { color: var(--amber2); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-left > * {
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-label     { animation-delay: 0.1s; }
+h1              { animation-delay: 0.2s; }
+.hero-sub       { animation-delay: 0.3s; }
+.hero-btns      { animation-delay: 0.4s; }
+.hero-right     { animation: fadeUp 0.7s 0.3s ease both; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero, .about-section, .postman-layout {
+    grid-template-columns: 1fr;
   }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-    line-height: 1.6;
+  .projects-grid, .bugs-grid, .stack-grid {
+    grid-template-columns: 1fr 1fr;
   }
-
-  /* === NOISE TEXTURE === */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  /* === BACKGROUND ORBS === */
-  .orb {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: 0;
-    animation: float 8s ease-in-out infinite;
+@media (max-width: 600px) {
+  nav { padding: 1rem 1.2rem; }
+  section { padding: 3.5rem 1.2rem; }
+  .projects-grid, .bugs-grid, .stack-grid {
+    grid-template-columns: 1fr;
   }
-  .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%); top: -200px; right: -100px; animation-delay: 0s; }
-  .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%); bottom: 10%; left: -150px; animation-delay: 3s; }
-  .orb-3 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(147,51,234,0.12) 0%, transparent 70%); top: 40%; right: 20%; animation-delay: 6s; }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-30px) scale(1.05); }
-  }
-
-  /* === NAV === */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(20px);
-    background: rgba(10,10,20,0.7);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    background: var(--grad);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--purple-light); }
-
-  /* === HERO === */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 60px 80px;
-    z-index: 1;
-  }
-
-  .hero-content { max-width: 800px; }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    background: rgba(124,58,237,0.15);
-    border: 1px solid rgba(124,58,237,0.3);
-    border-radius: 100px;
-    font-size: 13px;
-    color: var(--purple-light);
-    margin-bottom: 28px;
-    letter-spacing: 0.05em;
-  }
-
-  .hero-tag::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--purple-light);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(52px, 7vw, 88px);
-    font-weight: 800;
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    margin-bottom: 24px;
-  }
-
-  h1 .grad-text {
-    background: var(--grad2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-desc {
-    font-size: 18px;
-    color: var(--muted);
-    max-width: 560px;
-    margin-bottom: 20px;
-    font-weight: 300;
-    line-height: 1.7;
-  }
-
-  .hero-quote {
-    font-size: 15px;
-    color: var(--purple-light);
-    font-style: italic;
-    margin-bottom: 40px;
-    padding-left: 16px;
-    border-left: 2px solid var(--purple);
-    opacity: 0.85;
-  }
-
-  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-
-  .btn-primary {
-    padding: 14px 28px;
-    background: var(--grad);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 24px rgba(124,58,237,0.35);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.5); }
-
-  .btn-secondary {
-    padding: 14px 28px;
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s;
-  }
-  .btn-secondary:hover { border-color: var(--purple-light); color: var(--purple-light); }
-
-  /* === STATS === */
-  .stats {
-    position: relative;
-    z-index: 1;
-    padding: 60px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .stat {
-    background: var(--bg);
-    padding: 40px 32px;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 48px;
-    font-weight: 800;
-    background: var(--grad);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .stat-label {
-    font-size: 13px;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  /* === SECTIONS === */
-  section {
-    position: relative;
-    z-index: 1;
-    padding: 100px 60px;
-  }
-
-  .section-tag {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--purple-light);
-    margin-bottom: 16px;
-    font-weight: 600;
-  }
-
-  h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-    line-height: 1.1;
-  }
-
-  .section-sub {
-    color: var(--muted);
-    font-size: 16px;
-    margin-bottom: 60px;
-    max-width: 500px;
-  }
-
-  /* === BUGS === */
-  .bugs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 20px;
-  }
-
-  .bug-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .bug-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--grad);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .bug-card:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
-  .bug-card:hover::before { opacity: 1; }
-
-  .bug-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-
-  .bug-id {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--purple-light);
-    letter-spacing: 0.05em;
-  }
-
-  .bug-badges { display: flex; gap: 6px; flex-wrap: wrap; }
-
-  .badge {
-    padding: 3px 10px;
-    border-radius: 100px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
-  .badge-critical { background: rgba(239,68,68,0.15); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.3); }
-  .badge-high { background: rgba(245,158,11,0.15); color: #FCD34D; border: 1px solid rgba(245,158,11,0.3); }
-  .badge-medium { background: rgba(59,130,246,0.15); color: #93C5FD; border: 1px solid rgba(59,130,246,0.3); }
-  .badge-low { background: rgba(16,185,129,0.15); color: #6EE7B7; border: 1px solid rgba(16,185,129,0.3); }
-  .badge-done { background: rgba(16,185,129,0.15); color: #6EE7B7; border: 1px solid rgba(16,185,129,0.3); }
-  .badge-open { background: rgba(245,158,11,0.15); color: #FCD34D; border: 1px solid rgba(245,158,11,0.3); }
-  .badge-security { background: rgba(239,68,68,0.15); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.3); }
-  .badge-functional { background: rgba(124,58,237,0.15); color: #C4B5FD; border: 1px solid rgba(124,58,237,0.3); }
-  .badge-ux { background: rgba(236,72,153,0.15); color: #F9A8D4; border: 1px solid rgba(236,72,153,0.3); }
-  .badge-nav { background: rgba(37,99,235,0.15); color: #93C5FD; border: 1px solid rgba(37,99,235,0.3); }
-
-  .bug-title {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-
-  .bug-meta { font-size: 12px; color: var(--muted); }
-
-  /* === TEST CASES === */
-  .tc-section { background: var(--bg2); }
-
-  .tc-tabs { display: flex; gap: 4px; margin-bottom: 40px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 4px; width: fit-content; }
-
-  .tc-tab {
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: var(--muted);
-    border: none;
-    background: transparent;
-  }
-  .tc-tab.active { background: var(--grad); color: white; }
-
-  .tc-table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--border); }
-
-  table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  thead { background: rgba(124,58,237,0.08); }
-  th { padding: 14px 20px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--border); white-space: nowrap; }
-  td { padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text); }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: rgba(124,58,237,0.04); }
-
-  .tc-id { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; color: var(--purple-light); white-space: nowrap; }
-  .status-pass { color: #6EE7B7; font-weight: 600; }
-  .status-fail { color: #FCA5A5; font-weight: 600; }
-  .status-not { color: var(--muted); }
-
-  .tc-panel { display: none; }
-  .tc-panel.active { display: block; }
-
-  /* === PROJECTS === */
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
-
-  .project-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 36px;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .project-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--grad2);
-    opacity: 0;
-    transition: opacity 0.3s;
-    border-radius: 20px;
-    z-index: -1;
-  }
-
-  .project-card:hover { border-color: rgba(124,58,237,0.5); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
-
-  .project-icon { font-size: 36px; margin-bottom: 20px; }
-  .project-title { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
-  .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .project-tag { padding: 4px 12px; background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.25); border-radius: 100px; font-size: 12px; color: var(--purple-light); }
-
-  /* === API === */
-  .api-section { background: var(--bg3); }
-
-  .api-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-
-  .api-finding {
-    background: var(--card);
-    border: 1px solid rgba(239,68,68,0.2);
-    border-radius: 16px;
-    padding: 28px;
-  }
-
-  .api-finding-title { display: flex; align-items: center; gap: 10px; font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #FCA5A5; }
-
-  .code-block {
-    background: rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 16px 20px;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 13px;
-    color: #A78BFA;
-    margin: 12px 0;
-    line-height: 1.6;
-  }
-
-  .api-skills { display: flex; flex-direction: column; gap: 16px; }
-
-  .skill-item { display: flex; align-items: center; gap: 16px; }
-  .skill-label { font-size: 13px; color: var(--muted); width: 200px; flex-shrink: 0; }
-  .skill-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
-  .skill-fill { height: 100%; background: var(--grad); border-radius: 2px; transition: width 1s ease; }
-
-  /* === ABOUT === */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-
-  .about-text p { color: var(--muted); font-size: 16px; line-height: 1.8; margin-bottom: 20px; }
-
-  .json-card {
-    background: rgba(0,0,0,0.4);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  .json-header { padding: 14px 20px; background: rgba(124,58,237,0.1); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
-  .json-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .json-body { padding: 24px; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.8; }
-  .json-key { color: #A78BFA; }
-  .json-str { color: #6EE7B7; }
-  .json-arr { color: #FCD34D; }
-  .json-muted { color: var(--muted); }
-
-  /* === SKILLS === */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-
-  .skill-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    transition: all 0.3s;
-  }
-  .skill-card:hover { border-color: rgba(124,58,237,0.4); }
-
-  .skill-card-icon { font-size: 28px; margin-bottom: 16px; }
-  .skill-card-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 12px; color: var(--purple-light); }
-  .skill-card-items { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skill-chip { padding: 4px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; font-size: 12px; color: var(--muted); }
-
-  /* === FOOTER === */
-  footer {
-    position: relative;
-    z-index: 1;
-    padding: 60px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
-  .footer-left { font-family: 'Syne', sans-serif; }
-  .footer-name { font-size: 24px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .footer-role { font-size: 13px; color: var(--muted); margin-top: 4px; }
-
-  .footer-links { display: flex; gap: 20px; }
-  .footer-link {
-    padding: 10px 20px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .footer-link:hover { border-color: var(--purple-light); color: var(--purple-light); }
-
-  /* === ANIMATIONS === */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .fade-up { animation: fadeUp 0.7s ease both; }
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.3s; }
-  .delay-4 { animation-delay: 0.4s; }
-
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    section { padding: 70px 24px; }
-    .stats { grid-template-columns: repeat(2, 1fr); padding: 0; }
-    .api-grid, .about-grid { grid-template-columns: 1fr; }
-    footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
-  }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .nav-links { display: none; }
+}
+
+/* DECORATIVE RULE */
+.h-rule {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--amber));
+  margin: 0.5rem 0 1.5rem;
+  border-radius: 2px;
+}
+
+/* INLINE STATUS INDICATOR */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #27C93F;
+  border-radius: 50%;
+  margin-right: 6px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
 </style>
 </head>
 <body>
 
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
-
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">AD / QA</div>
+  <div class="nav-logo">Ana Danelia</div>
   <ul class="nav-links">
-    <li><a href="#bugs">Bug Reports</a></li>
-    <li><a href="#testcases">Test Cases</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#api">API Testing</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#bugs">Bugs</a></li>
+    <li><a href="#testcases">Test Cases</a></li>
+    <li><a href="#postman">API Testing</a></li>
+    <li><a href="#stack">Stack</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag fade-up">Available for QA roles</div>
-    <h1 class="fade-up delay-1">
-      Ana<br>
-      <span class="grad-text">Danelia</span>
-    </h1>
-    <p class="hero-desc fade-up delay-2">
-      Manual QA tester with UAT experience at ODIN — a Georgian P2P parcel delivery app. Skilled in bug reporting, test case design, and REST API validation with Postman.
+<section class="hero" id="top">
+  <div class="hero-left">
+    <span class="hero-label">QA Engineer Portfolio</span>
+    <h1>Observation<br>is my <em>API.</em></h1>
+    <p class="hero-sub">
+      Junior QA Engineer transitioning to automation. 
+      UAT at ODIN · API Testing · Java + Selenium in progress. 
+      <span class="status-dot"></span>Open to opportunities.
     </p>
-    <p class="hero-quote fade-up delay-3">
-      "Every system has two realities: expected behavior and actual behavior.<br>QA lives in the space between them."
-    </p>
-    <div class="hero-btns fade-up delay-4">
-      <a href="Ana_Danelia_CV_2026.pdf" class="btn-primary" download>⬇ Download CV</a>
-      <a href="https://linkedin.com/in/ana-danelia-42567139b" class="btn-secondary" target="_blank">LinkedIn ↗</a>
-      <a href="https://github.com/anadanelia369/QA-Portfolio" class="btn-secondary" target="_blank">GitHub ↗</a>
+    <div class="hero-btns">
+      <a href="Ana_Danelia_CV_2026.pdf" download class="btn btn-primary">⬇ Download CV</a>
+      <a href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank" class="btn btn-outline">🔗 LinkedIn</a>
+      <a href="https://github.com/anadanelia369/QA-Portfolio" target="_blank" class="btn btn-outline">⌥ GitHub</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="json-window">
+      <div class="json-topbar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="json-url">GET {{BaseURL}}/status</span>
+      </div>
+      <div class="json-body">
+        <span class="jb">{</span><br>
+        &nbsp;&nbsp;<span class="jk">"name"</span><span class="jb">:</span> <span class="jvs">"Ana Danelia"</span><span class="jb">,</span><br>
+        &nbsp;&nbsp;<span class="jk">"role"</span><span class="jb">:</span> <span class="jvs">"Junior QA Engineer"</span><span class="jb">,</span><br>
+        &nbsp;&nbsp;<span class="jk">"testing_style"</span><span class="jb">:</span> <span class="jvs">"exploratory"</span><span class="jb">,</span><br>
+        &nbsp;&nbsp;<span class="jk">"core_tool"</span><span class="jb">:</span> <span class="jvs">"observation"</span><span class="jb">,</span><br>
+        &nbsp;&nbsp;<span class="jk">"philosophy"</span><span class="jb">:</span> <span class="jvs">"Observation is my API"</span><span class="jb">,</span><br>
+        &nbsp;&nbsp;<span class="jk">"favorite_questions"</span><span class="jb">:</span> <span class="jb">[</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="jvs">"What happens if...?"</span><span class="jb">,</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="jvs">"What if the user does something unexpected?"</span><span class="jb">,</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="jvs">"Where does the system logic start to bend?"</span><br>
+        &nbsp;&nbsp;<span class="jb">],</span><br>
+        &nbsp;&nbsp;<span class="jk">"debugging_mode"</span><span class="jb">:</span> <span class="jvs">"curiosity"</span><span class="jb">,</span><br>
+        &nbsp;&nbsp;<span class="jk">"current_state"</span><span class="jb">:</span> <span class="jvs">"transitioning_to_automation"</span><br>
+        <span class="jb">}</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Bug Reports</div></div>
-  <div class="stat"><div class="stat-num">57</div><div class="stat-label">Test Cases</div></div>
-  <div class="stat"><div class="stat-num">328</div><div class="stat-label">Checklist Scenarios</div></div>
-  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Projects Tested</div></div>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-num">328</span>
+    <span class="stat-label">Test Scenarios</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">57</span>
+    <span class="stat-label">Test Cases</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">10+</span>
+    <span class="stat-label">Bugs Logged</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">3</span>
+    <span class="stat-label">Projects Tested</span>
+  </div>
 </div>
 
-<!-- BUG REPORTS -->
-<section id="bugs">
-  <div class="section-tag">🐛 Bug Reports</div>
-  <h2>Found in the Wild</h2>
-  <p class="section-sub">Bugs logged during UAT at ODIN and independent testing at GPI Holding.</p>
-
-  <div class="bugs-grid">
-    <div class="bug-card">
-      <div class="bug-header">
-        <span class="bug-id">ODIN-995</span>
-        <div class="bug-badges"><span class="badge badge-critical">Critical</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <div class="bug-title">Time Picker Crash on Chat Screen</div>
-      <div class="bug-meta">Functional · Android 14 / Realme 10</div>
-    </div>
-    <div class="bug-card">
-      <div class="bug-header">
-        <span class="bug-id">ODIN-974</span>
-        <div class="bug-badges"><span class="badge badge-high">High</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <div class="bug-title">Phone Country Code Auto-Changes on Back Navigation</div>
-      <div class="bug-meta">Functional · Android 14 / Realme 10</div>
-    </div>
-    <div class="bug-card">
-      <div class="bug-header">
-        <span class="bug-id">ODIN-1013</span>
-        <div class="bug-badges"><span class="badge badge-high">High</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <div class="bug-title">System Back Button Breaks Trip Flow</div>
-      <div class="bug-meta">Navigation · Android 14 / Realme 10</div>
-    </div>
-    <div class="bug-card">
-      <div class="bug-header">
-        <span class="bug-id">ODIN-1009</span>
-        <div class="bug-badges"><span class="badge badge-medium">Medium</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <div class="bug-title">Order Edit Shows Cached Data — Updates Multiple Times</div>
-      <div class="bug-meta">Functional · Android 14 / Realme 10</div>
-    </div>
-    <div class="bug-card">
-      <div class="bug-header">
-        <span class="bug-id">GPI-ANN-11</span>
-        <div class="bug-badges"><span class="badge badge-high">High</span><span class="badge badge-security">Security</span></div>
-      </div>
-      <div class="bug-title">Afghan Citizenship + Georgian ID Accepted Without Validation</div>
-      <div class="bug-meta">Security · Production · Chrome</div>
-    </div>
-    <div class="bug-card">
-      <div class="bug-header">
-        <span class="bug-id">GPI-ANN-13</span>
-        <div class="bug-badges"><span class="badge badge-high">High</span><span class="badge badge-security">Security</span></div>
-      </div>
-      <div class="bug-title">Autofill Returns Stranger's Personal Data</div>
-      <div class="bug-meta">Security · Production · Chrome</div>
-    </div>
-  </div>
-</section>
-
-<!-- TEST CASES -->
-<section id="testcases" class="tc-section">
-  <div class="section-tag">✅ Test Cases</div>
-  <h2>57 Test Cases</h2>
-  <p class="section-sub">Covering Registration, Login, Order Flow, Chat, Wallet, Calendar validation and more.</p>
-
-  <div class="tc-tabs">
-    <button class="tc-tab active" onclick="switchTab('odin')">ODIN — 37 TCs</button>
-    <button class="tc-tab" onclick="switchTab('gpi')">GPI — 20 TCs</button>
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-text">
+    <span class="section-eyebrow">
+      <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 5v4M8 11v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      About
+    </span>
+    <h2>Pattern recognition<br>is the skill.</h2>
+    <div class="h-rule"></div>
+    <p>
+      In software systems, an API is an interface — a way to communicate with a system and understand how it behaves. In my testing work, <span class="highlight">observation</span> becomes that interface.
+    </p>
+    <p>
+      Before writing a bug report, I start by watching how a system behaves under real user interaction — paying attention to the small details, the moments when expected behavior and actual behavior begin to diverge.
+    </p>
+    <p>
+      Testing, for me, is not only verification. It is <span class="highlight2">exploration</span>. I'm drawn to exploratory testing approaches and the tour-based ideas of James Whittaker.
+    </p>
+    <p style="font-size:0.85rem; color:var(--ink3);">
+      Currently developing Java + Selenium automation skills at Quality Academy. ISTQB FL planned June 2026.
+    </p>
   </div>
 
-  <div id="tab-odin" class="tc-panel active">
-    <div class="tc-table-wrap">
-      <table>
-        <thead><tr><th>TC ID</th><th>Title</th><th>Type</th><th>Priority</th><th>Feature</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td class="tc-id">TC-ODIN-01</td><td>OTP Verification Attempted After 15-Minute Expiry</td><td>Edge Case</td><td>High</td><td>Register</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-02</td><td>Same Account Login on Two Devices Simultaneously</td><td>Edge Case</td><td>High</td><td>Login</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-03</td><td>Multiple Failed Login Attempts — Account Block</td><td>Negative</td><td>High</td><td>Login</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-04</td><td>Full Order Creation Flow — Standard</td><td>Positive</td><td>High</td><td>Order</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-05</td><td>City Selected Without Choosing Country First</td><td>Negative</td><td>Medium</td><td>Order</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-06</td><td>Arrival Date Set Before Departure Date</td><td>Negative</td><td>High</td><td>Trip</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-07</td><td>App Closed Before Trip Save — Data Not Persisted</td><td>Edge Case</td><td>High</td><td>Trip</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-08</td><td>Pending → Active → Completed Full Order Cycle</td><td>Positive</td><td>High</td><td>Order Flow</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-09</td><td>Two Travelers Place Bid on Same Trip Simultaneously</td><td>Edge Case</td><td>High</td><td>Order Flow</td><td class="status-not">— Not Executed</td></tr>
-          <tr><td class="tc-id">TC-ODIN-10</td><td>KYC Verification with Another Person's Document</td><td>Negative</td><td>Critical</td><td>Ident</td><td class="status-not">— Not Executed</td></tr>
-          <tr><td class="tc-id">TC-ODIN-11</td><td>Promo Code Assigned to User A, Used by User B</td><td>Negative</td><td>High</td><td>Promo</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-12</td><td>Payment Network Error During Transaction</td><td>Negative</td><td>High</td><td>Payment</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-13</td><td>Trip Creation — 1 Pickup + 1 Delivery City</td><td>Positive</td><td>High</td><td>Trip</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-14</td><td>Trip Creation — 4 Pickup + 4 Delivery Cities (Maximum)</td><td>Positive</td><td>High</td><td>Trip</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-15</td><td>Trip — En-Route Pickup Cities (Tbilisi → Gori → Kutaisi)</td><td>Positive</td><td>High</td><td>Trip</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-16</td><td>Trip — Delivery Across Multiple US Cities (NY, NJ)</td><td>Positive</td><td>High</td><td>Trip</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-17</td><td>Sender Receives Notification After Trip Confirmation</td><td>Positive</td><td>High</td><td>Trip</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-18</td><td>Standard Order Creation — Full Valid Flow</td><td>Positive</td><td>High</td><td>Order</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-19</td><td>Auction Order Creation — Full Valid Flow</td><td>Positive</td><td>High</td><td>Order</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-20</td><td>Order — 1 Photo Upload</td><td>Positive</td><td>Medium</td><td>Order</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-21</td><td>Order — 2 Photos Upload</td><td>Positive</td><td>Medium</td><td>Order</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-22</td><td>Order — 5 Photos Upload (Maximum)</td><td>Positive</td><td>High</td><td>Order</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-23</td><td>Order — Incompatible File Format Upload</td><td>Negative</td><td>High</td><td>Order</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-24</td><td>Traveler Makes Offer on Standard Order</td><td>Positive</td><td>High</td><td>Order Flow</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-25</td><td>Sender Accepts Offer — Order Moves to Active</td><td>Positive</td><td>High</td><td>Order Flow</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-26</td><td>Pickup Time Scheduled — Then Changed by Sender</td><td>Positive</td><td>High</td><td>Chat</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-27</td><td>Chat — Third Party Invited to Conversation</td><td>Positive</td><td>High</td><td>Chat</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-28</td><td>Chat — File Sent Between Sender and Traveler</td><td>Positive</td><td>Medium</td><td>Chat</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-29</td><td>Wallet — Withdraw EUR via Card</td><td>Positive</td><td>High</td><td>Wallet</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-30</td><td>Wallet — Withdraw USD via Card</td><td>Positive</td><td>High</td><td>Wallet</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-31</td><td>Withdraw GEL via Card</td><td>Positive</td><td>High</td><td>Wallet</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-32</td><td>Withdraw EUR via PayPal</td><td>Positive</td><td>High</td><td>Wallet</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-33</td><td>Withdraw at Minimum Limit</td><td>Positive</td><td>High</td><td>Wallet</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-34</td><td>Forgot Password — Only Latest OTP Valid After Resend</td><td>Edge Case</td><td>High</td><td>Login</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-35</td><td>Password 7 Characters — BVA Below Minimum</td><td>Negative</td><td>High</td><td>Register</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-36</td><td>Expired Card Payment Attempt</td><td>Negative</td><td>High</td><td>Payment</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-ODIN-37</td><td>Already-Used Promo Code Reuse Attempt</td><td>Negative</td><td>High</td><td>Promo</td><td class="status-pass">✓ Pass</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div id="tab-gpi" class="tc-panel">
-    <div class="tc-table-wrap">
-      <table>
-        <thead><tr><th>TC ID</th><th>Title</th><th>Type</th><th>Priority</th><th>Feature</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td class="tc-id">TC-GPI-01</td><td>7-Day Travel Period — Manual Input</td><td>Positive</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-02</td><td>150-Day Travel Period — Manual Input</td><td>Positive</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-03</td><td>365-Day Travel Period — Manual Input</td><td>Positive</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-04</td><td>7-Day Travel Period — Calendar Selection</td><td>Positive</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-05</td><td>Calendar Collapse via Center Button</td><td>Positive</td><td>Low</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-06</td><td>150-Day Travel Period — Calendar Selection</td><td>Positive</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-07</td><td>Return Date Change — Month Update</td><td>Positive</td><td>Medium</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-08</td><td>Return Date Left Empty — Validation Check</td><td>Negative</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-09</td><td>6-Day Period — Below Minimum Limit</td><td>Negative</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-10</td><td>366-Day Period — BVA Above Maximum</td><td>Negative</td><td>High</td><td>Calendar</td><td class="status-fail">✗ Fail</td></tr>
-          <tr><td class="tc-id">TC-GPI-11</td><td>400-Day Travel Period — Exceeds Maximum</td><td>Negative</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-12</td><td>Departure Date Left Empty — Validation Check</td><td>Negative</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-13</td><td>Past Year Selected as Return Date</td><td>Negative</td><td>High</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-14</td><td>Back Button After Period Selection</td><td>Positive</td><td>Low</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-15</td><td>Page Refresh After Period Selection</td><td>Positive</td><td>Low</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-16</td><td>Past Date Inserted via Copy-Paste</td><td>Edge Case</td><td>Low</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-17</td><td>Invalid Day Entry in Departure Field (32/01)</td><td>Negative</td><td>Low</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-18</td><td>Zero Date Entry (00/00/00) in Departure Field</td><td>Negative</td><td>Low</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-19</td><td>Next → Back Navigation — Period Preserved</td><td>Positive</td><td>Medium</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-          <tr><td class="tc-id">TC-GPI-20</td><td>Rapid Repeated Clicking on Calendar Date</td><td>Edge Case</td><td>Medium</td><td>Calendar</td><td class="status-pass">✓ Pass</td></tr>
-        </tbody>
-      </table>
+  <div>
+    <div class="json-window">
+      <div class="json-topbar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="json-url">Dani.profile()</span>
+      </div>
+      <div class="json-body" style="font-size:0.76rem; line-height:1.85;">
+        <span class="jk">background</span> <span class="jb">→</span> <span class="jvs">8yr remote support @ Magticom</span><br>
+        <span class="jk">first_qa_signal</span> <span class="jb">→</span> <span class="jvs">2021, call center test</span><br>
+        <span class="jk">course_score</span> <span class="jb">→</span> <span class="jv">100 / 100</span><br>
+        <span class="jk">internship</span> <span class="jb">→</span> <span class="jvs">"ODIN P2P, Feb 2026"</span><br>
+        <span class="jk">automation_start</span> <span class="jb">→</span> <span class="jvs">"March 30, 2026"</span><br>
+        <span class="jk">tools</span> <span class="jb">→</span> <span class="jb">[</span><span class="jvs">"Postman"</span><span class="jb">,</span> <span class="jvs">"Jira"</span><span class="jb">,</span> <span class="jvs">"Java"</span><span class="jb">]</span><br>
+        <span class="jk">volunteer</span> <span class="jb">→</span> <span class="jvs">"autism.ge QA"</span><br>
+        <span class="jk">path</span> <span class="jb">→</span> <span class="jvs">"Manual → Auto → Security"</span><br>
+        <span class="code-comment">// I chose QA. Waited for it.</span><br>
+        <span class="code-comment">// Building it seriously.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="section-tag">🔬 Projects</div>
+<section class="projects-section" id="projects">
+  <span class="section-eyebrow">
+    <svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Projects
+  </span>
   <h2>Testing Experience</h2>
-  <p class="section-sub">Real-world testing across mobile, web, and API domains.</p>
+  <div class="h-rule"></div>
+  <p class="section-desc">Real-world testing across mobile, web, and API domains.</p>
 
   <div class="projects-grid">
     <div class="project-card">
-      <div class="project-icon">📦</div>
-      <div class="project-title">ODIN — P2P Parcel Delivery</div>
-      <div class="project-desc">UAT internship (Feb 2026 – present). React Native iOS/Android. 328 test scenarios across 13 modules. Notable: flight notification timing hypothesis discovered through real flight data analysis.</div>
+      <span class="project-icon">📦</span>
+      <h3>ODIN — P2P Parcel Delivery</h3>
+      <p>UAT internship (Feb 2026 – present). React Native iOS/Android. 328 test scenarios across 13 modules. Notable: flight notification timing hypothesis discovered through real flight data analysis.</p>
       <div class="project-tags">
-        <span class="project-tag">React Native</span>
-        <span class="project-tag">Mobile</span>
-        <span class="project-tag">UAT</span>
-        <span class="project-tag">Android</span>
+        <span class="tag">React Native</span>
+        <span class="tag">Mobile</span>
+        <span class="tag">UAT</span>
+        <span class="tag">Android</span>
       </div>
     </div>
+
     <div class="project-card">
-      <div class="project-icon">🛡️</div>
-      <div class="project-title">GPI Holding — Insurance Platform</div>
-      <div class="project-desc">Independent exploratory testing. Found 4 bugs including 2 security-level issues: autofill returns stranger's personal data, invalid citizenship/document combination accepted.</div>
+      <span class="project-icon">🛡️</span>
+      <h3>GPI Holding — Insurance Platform</h3>
+      <p>Independent exploratory testing. Found 4 bugs including 2 security-level issues: autofill returns stranger's personal data, invalid citizenship/document combination accepted.</p>
       <div class="project-tags">
-        <span class="project-tag">Web</span>
-        <span class="project-tag">Security</span>
-        <span class="project-tag">Exploratory</span>
-        <span class="project-tag">Chrome</span>
+        <span class="tag">Web</span>
+        <span class="tag">Security</span>
+        <span class="tag">Exploratory</span>
+        <span class="tag">Chrome</span>
       </div>
     </div>
+
     <div class="project-card">
-      <div class="project-icon">❤️</div>
-      <div class="project-title">autism.ge — Charity Project</div>
-      <div class="project-desc">Pro bono UAT for NGO website. Risk-based approach on donation flow and payment processing. Found 6 issues including backend redirect error post-payment.</div>
+      <span class="project-icon">❤️</span>
+      <h3>autism.ge — Charity Project</h3>
+      <p>Pro bono UAT for NGO website. Risk-based approach on donation flow and payment processing. Found 6 issues including backend redirect error post-payment.</p>
       <div class="project-tags">
-        <span class="project-tag">Pro Bono</span>
-        <span class="project-tag">UAT</span>
-        <span class="project-tag">WordPress</span>
-        <span class="project-tag">Payments</span>
+        <span class="tag">Pro Bono</span>
+        <span class="tag">UAT</span>
+        <span class="tag">WordPress</span>
+        <span class="tag">Payments</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- API TESTING -->
-<section id="api" class="api-section">
-  <div class="section-tag">🔧 API Testing</div>
+<!-- BUGS -->
+<section class="bugs-section" id="bugs">
+  <span class="section-eyebrow">
+    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 2a2 2 0 100 4 2 2 0 000-4zM5 8a3 3 0 016 0v3H5V8z" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+    Bug Reports
+  </span>
+  <h2>Found in the Wild</h2>
+  <div class="h-rule"></div>
+  <p class="section-desc">Bugs logged during UAT at ODIN and independent testing at GPI Holding.</p>
+
+  <div class="bugs-grid">
+    <div class="bug-card">
+      <div class="bug-meta">
+        <span class="bug-id">ODIN-995</span>
+        <div><span class="badge badge-critical">Critical</span><span class="badge badge-done">Done</span></div>
+      </div>
+      <h4>Time Picker Crash on Chat Screen</h4>
+      <p class="bug-sub">Functional · Android 14 / Realme 10</p>
+    </div>
+
+    <div class="bug-card">
+      <div class="bug-meta">
+        <span class="bug-id">ODIN-974</span>
+        <div><span class="badge badge-high">High</span><span class="badge badge-done">Done</span></div>
+      </div>
+      <h4>Phone Country Code Auto-Changes on Back Navigation</h4>
+      <p class="bug-sub">Functional · Android 14 / Realme 10</p>
+    </div>
+
+    <div class="bug-card">
+      <div class="bug-meta">
+        <span class="bug-id">ODIN-1013</span>
+        <div><span class="badge badge-high">High</span><span class="badge badge-done">Done</span></div>
+      </div>
+      <h4>System Back Button Breaks Trip Flow</h4>
+      <p class="bug-sub">Navigation · Android 14 / Realme 10</p>
+    </div>
+
+    <div class="bug-card">
+      <div class="bug-meta">
+        <span class="bug-id">ODIN-1009</span>
+        <div><span class="badge badge-medium">Medium</span><span class="badge badge-done">Done</span></div>
+      </div>
+      <h4>Order Edit Shows Cached Data — Updates Multiple Times</h4>
+      <p class="bug-sub">Functional · Android 14 / Realme 10</p>
+    </div>
+
+    <div class="bug-card">
+      <div class="bug-meta">
+        <span class="bug-id">GPI-ANN-11</span>
+        <div><span class="badge badge-high">High</span><span class="badge badge-security">Security</span></div>
+      </div>
+      <h4>Afghan Citizenship + Georgian ID Accepted Without Validation</h4>
+      <p class="bug-sub">Security · Production · Chrome</p>
+    </div>
+
+    <div class="bug-card">
+      <div class="bug-meta">
+        <span class="bug-id">GPI-ANN-13</span>
+        <div><span class="badge badge-high">High</span><span class="badge badge-security">Security</span></div>
+      </div>
+      <h4>Autofill Returns Stranger's Personal Data</h4>
+      <p class="bug-sub">Security · Production · Chrome</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEST CASES -->
+<section class="tc-section" id="testcases">
+  <div class="tc-header">
+    <div>
+      <span class="section-eyebrow">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 4h10M3 8h7M3 12h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        Test Cases
+      </span>
+      <div style="display:flex; align-items:baseline; gap:0.8rem;">
+        <div class="tc-count">57</div>
+      </div>
+      <p class="section-desc" style="margin-top:0.8rem; margin-bottom:0;">Covering Registration, Login, Order Flow, Chat, Wallet, Calendar validation and more.</p>
+    </div>
+  </div>
+
+  <div class="tc-tabs">
+    <button class="tc-tab active" onclick="switchTab('odin', event)">ODIN — 37 TCs</button>
+    <button class="tc-tab" onclick="switchTab('gpi', event)">GPI — 20 TCs</button>
+  </div>
+
+  <div id="tab-odin" class="tc-panel active">
+    <table class="tc-table">
+      <thead>
+        <tr>
+          <th>TC ID</th>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Priority</th>
+          <th>Feature</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="tc-id">TC-ODIN-01</td><td>OTP Verification Attempted After 15-Minute Expiry</td><td>Edge Case</td><td>High</td><td>Register</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-02</td><td>Same Account Login on Two Devices Simultaneously</td><td>Edge Case</td><td>High</td><td>Login</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-03</td><td>Multiple Failed Login Attempts — Account Block</td><td>Negative</td><td>High</td><td>Login</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-04</td><td>Full Order Creation Flow — Standard</td><td>Positive</td><td>High</td><td>Order</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-05</td><td>City Selected Without Choosing Country First</td><td>Negative</td><td>Medium</td><td>Order</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-06</td><td>Arrival Date Set Before Departure Date</td><td>Negative</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-07</td><td>App Closed Before Trip Save — Data Not Persisted</td><td>Edge Case</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-08</td><td>Pending → Active → Completed Full Order Cycle</td><td>Positive</td><td>High</td><td>Order Flow</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-09</td><td>Wallet Balance Insufficient for Order Confirmation</td><td>Negative</td><td>High</td><td>Wallet</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-10</td><td>Chat Message Sent After Order Completion</td><td>Edge Case</td><td>Medium</td><td>Chat</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-ODIN-11</td><td>Cross-Flow: Forgot Password Accepts Weak Regex</td><td>Security</td><td>High</td><td>Auth</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-ODIN-12</td><td>Dark Mode — Social Icons Invisible in Email OTP</td><td>UI</td><td>Medium</td><td>Auth</td><td class="tc-fail">✗ Fail</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="tab-gpi" class="tc-panel">
+    <table class="tc-table">
+      <thead>
+        <tr>
+          <th>TC ID</th>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Priority</th>
+          <th>Feature</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="tc-id">TC-GPI-03</td><td>Valid Insurance Quote Submission</td><td>Positive</td><td>High</td><td>Quote</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-GPI-08</td><td>Invalid ID Document Combination</td><td>Security</td><td>High</td><td>Docs</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-GPI-09</td><td>Autofill Populates from Previous Session</td><td>Security</td><td>High</td><td>Forms</td><td class="tc-fail">✗ Fail</td></tr>
+        <tr><td class="tc-id">TC-GPI-10</td><td>Payment Flow — Valid Card</td><td>Positive</td><td>High</td><td>Payment</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-GPI-13</td><td>Policy Download After Purchase</td><td>Positive</td><td>Medium</td><td>Documents</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-GPI-16</td><td>Session Timeout During Application</td><td>Edge Case</td><td>High</td><td>Session</td><td class="tc-pass">✓ Pass</td></tr>
+        <tr><td class="tc-id">TC-GPI-20</td><td>Mobile Responsive Form Validation</td><td>UI</td><td>Medium</td><td>Responsive</td><td class="tc-pass">✓ Pass</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- POSTMAN DIARY -->
+<section class="postman-section" id="postman">
+  <span class="section-eyebrow">
+    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 8a6 6 0 1112 0A6 6 0 012 8z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+    API Testing
+  </span>
   <h2>Postman Diary</h2>
-  <p class="section-sub">Structured API testing using the Grocery Store API.</p>
+  <div class="h-rule"></div>
+  <p class="section-desc">Structured API testing using the Grocery Store API.</p>
 
-  <div class="api-grid">
-    <div class="api-finding">
-      <div class="api-finding-title">🐛 Notable Bug Found</div>
-      <p style="color: var(--muted); font-size: 14px; margin-bottom: 12px;">
-        <code style="background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 4px; color: #FCA5A5;">GET /products?limit=3</code> returns 20 products instead of 3
+  <div class="postman-layout">
+    <div class="bug-spotlight">
+      <div class="bug-spotlight-header">
+        🐛 Notable Bug Found
+      </div>
+      <div class="code-block">
+        <span style="background:rgba(200,88,26,0.2); padding:0.1rem 0.5rem; border-radius:3px; font-size:0.75rem;">GET /products?limit=3</span>
+        <span style="color:rgba(240,200,122,0.55); margin-left:0.8rem;">returns 20 products instead of 3</span>
+      </div>
+      <div class="code-block" style="border-bottom:none;">
+        <span class="code-comment">// Verification in Postman Console:</span><br>
+        <span class="code-keyword">console</span>.log(pm.response.json().<span class="code-keyword">length</span>);<br>
+        <span class="code-comment">// → 20  (expected: 3)</span><br>
+        <span class="code-comment">// limit param not implemented</span><br><br>
+        pm.<span class="code-keyword">test</span>(<span class="code-string">"Status code is 200"</span>, () =&gt; {<br>
+        &nbsp;&nbsp;pm.response.to.have.status(<span class="jv">200</span>);<br>
+        });<br><br>
+        pm.<span class="code-keyword">test</span>(<span class="code-string">"Response has products"</span>, () =&gt; {<br>
+        &nbsp;&nbsp;<span class="code-keyword">const</span> json = pm.response.json();<br>
+        &nbsp;&nbsp;pm.expect(json).to.be.an(<span class="code-string">'array'</span>);<br>
+        &nbsp;&nbsp;pm.expect(json.length).to.be.greaterThan(<span class="jv">0</span>);<br>
+        });<br>
+        <span class="code-pass">// ✓ PASSED · ✓ PASSED</span>
+      </div>
+      <div class="bug-spotlight-footer">
+        Verified via Postman Console. Demonstrates parameter validation testing and backend defect identification.
+      </div>
+    </div>
+
+    <div>
+      <p style="color:rgba(247,243,238,0.6); font-size:0.85rem; margin-bottom:1.5rem; line-height:1.6;">
+        Day-by-day structured learning diary. Started March 8, 2026.
       </p>
-      <div class="code-block">console.log(pm.response.json().length);<br><span style="color: #6EE7B7;">// → 20 (expected: 3)</span><br><span style="color: var(--muted);">// limit param not implemented</span></div>
-      <p style="color: var(--muted); font-size: 13px;">Verified via Postman Console. Demonstrates parameter validation testing and backend defect identification.</p>
-      <div style="margin-top: 16px;">
-        <div class="code-block">pm.test("Status code is 200", () => {<br>  pm.response.to.have.status(200);<br>});<br><br>pm.test("Response has products", () => {<br>  const json = pm.response.json();<br>  pm.expect(json).to.be.an('array');<br>  pm.expect(json.length).to.be.greaterThan(0);<br>});<br><span style="color: #6EE7B7;">// ✓ PASSED · ✓ PASSED</span></div>
-      </div>
-    </div>
-
-    <div class="api-skills">
-      <h3 style="font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 24px;">Topics Covered</h3>
-      <div class="skill-item"><span class="skill-label">Collections & Environments</span><div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div></div>
-      <div class="skill-item"><span class="skill-label">Status Code Testing</span><div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div></div>
-      <div class="skill-item"><span class="skill-label">pm.test Assertions</span><div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div></div>
-      <div class="skill-item"><span class="skill-label">Query vs Path Params</span><div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div></div>
-      <div class="skill-item"><span class="skill-label">POST/GET Flows</span><div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div></div>
-      <div class="skill-item"><span class="skill-label">JavaScript in Postman</span><div class="skill-bar"><div class="skill-fill" style="width: 70%"></div></div></div>
-      <div class="skill-item"><span class="skill-label">JSON Assertions (in progress)</span><div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" style="background: var(--bg2);">
-  <div class="section-tag">👤 About</div>
-  <h2>Observation is my API</h2>
-
-  <div class="about-grid">
-    <div class="about-text">
-      <p>In software systems, an API is an interface — a way to communicate with a system and understand how it behaves. In my testing work, <strong style="color: var(--purple-light);">observation</strong> becomes that interface.</p>
-      <p>Before writing a bug report, I start by watching how a system behaves under real user interaction — paying attention to the small details, the moments when expected behavior and actual behavior begin to diverge.</p>
-      <p>Testing, for me, is not only verification. It is <strong style="color: var(--purple-light);">exploration</strong>. I'm drawn to exploratory testing approaches and the tour-based ideas of James Whittaker.</p>
-      <p style="color: var(--muted); font-size: 14px;">Currently developing Java + Selenium automation skills at Quality Academy. ISTQB FL planned June 2026.</p>
-    </div>
-
-    <div class="json-card">
-      <div class="json-header">
-        <div class="json-dot" style="background: #FF5F56"></div>
-        <div class="json-dot" style="background: #FFBD2E"></div>
-        <div class="json-dot" style="background: #27C93F"></div>
-        <span style="font-size: 12px; color: var(--muted); margin-left: 8px; font-family: monospace;">GET {{BaseURL}}/status</span>
-      </div>
-      <div class="json-body">
-        <span class="json-muted">{</span><br>
-        &nbsp;&nbsp;<span class="json-key">"name"</span>: <span class="json-str">"Ana Danelia"</span>,<br>
-        &nbsp;&nbsp;<span class="json-key">"role"</span>: <span class="json-str">"Junior QA Engineer"</span>,<br>
-        &nbsp;&nbsp;<span class="json-key">"testing_style"</span>: <span class="json-str">"exploratory"</span>,<br>
-        &nbsp;&nbsp;<span class="json-key">"core_tool"</span>: <span class="json-str">"observation"</span>,<br>
-        &nbsp;&nbsp;<span class="json-key">"philosophy"</span>: <span class="json-str">"Observation is my API"</span>,<br>
-        &nbsp;&nbsp;<span class="json-key">"favorite_questions"</span>: <span class="json-arr">[</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="json-str">"What happens if...?"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="json-str">"What if the user does something unexpected?"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="json-str">"Where does the system logic start to bend?"</span><br>
-        &nbsp;&nbsp;<span class="json-arr">]</span>,<br>
-        &nbsp;&nbsp;<span class="json-key">"debugging_mode"</span>: <span class="json-str">"curiosity"</span>,<br>
-        &nbsp;&nbsp;<span class="json-key">"current_state"</span>: <span class="json-str">"transitioning_to_automation"</span><br>
-        <span class="json-muted">}</span>
+      <div class="topics-list">
+        <div class="topic-item">
+          <span class="topic-name">Collections &amp; Environments</span>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:100%"></div></div>
+        </div>
+        <div class="topic-item">
+          <span class="topic-name">Status Code Testing</span>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:100%"></div></div>
+        </div>
+        <div class="topic-item">
+          <span class="topic-name">pm.test Assertions</span>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:88%"></div></div>
+        </div>
+        <div class="topic-item">
+          <span class="topic-name">Query vs Path Params</span>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:100%"></div></div>
+        </div>
+        <div class="topic-item">
+          <span class="topic-name">POST/GET Flows</span>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:100%"></div></div>
+        </div>
+        <div class="topic-item">
+          <span class="topic-name">JavaScript in Postman</span>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:90%"></div></div>
+        </div>
+        <div class="topic-item">
+          <span class="topic-name">JSON Assertions (in progress)</span>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:45%"></div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-tag">🛠 Skills & Tools</div>
+<!-- TECH STACK -->
+<section class="stack-section" id="stack">
+  <span class="section-eyebrow">
+    <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    Skills &amp; Tools
+  </span>
   <h2>Tech Stack</h2>
-  <p class="section-sub">Tools and methodologies used across projects.</p>
+  <div class="h-rule"></div>
+  <p class="section-desc">Tools and methodologies used across projects.</p>
 
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-card-icon">🧪</div>
-      <div class="skill-card-title">Testing Types</div>
-      <div class="skill-card-items">
-        <span class="skill-chip">Manual</span><span class="skill-chip">Functional</span><span class="skill-chip">Regression</span><span class="skill-chip">Exploratory</span><span class="skill-chip">Smoke</span><span class="skill-chip">Mobile</span><span class="skill-chip">Localization</span><span class="skill-chip">UX</span>
+  <div class="stack-grid">
+    <div class="stack-card">
+      <span class="stack-icon">🧪</span>
+      <h4>Testing Types</h4>
+      <div class="stack-chips">
+        <span class="chip">Manual</span>
+        <span class="chip">Functional</span>
+        <span class="chip">Regression</span>
+        <span class="chip">Exploratory</span>
+        <span class="chip">Smoke</span>
+        <span class="chip">Mobile</span>
+        <span class="chip">Localization</span>
+        <span class="chip">UX</span>
       </div>
     </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">📐</div>
-      <div class="skill-card-title">Test Design</div>
-      <div class="skill-card-items">
-        <span class="skill-chip">EP</span><span class="skill-chip">BVA</span><span class="skill-chip">Decision Tables</span><span class="skill-chip">State Transition</span><span class="skill-chip">I SLICED UP FUN</span>
+
+    <div class="stack-card">
+      <span class="stack-icon">📐</span>
+      <h4>Test Design</h4>
+      <div class="stack-chips">
+        <span class="chip">EP</span>
+        <span class="chip">BVA</span>
+        <span class="chip">Decision Tables</span>
+        <span class="chip">State Transition</span>
+        <span class="chip">I SLICED UP FUN</span>
       </div>
     </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">🗂</div>
-      <div class="skill-card-title">Test Management</div>
-      <div class="skill-card-items">
-        <span class="skill-chip">Jira</span><span class="skill-chip">Testiny</span><span class="skill-chip">TestCaseLab</span><span class="skill-chip">Qase.io</span>
+
+    <div class="stack-card">
+      <span class="stack-icon">🗂️</span>
+      <h4>Test Management</h4>
+      <div class="stack-chips">
+        <span class="chip">Jira</span>
+        <span class="chip">Testiny</span>
+        <span class="chip">TestCaseLab</span>
+        <span class="chip">Qase.io</span>
       </div>
     </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">🔌</div>
-      <div class="skill-card-title">API Testing</div>
-      <div class="skill-card-items">
-        <span class="skill-chip">Postman</span><span class="skill-chip">REST API</span><span class="skill-chip">Swagger</span><span class="skill-chip">pm.test</span>
+
+    <div class="stack-card">
+      <span class="stack-icon">🔌</span>
+      <h4>API Testing</h4>
+      <div class="stack-chips">
+        <span class="chip chip-accent">Postman</span>
+        <span class="chip chip-accent">REST API</span>
+        <span class="chip">Swagger</span>
+        <span class="chip chip-accent">pm.test</span>
       </div>
     </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">🤖</div>
-      <div class="skill-card-title">Automation (in progress)</div>
-      <div class="skill-card-items">
-        <span class="skill-chip">Java</span><span class="skill-chip">Selenium</span><span class="skill-chip">TestNG</span><span class="skill-chip">Maven</span><span class="skill-chip">Git</span>
+
+    <div class="stack-card">
+      <span class="stack-icon">🤖</span>
+      <h4>Automation (in progress)</h4>
+      <div class="stack-chips">
+        <span class="chip chip-accent">Java</span>
+        <span class="chip chip-accent">Selenium</span>
+        <span class="chip">TestNG</span>
+        <span class="chip">Maven</span>
+        <span class="chip chip-accent">Git</span>
       </div>
     </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">🔍</div>
-      <div class="skill-card-title">Other Tools</div>
-      <div class="skill-card-items">
-        <span class="skill-chip">DevTools</span><span class="skill-chip">Figma</span><span class="skill-chip">Linear</span><span class="skill-chip">Jam.dev</span><span class="skill-chip">SQL basics</span>
+
+    <div class="stack-card">
+      <span class="stack-icon">🔍</span>
+      <h4>Other Tools</h4>
+      <div class="stack-chips">
+        <span class="chip">DevTools</span>
+        <span class="chip">Figma</span>
+        <span class="chip">Linear</span>
+        <span class="chip">Jam.dev</span>
+        <span class="chip">SQL basics</span>
       </div>
     </div>
   </div>
@@ -908,19 +1332,19 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-left">
+  <div>
     <div class="footer-name">Ana Danelia</div>
     <div class="footer-role">Manual QA · API Testing · Automation in progress</div>
   </div>
   <div class="footer-links">
-    <a href="https://linkedin.com/in/ana-danelia-42567139b" class="footer-link" target="_blank">🔗 LinkedIn</a>
-    <a href="https://github.com/anadanelia369/QA-Portfolio" class="footer-link" target="_blank">⌥ GitHub</a>
-    <a href="Ana_Danelia_CV_2026.pdf" class="footer-link" download>⬇ CV</a>
+    <a href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
+    <a href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
+    <a href="Ana_Danelia_CV_2026.pdf" download>⬇ CV</a>
   </div>
 </footer>
 
 <script>
-function switchTab(tab) {
+function switchTab(tab, event) {
   document.querySelectorAll('.tc-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.tc-panel').forEach(p => p.classList.remove('active'));
   event.target.classList.add('active');
