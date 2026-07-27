@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="Ana Danelia — Junior QA Engineer. Manual testing, API testing with Postman, Selenium automation in progress. Portfolio of bug reports, test cases, and projects." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ana Danelia — QA Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +31,48 @@
       color: var(--dark);
       font-size: 14px;
       line-height: 1.7;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    /* ── BACKGROUND DECORATIVE CURVES ── */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -30vh;
+      right: -20vw;
+      width: 70vw;
+      height: 70vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,98,42,0.055) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -20vh;
+      left: -15vw;
+      width: 55vw;
+      height: 55vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(107,72,181,0.045) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-blob-mid {
+      position: fixed;
+      top: 45vh;
+      left: 55vw;
+      width: 40vw;
+      height: 40vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,98,42,0.03) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav, section, footer, .bridge-wrap { position: relative; z-index: 1; }
 
     /* ── NAV ── */
     nav {
@@ -55,10 +97,7 @@
       border-left: 3px solid var(--orange); padding-left: .75rem;
       margin-bottom: 2.5rem;
     }
-    h2.sh {
-      font-family: 'Fraunces', serif; font-size: 1.9rem;
-      font-weight: 300; margin-bottom: 2rem; color: var(--dark);
-    }
+    h2.sh { font-family: 'Fraunces', serif; font-size: 1.9rem; font-weight: 300; margin-bottom: 2rem; color: var(--dark); }
     p.lead { color: var(--muted); font-size: 13px; margin-bottom: 2rem; }
 
     /* ── HERO ── */
@@ -78,7 +117,7 @@
     .btn-outline { background: transparent; color: var(--orange); border-color: var(--orange-pale); }
     .btn-outline:hover { border-color: var(--orange); }
 
-    .code-block { background: var(--dark); color: #d4c5a9; border-radius: 4px; padding: 1.5rem; font-size: 12px; line-height: 1.8; overflow-x: auto; max-width: 540px; }
+    .code-block { background: var(--dark); color: #d4c5a9; border-radius: 8px; padding: 1.5rem; font-size: 12px; line-height: 1.8; overflow-x: auto; max-width: 540px; }
     .code-block .key { color: var(--orange-soft); }
     .code-block .str { color: #a8d5a2; }
     .code-block .arr { color: #f5c842; }
@@ -88,14 +127,12 @@
     .stat-n { font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--orange); font-weight: 300; line-height: 1; }
     .stat-label { font-size: 11px; color: var(--muted); margin-top: .25rem; }
 
-    /* ══════════════════════════════════
-       THE BRIDGE — NOTION SECTION
-    ══════════════════════════════════ */
+    /* ── BRIDGE ── */
     .bridge-wrap { padding: 0 2rem 4rem; max-width: 900px; margin: 0 auto; }
     #bridge {
       background: linear-gradient(135deg, rgba(107,72,181,.06) 0%, rgba(212,98,42,.06) 100%);
       border: 1px solid var(--notion-purple-pale);
-      border-radius: 6px; padding: 3rem;
+      border-radius: 16px; padding: 3rem;
       position: relative; overflow: hidden;
     }
     #bridge::before {
@@ -114,7 +151,7 @@
     .bridge-desc { color: var(--muted); font-size: 13px; max-width: 560px; line-height: 1.85; margin-bottom: 2rem; }
     .bridge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
     @media (max-width: 580px) { .bridge-grid { grid-template-columns: 1fr; } }
-    .bridge-card { background: white; border: 1px solid var(--notion-purple-pale); border-radius: 4px; padding: 1rem 1.25rem; }
+    .bridge-card { background: white; border: 1px solid var(--notion-purple-pale); border-radius: 10px; padding: 1rem 1.25rem; }
     .bridge-card-icon { font-size: 1.1rem; margin-bottom: .4rem; }
     .bridge-card-title { font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: .2rem; }
     .bridge-card-sub { font-size: 11px; color: var(--muted); line-height: 1.6; }
@@ -122,7 +159,7 @@
       display: inline-flex; align-items: center; gap: .6rem;
       padding: .75rem 1.5rem;
       background: var(--notion-purple); color: #fff;
-      border: none; border-radius: 3px;
+      border: none; border-radius: 8px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px; font-weight: 700; letter-spacing: .06em;
       text-decoration: none; cursor: pointer; transition: all .2s;
@@ -135,34 +172,54 @@
     @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
     .about-prose p { color: var(--muted); line-height: 1.9; margin-bottom: 1rem; font-size: 13px; }
     .about-prose strong { color: var(--dark); }
-    .about-code { background: var(--dark); color: #d4c5a9; border-radius: 4px; padding: 1.25rem; font-size: 11.5px; line-height: 1.85; }
+    .about-code { background: var(--dark); color: #d4c5a9; border-radius: 8px; padding: 1.25rem; font-size: 11.5px; line-height: 1.85; }
 
     /* ── PROJECTS ── */
     .projects-grid { display: grid; gap: 1.5rem; }
-    .project-card { border: 1px solid var(--orange-pale); border-radius: 4px; padding: 1.75rem; transition: border-color .2s; }
-    .project-card:hover { border-color: var(--orange-soft); }
+    .project-card { border: 1px solid var(--orange-pale); border-radius: 12px; padding: 1.75rem; transition: border-color .2s, box-shadow .2s; }
+    .project-card:hover { border-color: var(--orange-soft); box-shadow: 0 4px 24px rgba(212,98,42,.08); }
     .project-emoji { font-size: 1.4rem; margin-bottom: .75rem; }
     .project-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: .5rem; }
     .project-desc { color: var(--muted); font-size: 12.5px; line-height: 1.8; margin-bottom: 1rem; }
     .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .tag { font-size: 10px; font-weight: 700; letter-spacing: .08em; background: var(--warm); color: var(--mid); border-radius: 2px; padding: .2rem .5rem; }
+    .tag { font-size: 10px; font-weight: 700; letter-spacing: .08em; background: var(--warm); color: var(--mid); border-radius: 20px; padding: .2rem .6rem; }
 
     /* ── BUGS ── */
+    .bugs-group-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin: 2rem 0 .75rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .bugs-group-label::after { content: ''; flex: 1; height: 1px; background: var(--warm); }
     .bug-table { width: 100%; border-collapse: collapse; font-size: 12px; }
     .bug-table th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 0 .75rem .75rem; }
     .bug-table td { padding: .75rem; border-top: 1px solid var(--warm); vertical-align: top; }
     .bug-id { font-weight: 700; color: var(--orange); white-space: nowrap; }
-    .badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .06em; border-radius: 2px; padding: .15rem .4rem; margin-right: .3rem; }
+    .badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .06em; border-radius: 20px; padding: .15rem .5rem; margin-right: .3rem; }
     .badge-crit { background: #fde8e8; color: #c0392b; }
     .badge-high { background: #fef3cd; color: #7a5c00; }
     .badge-med  { background: var(--warm); color: var(--mid); }
     .badge-done { background: #e8f5e9; color: #2e7d32; }
     .badge-sec  { background: #e8eaf6; color: #3949ab; }
+    .badge-open { background: #fff3e0; color: #e65100; }
     .bug-desc { color: var(--dark); }
     .bug-meta { color: var(--muted); font-size: 11px; }
 
+    /* autism.ge highlight card */
+    .bug-highlight {
+      background: linear-gradient(135deg, rgba(212,98,42,.04) 0%, rgba(253,246,236,1) 100%);
+      border: 1px solid var(--orange-pale);
+      border-left: 3px solid #c0392b;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .bug-highlight-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #c0392b; margin-bottom: .4rem; }
+    .bug-highlight-title { font-family: 'Fraunces', serif; font-size: 1rem; color: var(--dark); margin-bottom: .4rem; }
+    .bug-highlight-desc { font-size: 11.5px; color: var(--muted); line-height: 1.7; }
+
     /* ── TEST CASES ── */
-    .tc-summary { display: flex; gap: 2rem; flex-wrap: wrap; padding: 1.5rem; background: var(--warm); border-radius: 4px; margin-bottom: 2rem; }
+    .tc-summary { display: flex; gap: 2rem; flex-wrap: wrap; padding: 1.5rem; background: var(--warm); border-radius: 12px; margin-bottom: 2rem; }
     .tc-stat-n { font-family: 'Fraunces', serif; font-size: 2rem; color: var(--orange); font-weight: 300; line-height: 1; }
     .tc-stat-label { font-size: 11px; color: var(--muted); }
     .tc-table { width: 100%; border-collapse: collapse; font-size: 11.5px; overflow-x: auto; display: block; }
@@ -174,7 +231,7 @@
     /* ── POSTMAN ── */
     .postman-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     @media (max-width: 640px) { .postman-grid { grid-template-columns: 1fr; } }
-    .postman-bug { border: 1px solid var(--orange-pale); border-radius: 4px; padding: 1.5rem; border-left: 3px solid var(--orange); }
+    .postman-bug { border: 1px solid var(--orange-pale); border-radius: 10px; padding: 1.5rem; border-left: 3px solid var(--orange); }
     .postman-bug-label { font-size: 10px; font-weight: 700; color: var(--orange); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .5rem; }
     .postman-bug-title { font-family: 'Fraunces', serif; font-size: 1.05rem; margin-bottom: 1rem; }
     .checklist { list-style: none; }
@@ -183,14 +240,15 @@
 
     /* ── STACK ── */
     .stack-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 1.25rem; }
-    .stack-card { border: 1px solid var(--orange-pale); border-radius: 4px; padding: 1.25rem; }
+    .stack-card { border: 1px solid var(--orange-pale); border-radius: 12px; padding: 1.25rem; transition: box-shadow .2s; }
+    .stack-card:hover { box-shadow: 0 4px 16px rgba(212,98,42,.07); }
     .stack-icon { font-size: 1.3rem; margin-bottom: .6rem; }
     .stack-title { font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: .6rem; }
     .stack-items { list-style: none; }
     .stack-items li { font-size: 11px; color: var(--muted); padding: .15rem 0; }
 
     /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--orange-pale); padding: 2.5rem 2rem; text-align: center; }
+    footer { border-top: 1px solid var(--orange-pale); padding: 2.5rem 2rem; text-align: center; position: relative; z-index: 1; }
     .footer-name { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 300; color: var(--dark); margin-bottom: .25rem; }
     .footer-sub { font-size: 11px; color: var(--muted); margin-bottom: 1.5rem; }
     .footer-links { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
@@ -199,6 +257,8 @@
   </style>
 </head>
 <body>
+
+  <div class="bg-blob-mid"></div>
 
   <!-- NAV -->
   <nav>
@@ -224,7 +284,7 @@
       Open to opportunities.
     </p>
     <div class="hero-links">
-      <a class="btn btn-primary" href="Ana_Danelia_CV_2026.pdf">⬇ Download CV</a>
+      <a class="btn btn-primary" href="Ana_Danelia_QA_Engineer.pdf">⬇ Download CV</a>
       <a class="btn btn-outline" href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
       <a class="btn btn-outline" href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
     </div>
@@ -250,7 +310,7 @@
     <div class="stats">
       <div><div class="stat-n">328</div><div class="stat-label">Test Scenarios</div></div>
       <div><div class="stat-n">57</div><div class="stat-label">Test Cases</div></div>
-      <div><div class="stat-n">9</div><div class="stat-label">Bugs Logged</div></div>
+      <div><div class="stat-n">23</div><div class="stat-label">Bugs Logged</div></div>
       <div><div class="stat-n">3</div><div class="stat-label">Projects Tested</div></div>
     </div>
   </section>
@@ -264,11 +324,11 @@
         <p>In software systems, an API is an interface — a way to communicate with a system and understand how it behaves. In my testing work, observation becomes that interface.</p>
         <p>Before writing a bug report, I start by watching how a system behaves under real user interaction — paying attention to the small details, the moments when expected behavior and actual behavior begin to diverge.</p>
         <p>Testing, for me, is not only verification. It is exploration. I'm drawn to exploratory testing approaches and the tour-based ideas of <strong>James Whittaker</strong>.</p>
-        <p>Currently developing <strong>Java + Selenium</strong> automation skills at Quality Academy. ISTQB FL planned June 2026.</p>
+        <p>Currently developing <strong>Java + Selenium</strong> automation skills at Quality Academy. ISTQB FL planned Q3 2026.</p>
       </div>
       <div class="about-code">
         Dani.profile()<br/><br/>
-        background → <span style="color:#a8d5a2">"8yr support (3+ remote) @ Magticom"</span><br/>
+        background → <span style="color:#a8d5a2">"8yr Hotline Operator @ Magticom"</span><br/>
         first_qa_signal → <span style="color:#a8d5a2">2021, call center test</span><br/>
         course_score → <span style="color:var(--orange-soft)">100 / 100</span><br/>
         internship → <span style="color:#a8d5a2">"ODIN P2P, Feb 2026"</span><br/>
@@ -282,9 +342,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       THE BRIDGE — NOTION
-  ══════════════════════════════════════ -->
+  <!-- BRIDGE -->
   <div class="bridge-wrap">
     <div id="bridge">
       <div class="bridge-eyebrow">✦ THE BRIDGE · NOTION PORTFOLIO</div>
@@ -295,7 +353,6 @@
         with annotated screenshots, and the bilingual mindset that shapes how I
         translate user behavior into system-level insight.
       </p>
-
       <div class="bridge-grid">
         <div class="bridge-card">
           <div class="bridge-card-icon">🧠</div>
@@ -318,7 +375,6 @@
           <div class="bridge-card-sub">Project documentation linked to corresponding GitHub automation repos.</div>
         </div>
       </div>
-
       <a class="btn-notion" href="https://dani369.short.gy/Portfolio" target="_blank" rel="noopener noreferrer">
         ◈ &nbsp;Read my thinking process on Notion
       </a>
@@ -346,7 +402,7 @@
       <div class="project-card">
         <div class="project-emoji">❤️</div>
         <div class="project-title">autism.ge — Charity Project</div>
-        <p class="project-desc">Pro bono UAT for NGO website. Risk-based approach on donation flow and payment processing. Found 6 issues including backend redirect error post-payment.</p>
+        <p class="project-desc">Pro bono UAT for NGO website. Risk-based approach on authentication and donation/payment flows. Found 14 issues across Critical, High, and Medium severity — including a payment false error where backend returns failure despite successful Visa/Google Pay transaction.</p>
         <div class="tags"><span class="tag">Pro Bono</span><span class="tag">UAT</span><span class="tag">WordPress</span><span class="tag">Payments</span></div>
       </div>
     </div>
@@ -356,7 +412,23 @@
   <section id="bugs">
     <div class="section-label">Bug Reports</div>
     <h2 class="sh">Found in the Wild</h2>
-    <p class="lead">Bugs logged during UAT at ODIN and independent testing at GPI Holding.</p>
+    <p class="lead">Bugs logged across UAT internship, independent testing, and pro bono work.</p>
+
+    <!-- autism.ge highlight -->
+    <div class="bugs-group-label">autism.ge — Notable Findings</div>
+    <div class="bug-highlight">
+      <div class="bug-highlight-label">🔴 Critical · BUG-04 · Payment Processing</div>
+      <div class="bug-highlight-title">WordPress Backend Returns Error Despite Successful Payment</div>
+      <div class="bug-highlight-desc">Payment completes successfully via Visa and Google Pay — confirmation email delivered with correct subscription details. Simultaneously, WordPress backend displays an error on the post-redirect page. Business risk: donors may believe payment failed and attempt to pay again, risking duplicate charges. Documented with screen recording of full payment flow.</div>
+    </div>
+    <div class="bug-highlight">
+      <div class="bug-highlight-label">🔴 Critical · BUG-01 · Authentication</div>
+      <div class="bug-highlight-title">Missing "Forgot Password" Functionality</div>
+      <div class="bug-highlight-desc">No password recovery mechanism exists on the login page. Users who forget their password have no self-service way to regain account access — permanently locked out without support intervention.</div>
+    </div>
+
+    <!-- ODIN + GPI table -->
+    <div class="bugs-group-label">ODIN · GPI Holding</div>
     <div style="overflow-x:auto;">
       <table class="bug-table">
         <thead><tr><th>ID</th><th>Title</th><th>Severity</th><th>Status</th><th>Platform</th></tr></thead>
@@ -503,7 +575,7 @@
       <a href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
       <a href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
       <a href="https://dani369.short.gy/Portfolio" target="_blank">◈ Notion</a>
-      <a href="Ana_Danelia_CV_2026.pdf">⬇ CV</a>
+      <a href="Ana_Danelia_QA_Engineer.pdf">⬇ CV</a>
     </div>
   </footer>
 
