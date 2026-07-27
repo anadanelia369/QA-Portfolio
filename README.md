@@ -195,5 +195,5 @@ Topics covered: Collections, Environments (`{{BaseURL}}`), Status code testing (
 ## 🔗 Links
 
 - **LinkedIn:** [linkedin.com/in/ana-danelia-42567139b](https://linkedin.com/in/ana-danelia-42567139b)
-- **CV:** [Ana_Danelia_CV_2026.pdf](Ana_Danelia_CV_2026.pdf)
+- **CV:** [Ana_Danelia_QA_Engineer.pdf](Ana_Danelia_QA_Engineer.pdf)
 - **Notion Portfolio:** [View on Notion](https://dani369.short.gy/Portfolio)
