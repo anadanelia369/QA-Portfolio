@@ -1,1393 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ana Danelia — QA Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg:         #F7F3EE;
-  --bg2:        #EDE8E0;
-  --bg3:        #E5DDD2;
-  --ink:        #1C1410;
-  --ink2:       #4A3728;
-  --ink3:       #7A6558;
-  --orange:     #C8581A;
-  --orange2:    #E07840;
-  --amber:      #D4870A;
-  --amber2:     #F0A830;
-  --warm-red:   #B03A1A;
-  --card-bg:    #FFFFFF;
-  --card-border:#DDD5C8;
-  --code-bg:    #2A1F16;
-  --code-text:  #F0C87A;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-:focus { outline: none; }
-:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* NOISE TEXTURE OVERLAY */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.5;
-}
-
-/* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 1rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(247,243,238,0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--card-border);
-}
-
-.nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 1.1rem;
-  color: var(--orange);
-  letter-spacing: 0.02em;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink2);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover { color: var(--orange); }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 8rem 3rem 5rem;
-  gap: 4rem;
-  position: relative;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0; right: 0;
-  width: 55%;
-  height: 65%;
-  background: radial-gradient(ellipse at 70% 60%, rgba(200,88,26,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-left { position: relative; z-index: 1; }
-
-.hero-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 1.5rem;
-}
-
-.hero-label::before {
-  content: '';
-  display: inline-block;
-  width: 28px;
-  height: 2px;
-  background: var(--orange);
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
-  font-weight: 900;
-  line-height: 1.08;
-  color: var(--ink);
-  margin-bottom: 1.2rem;
-}
-
-h1 em {
-  font-style: italic;
-  color: var(--orange);
-}
-
-.hero-sub {
-  font-size: 1.05rem;
-  color: var(--ink3);
-  max-width: 440px;
-  margin-bottom: 2.2rem;
-  line-height: 1.7;
-}
-
-.hero-btns {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1.5rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.btn-primary {
-  background: var(--orange);
-  color: #fff;
-  border: 2px solid var(--orange);
-}
-
-.btn-primary:hover {
-  background: var(--warm-red);
-  border-color: var(--warm-red);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(200,88,26,0.3);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--ink2);
-  border: 2px solid var(--card-border);
-}
-
-.btn-outline:hover {
-  border-color: var(--orange);
-  color: var(--orange);
-  transform: translateY(-2px);
-}
-
-/* HERO JSON BLOCK */
-.hero-right {
-  position: relative;
-  z-index: 1;
-}
-
-.json-window {
-  background: var(--code-bg);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 24px 60px rgba(28,20,16,0.18), 0 4px 12px rgba(28,20,16,0.08);
-  border: 1px solid rgba(255,255,255,0.06);
-}
-
-.json-topbar {
-  background: #1A130C;
-  padding: 0.65rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.dot { width: 12px; height: 12px; border-radius: 50%; }
-.dot-red { background: #FF5F56; }
-.dot-yellow { background: #FFBD2E; }
-.dot-green { background: #27C93F; }
-
-.json-url {
-  margin-left: 0.8rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
-  color: rgba(240,200,122,0.5);
-}
-
-.json-body {
-  padding: 1.5rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.82rem;
-  line-height: 1.9;
-  color: var(--code-text);
-  font-weight: 400;
-}
-
-.jk { color: #E07840; font-weight: 400; }
-.jv { color: #F0C87A; font-weight: 400; }
-.jvs { color: #98D89E; font-weight: 400; }
-.jb { color: rgba(240,200,122,0.4); font-weight: 400; }
-
-/* STATS BAR */
-.stats-bar {
-  background: var(--ink);
-  padding: 2.5rem 3rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-  pointer-events: none;
-}
-
-.stats-bar::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(200,88,26,0.12) 0%, transparent 60%);
-}
-
-.stat {
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.stat-num {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--amber2);
-  line-height: 1;
-  display: block;
-  letter-spacing: -0.02em;
-  outline: none;
-  border: none;
-}
-
-.stat-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(247,243,238,0.5);
-  margin-top: 0.4rem;
-  display: block;
-}
-
-/* SECTION COMMON */
-section {
-  padding: 5rem 3rem;
-  position: relative;
-}
-
-.section-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 0.8rem;
-}
-
-.section-eyebrow svg { width: 14px; height: 14px; }
-
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 900;
-  line-height: 1.1;
-  color: var(--ink);
-  margin-bottom: 0.6rem;
-}
-
-.section-desc {
-  font-size: 0.95rem;
-  color: var(--ink3);
-  max-width: 480px;
-  margin-bottom: 3rem;
-}
-
-/* ABOUT */
-.about-section {
-  background: var(--bg);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
-}
-
-.about-text p {
-  font-size: 1rem;
-  color: var(--ink2);
-  line-height: 1.8;
-  margin-bottom: 1.2rem;
-}
-
-.highlight { color: var(--orange); font-weight: 600; }
-.highlight2 { color: var(--amber); font-weight: 600; }
-
-.about-json { /* reuse json-window styles */ }
-
-/* PROJECTS */
-.projects-section { background: var(--bg2); }
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.project-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 1.8rem;
-  transition: all 0.25s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--orange), var(--amber));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover::before { transform: scaleX(1); }
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(200,88,26,0.12);
-  border-color: rgba(200,88,26,0.3);
-}
-
-.project-icon {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.project-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.6rem;
-  line-height: 1.3;
-}
-
-.project-card p {
-  font-size: 0.85rem;
-  color: var(--ink3);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.tag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  padding: 0.25rem 0.65rem;
-  border-radius: 100px;
-  background: var(--bg2);
-  color: var(--ink2);
-  border: 1px solid var(--card-border);
-}
-
-/* BUGS SECTION */
-.bugs-section { background: var(--bg); }
-
-.bugs-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
-}
-
-.bug-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 10px;
-  padding: 1.4rem;
-  transition: all 0.22s ease;
-  cursor: default;
-}
-
-.bug-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(200,88,26,0.1);
-}
-
-.bug-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.7rem;
-}
-
-.bug-id {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  color: var(--orange);
-  font-weight: 500;
-}
-
-.badge {
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.55rem;
-  border-radius: 100px;
-}
-
-.badge-critical { background: #FDE8E8; color: #B03A1A; border: 1px solid #F5C0C0; }
-.badge-high { background: #FEF0E0; color: #C85C1A; border: 1px solid #F5D0A0; }
-.badge-medium { background: #FEF8E0; color: #A87008; border: 1px solid #F0DC90; }
-.badge-done { background: #E8F5EA; color: #287A36; border: 1px solid #A8D8B0; margin-left: 0.3rem; }
-.badge-security { background: #F0E8F8; color: #7030A0; border: 1px solid #D0A8F0; margin-left: 0.3rem; }
-
-.bug-card h4 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
-  line-height: 1.4;
-}
-
-.bug-card .bug-sub {
-  font-size: 0.75rem;
-  color: var(--ink3);
-}
-
-/* TEST CASES */
-.tc-section { background: var(--bg2); }
-
-.tc-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.tc-count {
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem;
-  font-weight: 900;
-  color: var(--orange);
-  line-height: 1;
-  display: inline-block;
-}
-
-.tc-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.tc-tab {
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: 2px solid var(--card-border);
-  background: var(--card-bg);
-  color: var(--ink2);
-  transition: all 0.2s;
-}
-
-.tc-tab.active {
-  background: var(--orange);
-  border-color: var(--orange);
-  color: #fff;
-}
-
-.tc-panel { display: none; }
-.tc-panel.active { display: block; }
-
-.tc-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.82rem;
-  background: var(--card-bg);
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--card-border);
-}
-
-.tc-table th {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink3);
-  background: var(--bg2);
-  border-bottom: 1px solid var(--card-border);
-}
-
-.tc-table td {
-  padding: 0.7rem 1rem;
-  border-bottom: 1px solid var(--bg2);
-  color: var(--ink2);
-}
-
-.tc-table tr:last-child td { border-bottom: none; }
-
-.tc-table tr:hover td { background: rgba(200,88,26,0.04); }
-
-.tc-id { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--orange); font-weight: 500; }
-.tc-pass { color: #287A36; font-weight: 700; font-size: 0.78rem; }
-.tc-fail { color: #B03A1A; font-weight: 700; font-size: 0.78rem; }
-
-/* POSTMAN DIARY */
-.postman-section {
-  background: var(--ink);
-  color: var(--bg);
-  position: relative;
-  overflow: hidden;
-}
-
-.postman-section::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(200,88,26,0.15) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.postman-section h2 { color: var(--bg); }
-.postman-section .section-eyebrow { color: var(--amber2); }
-.postman-section .section-desc { color: rgba(247,243,238,0.55); }
-
-.postman-layout {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.bug-spotlight {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.bug-spotlight-header {
-  padding: 1rem 1.4rem;
-  background: rgba(200,88,26,0.15);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--amber2);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.code-block {
-  background: var(--code-bg);
-  padding: 1.2rem 1.4rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.78rem;
-  line-height: 1.8;
-  color: var(--code-text);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.code-comment { color: rgba(240,200,122,0.38); }
-.code-keyword { color: var(--orange2); }
-.code-string { color: #98D89E; }
-.code-pass { color: #5BC870; font-weight: 600; }
-
-.bug-spotlight-footer {
-  padding: 0.9rem 1.4rem;
-  font-size: 0.78rem;
-  color: rgba(247,243,238,0.45);
-  line-height: 1.5;
-}
-
-.topics-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-}
-
-.topic-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.topic-name {
-  font-size: 0.82rem;
-  color: rgba(247,243,238,0.7);
-  font-weight: 500;
-}
-
-.topic-bar-wrap {
-  height: 4px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.topic-bar {
-  height: 100%;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--orange), var(--amber2));
-}
-
-/* TECH STACK */
-.stack-section { background: var(--bg); }
-
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-}
-
-.stack-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 10px;
-  padding: 1.4rem;
-  transition: all 0.2s;
-}
-
-.stack-card:hover {
-  box-shadow: 0 6px 20px rgba(200,88,26,0.08);
-  border-color: rgba(200,88,26,0.25);
-}
-
-.stack-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.7rem;
-  display: block;
-}
-
-.stack-card h4 {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 0.8rem;
-}
-
-.stack-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.chip {
-  font-size: 0.7rem;
-  padding: 0.25rem 0.6rem;
-  background: var(--bg2);
-  color: var(--ink2);
-  border-radius: 4px;
-  border: 1px solid var(--card-border);
-  font-weight: 500;
-}
-
-.chip-accent {
-  background: rgba(200,88,26,0.1);
-  color: var(--orange);
-  border-color: rgba(200,88,26,0.25);
-}
-
-/* FOOTER */
-footer {
-  background: var(--ink);
-  padding: 2.5rem 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.footer-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--bg);
-}
-
-.footer-role {
-  font-size: 0.75rem;
-  color: rgba(247,243,238,0.45);
-  margin-top: 0.2rem;
-}
-
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.footer-links a {
-  font-size: 0.8rem;
-  color: rgba(247,243,238,0.55);
-  text-decoration: none;
-  transition: color 0.2s;
-  font-weight: 500;
-}
-
-.footer-links a:hover { color: var(--amber2); }
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.hero-left > * {
-  animation: fadeUp 0.6s ease both;
-}
-
-.hero-label     { animation-delay: 0.1s; }
-h1              { animation-delay: 0.2s; }
-.hero-sub       { animation-delay: 0.3s; }
-.hero-btns      { animation-delay: 0.4s; }
-.hero-right     { animation: fadeUp 0.7s 0.3s ease both; }
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .hero, .about-section, .postman-layout {
-    grid-template-columns: 1fr;
-  }
-  .projects-grid, .bugs-grid, .stack-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  nav { padding: 1rem 1.2rem; }
-  section { padding: 3.5rem 1.2rem; }
-  .projects-grid, .bugs-grid, .stack-grid {
-    grid-template-columns: 1fr;
-  }
-  .stats-bar { grid-template-columns: repeat(2, 1fr); }
-  .nav-links { display: none; }
-}
-
-/* DECORATIVE RULE */
-.h-rule {
-  width: 48px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--orange), var(--amber));
-  margin: 0.5rem 0 1.5rem;
-  border-radius: 2px;
-}
-
-/* INLINE STATUS INDICATOR */
-.status-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: #27C93F;
-  border-radius: 50%;
-  margin-right: 6px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ana Danelia — QA Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #fdf6ec;
+      --warm: #f5e9d4;
+      --orange: #d4622a;
+      --orange-soft: #e8845a;
+      --orange-pale: #f5c8af;
+      --dark: #1c1208;
+      --mid: #5c3d1e;
+      --muted: #8a6a4a;
+      --notion-purple: #6b48b5;
+      --notion-purple-pale: #e8dfff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--cream);
+      color: var(--dark);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(253,246,236,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--orange-pale);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 52px;
+    }
+    .nav-name { font-size: 13px; font-weight: 700; color: var(--orange); letter-spacing: .05em; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; transition: color .2s; }
+    .nav-links a:hover { color: var(--orange); }
+
+    /* ── GENERIC SECTION ── */
+    section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .15em;
+      color: var(--orange); text-transform: uppercase;
+      border-left: 3px solid var(--orange); padding-left: .75rem;
+      margin-bottom: 2.5rem;
+    }
+    h2.sh {
+      font-family: 'Fraunces', serif; font-size: 1.9rem;
+      font-weight: 300; margin-bottom: 2rem; color: var(--dark);
+    }
+    p.lead { color: var(--muted); font-size: 13px; margin-bottom: 2rem; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; padding: 80px 2rem 4rem;
+      max-width: 900px; margin: 0 auto;
+    }
+    .hero-meta { font-size: 11px; color: var(--muted); letter-spacing: .12em; margin-bottom: 1.5rem; }
+    h1 { font-family: 'Fraunces', serif; font-size: clamp(2.6rem,6vw,4.2rem); line-height: 1.12; font-weight: 300; color: var(--dark); margin-bottom: 1rem; }
+    h1 em { color: var(--orange); font-style: italic; }
+    .hero-sub { color: var(--muted); font-size: 13px; max-width: 500px; margin-bottom: 2.5rem; line-height: 1.9; }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+    .btn { display: inline-block; padding: .55rem 1.2rem; border: 1px solid; border-radius: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-decoration: none; transition: all .2s; }
+    .btn-primary { background: var(--orange); color: #fff; border-color: var(--orange); }
+    .btn-primary:hover { background: var(--mid); border-color: var(--mid); }
+    .btn-outline { background: transparent; color: var(--orange); border-color: var(--orange-pale); }
+    .btn-outline:hover { border-color: var(--orange); }
+
+    .code-block { background: var(--dark); color: #d4c5a9; border-radius: 4px; padding: 1.5rem; font-size: 12px; line-height: 1.8; overflow-x: auto; max-width: 540px; }
+    .code-block .key { color: var(--orange-soft); }
+    .code-block .str { color: #a8d5a2; }
+    .code-block .arr { color: #f5c842; }
+    .code-block .comment { color: #7a6a5a; font-style: italic; }
+
+    .stats { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--orange-pale); }
+    .stat-n { font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--orange); font-weight: 300; line-height: 1; }
+    .stat-label { font-size: 11px; color: var(--muted); margin-top: .25rem; }
+
+    /* ══════════════════════════════════
+       THE BRIDGE — NOTION SECTION
+    ══════════════════════════════════ */
+    .bridge-wrap { padding: 0 2rem 4rem; max-width: 900px; margin: 0 auto; }
+    #bridge {
+      background: linear-gradient(135deg, rgba(107,72,181,.06) 0%, rgba(212,98,42,.06) 100%);
+      border: 1px solid var(--notion-purple-pale);
+      border-radius: 6px; padding: 3rem;
+      position: relative; overflow: hidden;
+    }
+    #bridge::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--notion-purple) 0%, var(--orange) 100%);
+    }
+    .bridge-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+      background: linear-gradient(90deg, var(--notion-purple), var(--orange));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 1rem;
+    }
+    .bridge-heading { font-family: 'Fraunces', serif; font-size: clamp(1.5rem,3.5vw,2.1rem); font-weight: 300; color: var(--dark); line-height: 1.25; margin-bottom: 1rem; }
+    .bridge-heading em { color: var(--notion-purple); font-style: italic; }
+    .bridge-desc { color: var(--muted); font-size: 13px; max-width: 560px; line-height: 1.85; margin-bottom: 2rem; }
+    .bridge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+    @media (max-width: 580px) { .bridge-grid { grid-template-columns: 1fr; } }
+    .bridge-card { background: white; border: 1px solid var(--notion-purple-pale); border-radius: 4px; padding: 1rem 1.25rem; }
+    .bridge-card-icon { font-size: 1.1rem; margin-bottom: .4rem; }
+    .bridge-card-title { font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: .2rem; }
+    .bridge-card-sub { font-size: 11px; color: var(--muted); line-height: 1.6; }
+    .btn-notion {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .75rem 1.5rem;
+      background: var(--notion-purple); color: #fff;
+      border: none; border-radius: 3px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; font-weight: 700; letter-spacing: .06em;
+      text-decoration: none; cursor: pointer; transition: all .2s;
+      box-shadow: 0 4px 16px rgba(107,72,181,.25);
+    }
+    .btn-notion:hover { background: #5a3ba0; box-shadow: 0 6px 24px rgba(107,72,181,.35); transform: translateY(-1px); }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-prose p { color: var(--muted); line-height: 1.9; margin-bottom: 1rem; font-size: 13px; }
+    .about-prose strong { color: var(--dark); }
+    .about-code { background: var(--dark); color: #d4c5a9; border-radius: 4px; padding: 1.25rem; font-size: 11.5px; line-height: 1.85; }
+
+    /* ── PROJECTS ── */
+    .projects-grid { display: grid; gap: 1.5rem; }
+    .project-card { border: 1px solid var(--orange-pale); border-radius: 4px; padding: 1.75rem; transition: border-color .2s; }
+    .project-card:hover { border-color: var(--orange-soft); }
+    .project-emoji { font-size: 1.4rem; margin-bottom: .75rem; }
+    .project-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: .5rem; }
+    .project-desc { color: var(--muted); font-size: 12.5px; line-height: 1.8; margin-bottom: 1rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .tag { font-size: 10px; font-weight: 700; letter-spacing: .08em; background: var(--warm); color: var(--mid); border-radius: 2px; padding: .2rem .5rem; }
+
+    /* ── BUGS ── */
+    .bug-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .bug-table th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 0 .75rem .75rem; }
+    .bug-table td { padding: .75rem; border-top: 1px solid var(--warm); vertical-align: top; }
+    .bug-id { font-weight: 700; color: var(--orange); white-space: nowrap; }
+    .badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .06em; border-radius: 2px; padding: .15rem .4rem; margin-right: .3rem; }
+    .badge-crit { background: #fde8e8; color: #c0392b; }
+    .badge-high { background: #fef3cd; color: #7a5c00; }
+    .badge-med  { background: var(--warm); color: var(--mid); }
+    .badge-done { background: #e8f5e9; color: #2e7d32; }
+    .badge-sec  { background: #e8eaf6; color: #3949ab; }
+    .bug-desc { color: var(--dark); }
+    .bug-meta { color: var(--muted); font-size: 11px; }
+
+    /* ── TEST CASES ── */
+    .tc-summary { display: flex; gap: 2rem; flex-wrap: wrap; padding: 1.5rem; background: var(--warm); border-radius: 4px; margin-bottom: 2rem; }
+    .tc-stat-n { font-family: 'Fraunces', serif; font-size: 2rem; color: var(--orange); font-weight: 300; line-height: 1; }
+    .tc-stat-label { font-size: 11px; color: var(--muted); }
+    .tc-table { width: 100%; border-collapse: collapse; font-size: 11.5px; overflow-x: auto; display: block; }
+    .tc-table th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 0 .5rem .75rem; white-space: nowrap; }
+    .tc-table td { padding: .5rem; border-top: 1px solid var(--warm); white-space: nowrap; }
+    .tc-id { font-weight: 700; color: var(--orange); }
+    .pass { color: #2e7d32; } .fail { color: #c0392b; }
+
+    /* ── POSTMAN ── */
+    .postman-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 640px) { .postman-grid { grid-template-columns: 1fr; } }
+    .postman-bug { border: 1px solid var(--orange-pale); border-radius: 4px; padding: 1.5rem; border-left: 3px solid var(--orange); }
+    .postman-bug-label { font-size: 10px; font-weight: 700; color: var(--orange); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .5rem; }
+    .postman-bug-title { font-family: 'Fraunces', serif; font-size: 1.05rem; margin-bottom: 1rem; }
+    .checklist { list-style: none; }
+    .checklist li { font-size: 12px; color: var(--muted); padding: .2rem 0; }
+    .checklist li::before { content: '✓  '; color: var(--orange); font-weight: 700; }
+
+    /* ── STACK ── */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 1.25rem; }
+    .stack-card { border: 1px solid var(--orange-pale); border-radius: 4px; padding: 1.25rem; }
+    .stack-icon { font-size: 1.3rem; margin-bottom: .6rem; }
+    .stack-title { font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: .6rem; }
+    .stack-items { list-style: none; }
+    .stack-items li { font-size: 11px; color: var(--muted); padding: .15rem 0; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--orange-pale); padding: 2.5rem 2rem; text-align: center; }
+    .footer-name { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 300; color: var(--dark); margin-bottom: .25rem; }
+    .footer-sub { font-size: 11px; color: var(--muted); margin-bottom: 1.5rem; }
+    .footer-links { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--orange); }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">Ana Danelia</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#bugs">Bugs</a></li>
-    <li><a href="#testcases">Test Cases</a></li>
-    <li><a href="#postman">API Testing</a></li>
-    <li><a href="#stack">Stack</a></li>
-  </ul>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <span class="nav-name">ANA DANELIA</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#bridge">Notion</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#bugs">Bugs</a></li>
+      <li><a href="#testcases">Test Cases</a></li>
+      <li><a href="#postman">API Testing</a></li>
+      <li><a href="#stack">Stack</a></li>
+    </ul>
+  </nav>
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-left">
-    <span class="hero-label">QA Engineer Portfolio</span>
-    <h1>Observation<br>is my <em>API.</em></h1>
+  <!-- HERO -->
+  <section id="hero">
+    <p class="hero-meta">QA ENGINEER PORTFOLIO · TBILISI, GEORGIA</p>
+    <h1>Observation is my <em>API.</em></h1>
     <p class="hero-sub">
-      Junior QA Engineer transitioning to automation. 
-      UAT at ODIN · API Testing · Java + Selenium in progress. 
-      <span class="status-dot"></span>Open to opportunities.
+      Junior QA Engineer transitioning to automation.<br/>
+      UAT at ODIN · API Testing · Java + Selenium in progress.<br/>
+      Open to opportunities.
     </p>
-    <div class="hero-btns">
-      <a href="Ana_Danelia_QA_Engineer.pdf" download class="btn btn-primary">⬇ Download CV</a>
-      <a href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank" class="btn btn-outline">🔗 LinkedIn</a>
-      <a href="https://github.com/anadanelia369/QA-Portfolio" target="_blank" class="btn btn-outline">⌥ GitHub</a>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="json-window">
-      <div class="json-topbar">
-        <span class="dot dot-red"></span>
-        <span class="dot dot-yellow"></span>
-        <span class="dot dot-green"></span>
-        <span class="json-url">GET {{BaseURL}}/status</span>
-      </div>
-      <div class="json-body">
-        <span class="jb">{</span><br>
-        &nbsp;&nbsp;<span class="jk">"name"</span><span class="jb">:</span> <span class="jvs">"Ana Danelia"</span><span class="jb">,</span><br>
-        &nbsp;&nbsp;<span class="jk">"role"</span><span class="jb">:</span> <span class="jvs">"Junior QA Engineer"</span><span class="jb">,</span><br>
-        &nbsp;&nbsp;<span class="jk">"testing_style"</span><span class="jb">:</span> <span class="jvs">"exploratory"</span><span class="jb">,</span><br>
-        &nbsp;&nbsp;<span class="jk">"core_tool"</span><span class="jb">:</span> <span class="jvs">"observation"</span><span class="jb">,</span><br>
-        &nbsp;&nbsp;<span class="jk">"philosophy"</span><span class="jb">:</span> <span class="jvs">"Observation is my API"</span><span class="jb">,</span><br>
-        &nbsp;&nbsp;<span class="jk">"favorite_questions"</span><span class="jb">:</span> <span class="jb">[</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="jvs">"What happens if...?"</span><span class="jb">,</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="jvs">"What if the user does something unexpected?"</span><span class="jb">,</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="jvs">"Where does the system logic start to bend?"</span><br>
-        &nbsp;&nbsp;<span class="jb">],</span><br>
-        &nbsp;&nbsp;<span class="jk">"debugging_mode"</span><span class="jb">:</span> <span class="jvs">"curiosity"</span><span class="jb">,</span><br>
-        &nbsp;&nbsp;<span class="jk">"current_state"</span><span class="jb">:</span> <span class="jvs">"transitioning_to_automation"</span><br>
-        <span class="jb">}</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS BAR -->
-<div class="stats-bar" aria-hidden="true">
-  <div class="stat"><p class="stat-num">328</p><p class="stat-label">Test Scenarios</p></div>
-  <div class="stat"><p class="stat-num">57</p><p class="stat-label">Test Cases</p></div>
-  <div class="stat"><p class="stat-num">9</p><p class="stat-label">Bugs Logged</p></div>
-  <div class="stat"><p class="stat-num">3</p><p class="stat-label">Projects Tested</p></div>
-</div>
-
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="about-text">
-    <span class="section-eyebrow">
-      <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 5v4M8 11v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      About
-    </span>
-    <h2>Pattern recognition<br>is the skill.</h2>
-    <div class="h-rule"></div>
-    <p>
-      In software systems, an API is an interface — a way to communicate with a system and understand how it behaves. In my testing work, <span class="highlight">observation</span> becomes that interface.
-    </p>
-    <p>
-      Before writing a bug report, I start by watching how a system behaves under real user interaction — paying attention to the small details, the moments when expected behavior and actual behavior begin to diverge.
-    </p>
-    <p>
-      Testing, for me, is not only verification. It is <span class="highlight2">exploration</span>. I'm drawn to exploratory testing approaches and the tour-based ideas of James Whittaker.
-    </p>
-    <p style="font-size:0.85rem; color:var(--ink3);">
-      Currently developing Java + Selenium automation skills at Quality Academy. ISTQB FL planned June 2026.
-    </p>
-  </div>
-
-  <div>
-    <div class="json-window">
-      <div class="json-topbar">
-        <span class="dot dot-red"></span>
-        <span class="dot dot-yellow"></span>
-        <span class="dot dot-green"></span>
-        <span class="json-url">Dani.profile()</span>
-      </div>
-      <div class="json-body" style="font-size:0.76rem; line-height:1.85;">
-        <span class="jk">background</span> <span class="jb">→</span> <span class="jvs">"8yr support (3+ remote) @ Magticom"</span><br>
-        <span class="jk">first_qa_signal</span> <span class="jb">→</span> <span class="jvs">2021, call center test</span><br>
-        <span class="jk">course_score</span> <span class="jb">→</span> <span class="jv">100 / 100</span><br>
-        <span class="jk">internship</span> <span class="jb">→</span> <span class="jvs">"ODIN P2P, Feb 2026"</span><br>
-        <span class="jk">automation_start</span> <span class="jb">→</span> <span class="jvs">"March 30, 2026"</span><br>
-        <span class="jk">tools</span> <span class="jb">→</span> <span class="jb">[</span><span class="jvs">"Postman"</span><span class="jb">,</span> <span class="jvs">"Jira"</span><span class="jb">,</span> <span class="jvs">"Java"</span><span class="jb">]</span><br>
-        <span class="jk">volunteer</span> <span class="jb">→</span> <span class="jvs">"autism.ge QA"</span><br>
-        <span class="jk">path</span> <span class="jb">→</span> <span class="jvs">"Manual → Auto → Security"</span><br>
-        <span class="code-comment">// I chose QA. Waited for it.</span><br>
-        <span class="code-comment">// Building it seriously.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects-section" id="projects">
-  <span class="section-eyebrow">
-    <svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    Projects
-  </span>
-  <h2>Testing Experience</h2>
-  <div class="h-rule"></div>
-  <p class="section-desc">Real-world testing across mobile, web, and API domains.</p>
-
-  <div class="projects-grid">
-    <div class="project-card">
-      <span class="project-icon">📦</span>
-      <h3>ODIN — P2P Parcel Delivery</h3>
-      <p>UAT internship (Feb 2026 – present). React Native iOS/Android. 328 test scenarios across 13 modules. Notable: flight notification timing hypothesis discovered through real flight data analysis.</p>
-      <div class="project-tags">
-        <span class="tag">React Native</span>
-        <span class="tag">Mobile</span>
-        <span class="tag">UAT</span>
-        <span class="tag">Android</span>
-      </div>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="Ana_Danelia_CV_2026.pdf">⬇ Download CV</a>
+      <a class="btn btn-outline" href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
+      <a class="btn btn-outline" href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
     </div>
 
-    <div class="project-card">
-      <span class="project-icon">🛡️</span>
-      <h3>GPI Holding — Insurance Platform</h3>
-      <p>Independent exploratory testing. Found 4 bugs including 2 security-level issues: autofill returns stranger's personal data, invalid citizenship/document combination accepted.</p>
-      <div class="project-tags">
-        <span class="tag">Web</span>
-        <span class="tag">Security</span>
-        <span class="tag">Exploratory</span>
-        <span class="tag">Chrome</span>
-      </div>
+    <div class="code-block">
+      GET {{BaseURL}}/status<br/><br/>
+      {<br/>
+      &nbsp;&nbsp;<span class="key">"name":</span> <span class="str">"Ana Danelia"</span>,<br/>
+      &nbsp;&nbsp;<span class="key">"role":</span> <span class="str">"Junior QA Engineer"</span>,<br/>
+      &nbsp;&nbsp;<span class="key">"testing_style":</span> <span class="str">"exploratory"</span>,<br/>
+      &nbsp;&nbsp;<span class="key">"core_tool":</span> <span class="str">"observation"</span>,<br/>
+      &nbsp;&nbsp;<span class="key">"philosophy":</span> <span class="str">"Observation is my API"</span>,<br/>
+      &nbsp;&nbsp;<span class="key">"favorite_questions":</span> <span class="arr">[</span><br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"What happens if...?"</span>,<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"What if the user does something unexpected?"</span>,<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Where does the system logic start to bend?"</span><br/>
+      &nbsp;&nbsp;<span class="arr">]</span>,<br/>
+      &nbsp;&nbsp;<span class="key">"debugging_mode":</span> <span class="str">"curiosity"</span>,<br/>
+      &nbsp;&nbsp;<span class="key">"current_state":</span> <span class="str">"transitioning_to_automation"</span><br/>
+      }
     </div>
 
-    <div class="project-card">
-      <span class="project-icon">❤️</span>
-      <h3>autism.ge — Charity Project</h3>
-      <p>Pro bono UAT for NGO website. Risk-based approach on donation flow and payment processing. Found 6 issues including backend redirect error post-payment.</p>
-      <div class="project-tags">
-        <span class="tag">Pro Bono</span>
-        <span class="tag">UAT</span>
-        <span class="tag">WordPress</span>
-        <span class="tag">Payments</span>
+    <div class="stats">
+      <div><div class="stat-n">328</div><div class="stat-label">Test Scenarios</div></div>
+      <div><div class="stat-n">57</div><div class="stat-label">Test Cases</div></div>
+      <div><div class="stat-n">9</div><div class="stat-label">Bugs Logged</div></div>
+      <div><div class="stat-n">3</div><div class="stat-label">Projects Tested</div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <h2 class="sh">Pattern recognition is the skill.</h2>
+    <div class="about-grid">
+      <div class="about-prose">
+        <p>In software systems, an API is an interface — a way to communicate with a system and understand how it behaves. In my testing work, observation becomes that interface.</p>
+        <p>Before writing a bug report, I start by watching how a system behaves under real user interaction — paying attention to the small details, the moments when expected behavior and actual behavior begin to diverge.</p>
+        <p>Testing, for me, is not only verification. It is exploration. I'm drawn to exploratory testing approaches and the tour-based ideas of <strong>James Whittaker</strong>.</p>
+        <p>Currently developing <strong>Java + Selenium</strong> automation skills at Quality Academy. ISTQB FL planned June 2026.</p>
+      </div>
+      <div class="about-code">
+        Dani.profile()<br/><br/>
+        background → <span style="color:#a8d5a2">"8yr support (3+ remote) @ Magticom"</span><br/>
+        first_qa_signal → <span style="color:#a8d5a2">2021, call center test</span><br/>
+        course_score → <span style="color:var(--orange-soft)">100 / 100</span><br/>
+        internship → <span style="color:#a8d5a2">"ODIN P2P, Feb 2026"</span><br/>
+        automation_start → <span style="color:#a8d5a2">"March 30, 2026"</span><br/>
+        tools → <span style="color:#f5c842">["Postman", "Jira", "Java"]</span><br/>
+        volunteer → <span style="color:#a8d5a2">"autism.ge QA"</span><br/>
+        path → <span style="color:#a8d5a2">"Manual → Auto → Security"</span><br/>
+        <span style="color:#7a6a5a">// I chose QA. Waited for it.</span><br/>
+        <span style="color:#7a6a5a">// Building it seriously.</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- BUGS -->
-<section class="bugs-section" id="bugs">
-  <span class="section-eyebrow">
-    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 2a2 2 0 100 4 2 2 0 000-4zM5 8a3 3 0 016 0v3H5V8z" stroke="currentColor" stroke-width="1" fill="none"/></svg>
-    Bug Reports
-  </span>
-  <h2>Found in the Wild</h2>
-  <div class="h-rule"></div>
-  <p class="section-desc">Bugs logged during UAT at ODIN and independent testing at GPI Holding.</p>
-
-  <div class="bugs-grid">
-    <div class="bug-card">
-      <div class="bug-meta">
-        <span class="bug-id">ODIN-995</span>
-        <div><span class="badge badge-critical">Critical</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <h4>Time Picker Crash on Chat Screen</h4>
-      <p class="bug-sub">Functional · Android 14 / Realme 10</p>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-meta">
-        <span class="bug-id">ODIN-974</span>
-        <div><span class="badge badge-high">High</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <h4>Phone Country Code Auto-Changes on Back Navigation</h4>
-      <p class="bug-sub">Functional · Android 14 / Realme 10</p>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-meta">
-        <span class="bug-id">ODIN-1013</span>
-        <div><span class="badge badge-high">High</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <h4>System Back Button Breaks Trip Flow</h4>
-      <p class="bug-sub">Navigation · Android 14 / Realme 10</p>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-meta">
-        <span class="bug-id">ODIN-1009</span>
-        <div><span class="badge badge-medium">Medium</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <h4>Order Edit Shows Cached Data — Updates Multiple Times</h4>
-      <p class="bug-sub">Functional · Android 14 / Realme 10</p>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-meta">
-        <span class="bug-id">GPI-ANN-11</span>
-        <div><span class="badge badge-high">High</span><span class="badge badge-security">Security</span></div>
-      </div>
-      <h4>Afghan Citizenship + Georgian ID Accepted Without Validation</h4>
-      <p class="bug-sub">Security · Production · Chrome</p>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-meta">
-        <span class="bug-id">GPI-ANN-12</span>
-        <div><span class="badge badge-high">High</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <h4>Calendar Allows 366-Day Insurance Period Without Validation</h4>
-      <p class="bug-sub">Functional · BVA · Production · Chrome</p>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-meta">
-        <span class="bug-id">GPI-ANN-13</span>
-        <div><span class="badge badge-high">High</span><span class="badge badge-security">Security</span></div>
-      </div>
-      <h4>Autofill Returns Stranger's Personal Data</h4>
-      <p class="bug-sub">Security · Production · Chrome</p>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-meta">
-        <span class="bug-id">ODIN-1052</span>
-        <div><span class="badge badge-medium">Medium</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <h4>Phone Number Input Focus Jumps to City Field on First Tap</h4>
-      <p class="bug-sub">UX/Focus · Android 14 / Realme 10</p>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-meta">
-        <span class="bug-id">ODIN-1079</span>
-        <div><span class="badge badge-medium">Medium</span><span class="badge badge-done">Done</span></div>
-      </div>
-      <h4>Offers Tab Displays Incorrect Date Range (17–17 Instead of 17–18)</h4>
-      <p class="bug-sub">Backend · Android 14 / Realme 10</p>
-    </div>
-  </div>
-</section>
-
-<!-- TEST CASES -->
-<section class="tc-section" id="testcases">
-  <div class="tc-header">
-    <div>
-      <span class="section-eyebrow">
-        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 4h10M3 8h7M3 12h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
-        Test Cases
-      </span>
-      <div style="display:flex; align-items:baseline; gap:0.8rem; margin-top:0.3rem;">
-        <div class="tc-count">57</div>
-        <span style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--ink); line-height:1;">Test Cases</span>
-      </div>
-      <p class="section-desc" style="margin-top:0.8rem; margin-bottom:0;">Covering Registration, Login, Order Flow, Chat, Wallet, Calendar validation and more.</p>
-    </div>
-  </div>
-
-  <div class="tc-tabs">
-    <button class="tc-tab active" onclick="switchTab('odin', event)">ODIN — 37 TCs</button>
-    <button class="tc-tab" onclick="switchTab('gpi', event)">GPI — 20 TCs</button>
-  </div>
-
-  <div id="tab-odin" class="tc-panel active">
-    <table class="tc-table">
-      <thead>
-        <tr>
-          <th>TC ID</th>
-          <th>Title</th>
-          <th>Type</th>
-          <th>Priority</th>
-          <th>Feature</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td class="tc-id">TC-ODIN-01</td><td>OTP Verification Attempted After 15-Minute Expiry</td><td>Edge Case</td><td>High</td><td>Register</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-02</td><td>Same Account Login on Two Devices Simultaneously</td><td>Edge Case</td><td>High</td><td>Login</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-03</td><td>Multiple Failed Login Attempts — Account Block</td><td>Negative</td><td>High</td><td>Login</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-04</td><td>Full Order Creation Flow — Standard</td><td>Positive</td><td>High</td><td>Order</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-05</td><td>City Selected Without Choosing Country First</td><td>Negative</td><td>Medium</td><td>Order</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-06</td><td>Arrival Date Set Before Departure Date</td><td>Negative</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-07</td><td>App Closed Before Trip Save — Data Not Persisted</td><td>Edge Case</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-08</td><td>Pending → Active → Completed Full Order Cycle</td><td>Positive</td><td>High</td><td>Order Flow</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-09</td><td>Two Travelers Place Bid on Same Trip Simultaneously</td><td>Edge Case</td><td>High</td><td>Order Flow</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-10</td><td>KYC Verification with Another Person's Document</td><td>Negative</td><td>Critical</td><td>Ident mat</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-11</td><td>Promo Code Assigned to User A, Used by User B</td><td>Negative</td><td>High</td><td>PROMO</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-12</td><td>Payment Network Error During Transaction</td><td>Negative</td><td>High</td><td>Payment</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-13</td><td>Trip Creation — 1 Pickup + 1 Delivery City</td><td>Positive</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-14</td><td>Wallet Top-Up — Minimum Amount Boundary</td><td>BVA</td><td>High</td><td>Wallet</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-15</td><td>Profile Photo Upload — Oversized File</td><td>Negative</td><td>Medium</td><td>Profile</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-16</td><td>Push Notification Received After Order Status Change</td><td>Positive</td><td>High</td><td>Notifications</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-17</td><td>Order Search by Partial Tracking Number</td><td>Positive</td><td>Medium</td><td>Search</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-18</td><td>Chat Attachment — Unsupported File Format</td><td>Negative</td><td>Medium</td><td>Chat</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-19</td><td>Calendar — Trip Date in the Past</td><td>Negative</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-20</td><td>Order Cancellation After Sender Confirmation</td><td>Negative</td><td>High</td><td>Order Flow</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-21</td><td>Language Switch Mid-Session</td><td>Positive</td><td>Medium</td><td>Localization</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-22</td><td>Deep Link Opens Correct Order Detail Screen</td><td>Positive</td><td>Medium</td><td>Navigation</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-23</td><td>Biometric Login After Password Reset</td><td>Edge Case</td><td>High</td><td>Auth</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-24</td><td>Order History — Filter by Status</td><td>Positive</td><td>Medium</td><td>History</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-25</td><td>Network Lost During Order Submission</td><td>Edge Case</td><td>High</td><td>Order</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-26</td><td>Dark Mode Toggle — Full UI Check</td><td>UI</td><td>Medium</td><td>Accessibility</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-27</td><td>Multiple Cities Added to Single Trip</td><td>Positive</td><td>High</td><td>Trip</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-28</td><td>Sender Marks Package as Delivered — Receiver Not Confirmed</td><td>Edge Case</td><td>High</td><td>Order Flow</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-29</td><td>Phone Number Input Focus Jumps to City Field</td><td>UX</td><td>Medium</td><td>Registration</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-ODIN-30</td><td>Forgot Password — Weak Regex Accepted</td><td>Security</td><td>High</td><td>Auth</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-ODIN-31</td><td>Dark Mode — Social Icons Invisible in Email OTP</td><td>UI</td><td>Medium</td><td>Auth</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-ODIN-32</td><td>Offers Tab — Incorrect Date Range Display</td><td>Negative</td><td>Medium</td><td>Offers</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-ODIN-33</td><td>Order Name Overflow in Order History Card</td><td>UI</td><td>Medium</td><td>History</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-ODIN-34</td><td>Change Password — No Toast Notification</td><td>UI</td><td>Medium</td><td>Profile</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-ODIN-35</td><td>Profile Menu — Truncated Text on Long Name</td><td>UI</td><td>Low</td><td>Profile</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-ODIN-36</td><td>App Launch — Infinite Loading on Realme 10</td><td>Edge Case</td><td>High</td><td>Launch</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-ODIN-37</td><td>Flight Notification Timing — Short Route Hypothesis</td><td>Exploratory</td><td>High</td><td>Notifications</td><td class="tc-pass">✓ Pass</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div id="tab-gpi" class="tc-panel">
-    <table class="tc-table">
-      <thead>
-        <tr>
-          <th>TC ID</th>
-          <th>Title</th>
-          <th>Type</th>
-          <th>Priority</th>
-          <th>Feature</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td class="tc-id">TC-GPI-03</td><td>Valid Insurance Quote Submission</td><td>Positive</td><td>High</td><td>Quote</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-GPI-08</td><td>Invalid ID Document Combination</td><td>Security</td><td>High</td><td>Docs</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-GPI-09</td><td>Autofill Populates from Previous Session</td><td>Security</td><td>High</td><td>Forms</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-GPI-10</td><td>Calendar Allows 366-Day Insurance Period (BVA)</td><td>BVA</td><td>High</td><td>Calendar</td><td class="tc-fail">✗ Fail</td></tr>
-        <tr><td class="tc-id">TC-GPI-13</td><td>Policy Download After Purchase</td><td>Positive</td><td>Medium</td><td>Documents</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-GPI-16</td><td>Session Timeout During Application</td><td>Edge Case</td><td>High</td><td>Session</td><td class="tc-pass">✓ Pass</td></tr>
-        <tr><td class="tc-id">TC-GPI-20</td><td>Mobile Responsive Form Validation</td><td>UI</td><td>Medium</td><td>Responsive</td><td class="tc-pass">✓ Pass</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- POSTMAN DIARY -->
-<section class="postman-section" id="postman">
-  <span class="section-eyebrow">
-    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 8a6 6 0 1112 0A6 6 0 012 8z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
-    API Testing
-  </span>
-  <h2>Postman Diary</h2>
-  <div class="h-rule"></div>
-  <p class="section-desc">Structured API testing using the Grocery Store API.</p>
-
-  <div class="postman-layout">
-    <div class="bug-spotlight">
-      <div class="bug-spotlight-header">
-        🐛 Notable Bug Found
-      </div>
-      <div class="code-block">
-        <span style="background:rgba(200,88,26,0.2); padding:0.1rem 0.5rem; border-radius:3px; font-size:0.75rem;">GET /products?limit=3</span>
-        <span style="color:rgba(240,200,122,0.55); margin-left:0.8rem;">returns 20 products instead of 3</span>
-      </div>
-      <div class="code-block" style="border-bottom:none;">
-        <span class="code-comment">// Verification in Postman Console:</span><br>
-        <span class="code-keyword">console</span>.log(pm.response.json().<span class="code-keyword">length</span>);<br>
-        <span class="code-comment">// → 20  (expected: 3)</span><br>
-        <span class="code-comment">// limit param not implemented</span><br><br>
-        pm.<span class="code-keyword">test</span>(<span class="code-string">"Status code is 200"</span>, () =&gt; {<br>
-        &nbsp;&nbsp;pm.response.to.have.status(<span class="jv">200</span>);<br>
-        });<br><br>
-        pm.<span class="code-keyword">test</span>(<span class="code-string">"Response has products"</span>, () =&gt; {<br>
-        &nbsp;&nbsp;<span class="code-keyword">const</span> json = pm.response.json();<br>
-        &nbsp;&nbsp;pm.expect(json).to.be.an(<span class="code-string">'array'</span>);<br>
-        &nbsp;&nbsp;pm.expect(json.length).to.be.greaterThan(<span class="jv">0</span>);<br>
-        });<br>
-        <span class="code-pass">// ✓ PASSED · ✓ PASSED</span>
-      </div>
-      <div class="bug-spotlight-footer">
-        Verified via Postman Console. Demonstrates parameter validation testing and backend defect identification.
-      </div>
-    </div>
-
-    <div>
-      <p style="color:rgba(247,243,238,0.6); font-size:0.85rem; margin-bottom:1.5rem; line-height:1.6;">
-        Day-by-day structured learning diary. Started March 8, 2026.
+  <!-- ══════════════════════════════════════
+       THE BRIDGE — NOTION
+  ══════════════════════════════════════ -->
+  <div class="bridge-wrap">
+    <div id="bridge">
+      <div class="bridge-eyebrow">✦ THE BRIDGE · NOTION PORTFOLIO</div>
+      <h2 class="bridge-heading">Read my <em>thinking process.</em></h2>
+      <p class="bridge-desc">
+        GitHub shows <em>what</em> I tested. Notion shows <em>how</em> I think.
+        My Observation Hub documents the logic behind test plans, visual bug reports
+        with annotated screenshots, and the bilingual mindset that shapes how I
+        translate user behavior into system-level insight.
       </p>
-      <div class="topics-list">
-        <div class="topic-item">
-          <span class="topic-name">Collections &amp; Environments</span>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:100%"></div></div>
+
+      <div class="bridge-grid">
+        <div class="bridge-card">
+          <div class="bridge-card-icon">🧠</div>
+          <div class="bridge-card-title">The Bilingual Mindset</div>
+          <div class="bridge-card-sub">User says X → System does Y. 8 years of support mapped into QA pattern recognition.</div>
         </div>
-        <div class="topic-item">
-          <span class="topic-name">Status Code Testing</span>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:100%"></div></div>
+        <div class="bridge-card">
+          <div class="bridge-card-icon">📋</div>
+          <div class="bridge-card-title">Test Plan Logic</div>
+          <div class="bridge-card-sub">The reasoning behind test design decisions — what I tested, why, and what I prioritized.</div>
         </div>
-        <div class="topic-item">
-          <span class="topic-name">pm.test Assertions</span>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:88%"></div></div>
+        <div class="bridge-card">
+          <div class="bridge-card-icon">🐛</div>
+          <div class="bridge-card-title">Visual Bug Reports</div>
+          <div class="bridge-card-sub">Annotated screenshots and GIFs showing exactly where expected meets actual behavior.</div>
         </div>
-        <div class="topic-item">
-          <span class="topic-name">Query vs Path Params</span>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:100%"></div></div>
-        </div>
-        <div class="topic-item">
-          <span class="topic-name">POST/GET Flows</span>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:100%"></div></div>
-        </div>
-        <div class="topic-item">
-          <span class="topic-name">JavaScript in Postman</span>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:90%"></div></div>
-        </div>
-        <div class="topic-item">
-          <span class="topic-name">JSON Assertions (in progress)</span>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:45%"></div></div>
+        <div class="bridge-card">
+          <div class="bridge-card-icon">🔗</div>
+          <div class="bridge-card-title">Deep Dives</div>
+          <div class="bridge-card-sub">Project documentation linked to corresponding GitHub automation repos.</div>
         </div>
       </div>
+
+      <a class="btn-notion" href="https://dani369.short.gy/Portfolio" target="_blank" rel="noopener noreferrer">
+        ◈ &nbsp;Read my thinking process on Notion
+      </a>
     </div>
   </div>
-</section>
 
-<!-- TECH STACK -->
-<section class="stack-section" id="stack">
-  <span class="section-eyebrow">
-    <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-    Skills &amp; Tools
-  </span>
-  <h2>Tech Stack</h2>
-  <div class="h-rule"></div>
-  <p class="section-desc">Tools and methodologies used across projects.</p>
-
-  <div class="stack-grid">
-    <div class="stack-card">
-      <span class="stack-icon">🧪</span>
-      <h4>Testing Types</h4>
-      <div class="stack-chips">
-        <span class="chip">Manual</span>
-        <span class="chip">Functional</span>
-        <span class="chip">Regression</span>
-        <span class="chip">Exploratory</span>
-        <span class="chip">Smoke</span>
-        <span class="chip">Mobile</span>
-        <span class="chip">Localization</span>
-        <span class="chip">UX</span>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Projects</div>
+    <h2 class="sh">Testing Experience</h2>
+    <p class="lead">Real-world testing across mobile, web, and API domains.</p>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-emoji">📦</div>
+        <div class="project-title">ODIN — P2P Parcel Delivery</div>
+        <p class="project-desc">UAT internship (Feb 2026 – present). React Native iOS/Android. 328 test scenarios across 13 modules. Notable: flight notification timing hypothesis discovered through real flight data analysis.</p>
+        <div class="tags"><span class="tag">React Native</span><span class="tag">Mobile</span><span class="tag">UAT</span><span class="tag">Android</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-emoji">🛡️</div>
+        <div class="project-title">GPI Holding — Insurance Platform</div>
+        <p class="project-desc">Independent exploratory testing. Found 4 bugs including 2 security-level issues: autofill returns stranger's personal data, invalid citizenship/document combination accepted.</p>
+        <div class="tags"><span class="tag">Web</span><span class="tag">Security</span><span class="tag">Exploratory</span><span class="tag">Chrome</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-emoji">❤️</div>
+        <div class="project-title">autism.ge — Charity Project</div>
+        <p class="project-desc">Pro bono UAT for NGO website. Risk-based approach on donation flow and payment processing. Found 6 issues including backend redirect error post-payment.</p>
+        <div class="tags"><span class="tag">Pro Bono</span><span class="tag">UAT</span><span class="tag">WordPress</span><span class="tag">Payments</span></div>
       </div>
     </div>
+  </section>
 
-    <div class="stack-card">
-      <span class="stack-icon">📐</span>
-      <h4>Test Design</h4>
-      <div class="stack-chips">
-        <span class="chip">EP</span>
-        <span class="chip">BVA</span>
-        <span class="chip">Decision Tables</span>
-        <span class="chip">State Transition</span>
-        <span class="chip">I SLICED UP FUN</span>
+  <!-- BUGS -->
+  <section id="bugs">
+    <div class="section-label">Bug Reports</div>
+    <h2 class="sh">Found in the Wild</h2>
+    <p class="lead">Bugs logged during UAT at ODIN and independent testing at GPI Holding.</p>
+    <div style="overflow-x:auto;">
+      <table class="bug-table">
+        <thead><tr><th>ID</th><th>Title</th><th>Severity</th><th>Status</th><th>Platform</th></tr></thead>
+        <tbody>
+          <tr><td class="bug-id">ODIN-995</td><td class="bug-desc">Time Picker Crash on Chat Screen</td><td><span class="badge badge-crit">Critical</span></td><td><span class="badge badge-done">Done</span></td><td class="bug-meta">Android 14 / Realme 10</td></tr>
+          <tr><td class="bug-id">ODIN-974</td><td class="bug-desc">Phone Country Code Auto-Changes on Back Navigation</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-done">Done</span></td><td class="bug-meta">Android 14 / Realme 10</td></tr>
+          <tr><td class="bug-id">ODIN-1013</td><td class="bug-desc">System Back Button Breaks Trip Flow</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-done">Done</span></td><td class="bug-meta">Android 14 / Realme 10</td></tr>
+          <tr><td class="bug-id">ODIN-1009</td><td class="bug-desc">Order Edit Shows Cached Data — Updates Multiple Times</td><td><span class="badge badge-med">Medium</span></td><td><span class="badge badge-done">Done</span></td><td class="bug-meta">Android 14 / Realme 10</td></tr>
+          <tr><td class="bug-id">GPI-ANN-11</td><td class="bug-desc">Afghan Citizenship + Georgian ID Accepted Without Validation</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-sec">Security</span></td><td class="bug-meta">Production · Chrome</td></tr>
+          <tr><td class="bug-id">GPI-ANN-12</td><td class="bug-desc">Calendar Allows 366-Day Insurance Period Without Validation</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-done">Done</span></td><td class="bug-meta">BVA · Production</td></tr>
+          <tr><td class="bug-id">GPI-ANN-13</td><td class="bug-desc">Autofill Returns Stranger's Personal Data</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-sec">Security</span></td><td class="bug-meta">Production · Chrome</td></tr>
+          <tr><td class="bug-id">ODIN-1052</td><td class="bug-desc">Phone Number Input Focus Jumps to City Field on First Tap</td><td><span class="badge badge-med">Medium</span></td><td><span class="badge badge-done">Done</span></td><td class="bug-meta">UX/Focus · Android 14</td></tr>
+          <tr><td class="bug-id">ODIN-1079</td><td class="bug-desc">Offers Tab Displays Incorrect Date Range (17–17 Instead of 17–18)</td><td><span class="badge badge-med">Medium</span></td><td><span class="badge badge-done">Done</span></td><td class="bug-meta">Backend · Android 14</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TEST CASES -->
+  <section id="testcases">
+    <div class="section-label">Test Cases</div>
+    <h2 class="sh">Test Case Library</h2>
+    <div class="tc-summary">
+      <div><div class="tc-stat-n">57</div><div class="tc-stat-label">Total Test Cases</div></div>
+      <div><div class="tc-stat-n">37</div><div class="tc-stat-label">ODIN TCs</div></div>
+      <div><div class="tc-stat-n">20</div><div class="tc-stat-label">GPI TCs</div></div>
+    </div>
+    <p class="lead" style="font-size:12px;">Covering Registration, Login, Order Flow, Chat, Wallet, Calendar validation and more.</p>
+    <div style="overflow-x:auto;">
+      <table class="tc-table">
+        <thead><tr><th>TC ID</th><th>Title</th><th>Type</th><th>Priority</th><th>Feature</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="tc-id">TC-ODIN-01</td><td>OTP Verification Attempted After 15-Minute Expiry</td><td>Edge Case</td><td>High</td><td>Register</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-02</td><td>Same Account Login on Two Devices Simultaneously</td><td>Edge Case</td><td>High</td><td>Login</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-03</td><td>Multiple Failed Login Attempts — Account Block</td><td>Negative</td><td>High</td><td>Login</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-04</td><td>Full Order Creation Flow — Standard</td><td>Positive</td><td>High</td><td>Order</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-05</td><td>City Selected Without Choosing Country First</td><td>Negative</td><td>Medium</td><td>Order</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-06</td><td>Arrival Date Set Before Departure Date</td><td>Negative</td><td>High</td><td>Trip</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-07</td><td>App Closed Before Trip Save — Data Not Persisted</td><td>Edge Case</td><td>High</td><td>Trip</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-08</td><td>Pending → Active → Completed Full Order Cycle</td><td>Positive</td><td>High</td><td>Order Flow</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-09</td><td>Two Travelers Place Bid on Same Trip Simultaneously</td><td>Edge Case</td><td>High</td><td>Order Flow</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-10</td><td>KYC Verification with Another Person's Document</td><td>Negative</td><td>Critical</td><td>Identification</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-11</td><td>Promo Code Assigned to User A, Used by User B</td><td>Negative</td><td>High</td><td>PROMO</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-12</td><td>Payment Network Error During Transaction</td><td>Negative</td><td>High</td><td>Payment</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-13</td><td>Trip Creation — 1 Pickup + 1 Delivery City</td><td>Positive</td><td>High</td><td>Trip</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-14</td><td>Wallet Top-Up — Minimum Amount Boundary</td><td>BVA</td><td>High</td><td>Wallet</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-15</td><td>Profile Photo Upload — Oversized File</td><td>Negative</td><td>Medium</td><td>Profile</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-16</td><td>Push Notification Received After Order Status Change</td><td>Positive</td><td>High</td><td>Notifications</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-17</td><td>Order Search by Partial Tracking Number</td><td>Positive</td><td>Medium</td><td>Search</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-18</td><td>Chat Attachment — Unsupported File Format</td><td>Negative</td><td>Medium</td><td>Chat</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-19</td><td>Calendar — Trip Date in the Past</td><td>Negative</td><td>High</td><td>Trip</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-20</td><td>Order Cancellation After Sender Confirmation</td><td>Negative</td><td>High</td><td>Order Flow</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-21</td><td>Language Switch Mid-Session</td><td>Positive</td><td>Medium</td><td>Localization</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-22</td><td>Deep Link Opens Correct Order Detail Screen</td><td>Positive</td><td>Medium</td><td>Navigation</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-23</td><td>Biometric Login After Password Reset</td><td>Edge Case</td><td>High</td><td>Auth</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-24</td><td>Order History — Filter by Status</td><td>Positive</td><td>Medium</td><td>History</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-25</td><td>Network Lost During Order Submission</td><td>Edge Case</td><td>High</td><td>Order</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-26</td><td>Dark Mode Toggle — Full UI Check</td><td>UI</td><td>Medium</td><td>Accessibility</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-27</td><td>Multiple Cities Added to Single Trip</td><td>Positive</td><td>High</td><td>Trip</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-28</td><td>Sender Marks Package as Delivered — Receiver Not Confirmed</td><td>Edge Case</td><td>High</td><td>Order Flow</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-29</td><td>Phone Number Input Focus Jumps to City Field</td><td>UX</td><td>Medium</td><td>Registration</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-ODIN-30</td><td>Forgot Password — Weak Regex Accepted</td><td>Security</td><td>High</td><td>Auth</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-ODIN-31</td><td>Dark Mode — Social Icons Invisible in Email OTP</td><td>UI</td><td>Medium</td><td>Auth</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-ODIN-32</td><td>Offers Tab — Incorrect Date Range Display</td><td>Negative</td><td>Medium</td><td>Offers</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-ODIN-33</td><td>Order Name Overflow in Order History Card</td><td>UI</td><td>Medium</td><td>History</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-ODIN-34</td><td>Change Password — No Toast Notification</td><td>UI</td><td>Medium</td><td>Profile</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-ODIN-35</td><td>Profile Menu — Truncated Text on Long Name</td><td>UI</td><td>Low</td><td>Profile</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-ODIN-36</td><td>App Launch — Infinite Loading on Realme 10</td><td>Edge Case</td><td>High</td><td>Launch</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-ODIN-37</td><td>Flight Notification Timing — Short Route Hypothesis</td><td>Exploratory</td><td>High</td><td>Notifications</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-GPI-03</td><td>Valid Insurance Quote Submission</td><td>Positive</td><td>High</td><td>Quote</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-GPI-08</td><td>Invalid ID Document Combination</td><td>Security</td><td>High</td><td>Docs</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-GPI-09</td><td>Autofill Populates from Previous Session</td><td>Security</td><td>High</td><td>Forms</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-GPI-10</td><td>Calendar Allows 366-Day Insurance Period (BVA)</td><td>BVA</td><td>High</td><td>Calendar</td><td class="fail">✗ Fail</td></tr>
+          <tr><td class="tc-id">TC-GPI-13</td><td>Policy Download After Purchase</td><td>Positive</td><td>Medium</td><td>Documents</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-GPI-16</td><td>Session Timeout During Application</td><td>Edge Case</td><td>High</td><td>Session</td><td class="pass">✓ Pass</td></tr>
+          <tr><td class="tc-id">TC-GPI-20</td><td>Mobile Responsive Form Validation</td><td>UI</td><td>Medium</td><td>Responsive</td><td class="pass">✓ Pass</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- POSTMAN -->
+  <section id="postman">
+    <div class="section-label">API Testing</div>
+    <h2 class="sh">Postman Diary</h2>
+    <p class="lead">Structured API testing using the Grocery Store API.</p>
+    <div class="postman-grid">
+      <div>
+        <div class="postman-bug">
+          <div class="postman-bug-label">🐛 Notable Bug Found</div>
+          <div class="postman-bug-title">GET /products?limit=3 returns 20 products instead of 3</div>
+          <div class="code-block" style="font-size:11px;">
+            <span class="comment">// Verification in Postman Console:</span><br/>
+            console.log(pm.response.json().length);<br/>
+            <span class="comment">// → 20 (expected: 3)</span><br/>
+            <span class="comment">// limit param not implemented</span><br/><br/>
+            pm.test(<span class="str">"Status code is 200"</span>, () => {<br/>
+            &nbsp;&nbsp;pm.response.to.have.status(200);<br/>
+            });<br/><br/>
+            pm.test(<span class="str">"Response has products"</span>, () => {<br/>
+            &nbsp;&nbsp;<span class="key">const</span> json = pm.response.json();<br/>
+            &nbsp;&nbsp;pm.expect(json).to.be.an(<span class="str">'array'</span>);<br/>
+            &nbsp;&nbsp;pm.expect(json.length).to.be.greaterThan(0);<br/>
+            });<br/>
+            <span class="comment">// ✓ PASSED · ✓ PASSED</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:1rem;">Day-by-day structured learning diary. Started March 8, 2026.</p>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:1rem;">Collections &amp; Environments</p>
+        <ul class="checklist">
+          <li>Status Code Testing</li>
+          <li>pm.test Assertions</li>
+          <li>Query vs Path Params</li>
+          <li>POST/GET Flows</li>
+          <li>JavaScript in Postman</li>
+          <li>JSON Assertions (in progress)</li>
+        </ul>
       </div>
     </div>
+  </section>
 
-    <div class="stack-card">
-      <span class="stack-icon">🗂️</span>
-      <h4>Test Management</h4>
-      <div class="stack-chips">
-        <span class="chip">Jira</span>
-        <span class="chip">Testiny</span>
-        <span class="chip">TestCaseLab</span>
-        <span class="chip">Qase.io</span>
-      </div>
+  <!-- STACK -->
+  <section id="stack">
+    <div class="section-label">Skills &amp; Tools</div>
+    <h2 class="sh">Tech Stack</h2>
+    <p class="lead">Tools and methodologies used across projects.</p>
+    <div class="stack-grid">
+      <div class="stack-card"><div class="stack-icon">🧪</div><div class="stack-title">Testing Types</div><ul class="stack-items"><li>Manual</li><li>Functional</li><li>Regression</li><li>Exploratory</li><li>Smoke</li><li>Mobile</li><li>Localization</li><li>UX</li></ul></div>
+      <div class="stack-card"><div class="stack-icon">📐</div><div class="stack-title">Test Design</div><ul class="stack-items"><li>EP</li><li>BVA</li><li>Decision Tables</li><li>State Transition</li><li>I SLICED UP FUN</li></ul></div>
+      <div class="stack-card"><div class="stack-icon">🗂️</div><div class="stack-title">Test Management</div><ul class="stack-items"><li>Jira</li><li>Testiny</li><li>TestCaseLab</li><li>Qase.io</li></ul></div>
+      <div class="stack-card"><div class="stack-icon">🔌</div><div class="stack-title">API Testing</div><ul class="stack-items"><li>Postman</li><li>REST API</li><li>Swagger</li><li>pm.test</li></ul></div>
+      <div class="stack-card"><div class="stack-icon">🤖</div><div class="stack-title">Automation (in progress)</div><ul class="stack-items"><li>Java</li><li>Selenium</li><li>TestNG</li><li>Maven</li><li>Git</li></ul></div>
+      <div class="stack-card"><div class="stack-icon">🔍</div><div class="stack-title">Other Tools</div><ul class="stack-items"><li>DevTools</li><li>Figma</li><li>Linear</li><li>Jam.dev</li><li>SQL basics</li></ul></div>
     </div>
+  </section>
 
-    <div class="stack-card">
-      <span class="stack-icon">🔌</span>
-      <h4>API Testing</h4>
-      <div class="stack-chips">
-        <span class="chip chip-accent">Postman</span>
-        <span class="chip chip-accent">REST API</span>
-        <span class="chip">Swagger</span>
-        <span class="chip chip-accent">pm.test</span>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <span class="stack-icon">🤖</span>
-      <h4>Automation (in progress)</h4>
-      <div class="stack-chips">
-        <span class="chip chip-accent">Java</span>
-        <span class="chip chip-accent">Selenium</span>
-        <span class="chip">TestNG</span>
-        <span class="chip">Maven</span>
-        <span class="chip chip-accent">Git</span>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <span class="stack-icon">🔍</span>
-      <h4>Other Tools</h4>
-      <div class="stack-chips">
-        <span class="chip">DevTools</span>
-        <span class="chip">Figma</span>
-        <span class="chip">Linear</span>
-        <span class="chip">Jam.dev</span>
-        <span class="chip">SQL basics</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div>
+  <!-- FOOTER -->
+  <footer>
     <div class="footer-name">Ana Danelia</div>
-    <div class="footer-role">Manual QA · API Testing · Automation in progress</div>
-  </div>
-  <div class="footer-links">
-    <a href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
-    <a href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
-    <a href="Ana_Danelia_QA_Engineer.pdf" download>⬇ CV</a>
-  </div>
-</footer>
-
-<script>
-function switchTab(tab, event) {
-  document.querySelectorAll('.tc-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tc-panel').forEach(p => p.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById('tab-' + tab).classList.add('active');
-}
-</script>
+    <div class="footer-sub">Manual QA · API Testing · Automation in progress</div>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
+      <a href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
+      <a href="https://dani369.short.gy/Portfolio" target="_blank">◈ Notion</a>
+      <a href="Ana_Danelia_CV_2026.pdf">⬇ CV</a>
+    </div>
+  </footer>
 
 </body>
 </html>
