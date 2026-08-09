@@ -168,6 +168,14 @@
     .btn-notion:hover { background: #5a3ba0; box-shadow: 0 6px 24px rgba(107,72,181,.35); transform: translateY(-1px); }
 
     /* ── ABOUT ── */
+    /* ── PHOTO ── */
+    .about-photo-wrap { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+    .about-photo-bubble { position: relative; flex-shrink: 0; }
+    .about-photo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--orange-pale); display: block; }
+    .thought-bubble { position: absolute; top: -14px; left: 120px; background: white; border: 1.5px solid var(--orange-pale); border-radius: 16px; padding: .4rem .85rem; font-size: 11px; font-weight: 600; color: var(--muted); white-space: nowrap; box-shadow: 0 2px 8px rgba(212,98,42,.08); }
+    .thought-bubble::before { content: ''; position: absolute; left: -8px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-right: 8px solid var(--orange-pale); }
+    .thought-bubble::after { content: ''; position: absolute; left: -6px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-right: 7px solid white; }
+
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
     .about-prose p { color: var(--muted); line-height: 1.9; margin-bottom: 1rem; font-size: 13px; }
@@ -319,6 +327,12 @@
   <section id="about">
     <div class="section-label">About</div>
     <h2 class="sh">Pattern recognition is the skill.</h2>
+    <div class="about-photo-wrap">
+      <div class="about-photo-bubble">
+        <img src="ana.jpg" alt="Ana Danelia" class="about-photo" />
+        <div class="thought-bubble">💭 observing...</div>
+      </div>
+    </div>
     <div class="about-grid">
       <div class="about-prose">
         <p>In software systems, an API is an interface — a way to communicate with a system and understand how it behaves. In my testing work, observation becomes that interface.</p>
