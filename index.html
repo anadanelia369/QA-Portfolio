@@ -1,468 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="description" content="Ana Danelia — QA Engineer. Manual testing, API testing, Java/Selenium automation. Portfolio of bug reports, test cases, and projects."/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ana Danelia — QA Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg:        #0d0a14;
-      --bg2:       #13101e;
-      --bg3:       #1a1628;
-      --purple:    #6b48b5;
-      --purple-l:  #9b7ed4;
-      --purple-xl: #c4a8f0;
-      --gold:      #FFD700;
-      --gold-s:    #c8a800;
-      --white:     #f0eeff;
-      --muted:     #7a6e9a;
-      --dim:       #4a4268;
-      --red:       #e05555;
-      --orange:    #e07a30;
-      --green:     #4caf7d;
-      --blue:      #4a90d9;
-    }
+<meta charset="UTF-8"/>
+<meta name="description" content="Ana Danelia — QA Engineer. Manual testing, API testing, Java/Selenium automation. Portfolio of bug reports, test cases, and projects."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ana Danelia — QA Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0d0a14;
+  --bg2: #13101e;
+  --bg3: #1a1628;
+  --purple: #6b48b5;
+  --purple-l: #9b7ed4;
+  --purple-xl: #c4a8f0;
+  --gold: #FFD700;
+  --gold-s: #c8a800;
+  --white: #f0eeff;
+  --muted: #7a6e9a;
+  --dim: #4a4268;
+  --red: #e05555;
+  --orange: #e07a30;
+  --green: #4caf7d;
+  --blue: #4a90d9;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+}
 
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
+/* ── AMBIENT GLOW ──
+   FIX: position changed from `fixed` to `absolute`.
+   `fixed` anchors an element to the VIEWPORT — its top/bottom offsets
+   are measured against the visible screen only, so anything placed
+   beyond 100vh (e.g. top: 220vh) sits permanently off-screen and can
+   never be scrolled into view. `absolute` anchors the element to the
+   nearest positioned ancestor — here, since no wrapping element sets
+   its own position, that resolves to the full document (via <body>,
+   which is now explicitly `position: relative` above to make this
+   the containing block). This lets each orb sit at a fixed point in
+   the PAGE rather than the SCREEN, so scrolling reveals them in turn
+   instead of leaving the lower ones stranded outside the viewport. */
+.glow-orb {
+  animation: float 8s ease-in-out infinite alternate;
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+}
+@keyframes float { from { transform: scale(1); } to { transform: scale(1.15); } }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--white);
-      font-size: 14px;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+.glow-orb-1 {
+  width: 900px; height: 900px;
+  top: -200px; right: -200px;
+  background: radial-gradient(circle, rgba(107,72,181,0.22) 0%, transparent 65%);
+}
+.glow-orb-2 {
+  width: 800px; height: 800px;
+  top: 60vh; left: -150px;
+  background: radial-gradient(circle, rgba(107,72,181,0.18) 0%, transparent 65%);
+}
+.glow-orb-3 {
+  width: 600px; height: 600px;
+  top: 130vh; left: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.07) 0%, transparent 65%);
+}
+.glow-orb-4 {
+  width: 700px; height: 700px;
+  top: 220vh; right: -200px;
+  background: radial-gradient(circle, rgba(107,72,181,0.14) 0%, transparent 65%);
+  animation-delay: 2s;
+}
+.glow-orb-5 {
+  width: 600px; height: 600px;
+  top: 310vh; left: -100px;
+  background: radial-gradient(circle, rgba(255,215,0,0.06) 0%, transparent 65%);
+  animation-delay: 4s;
+}
+.glow-orb-6 {
+  width: 750px; height: 750px;
+  top: 400vh; right: -150px;
+  background: radial-gradient(circle, rgba(107,72,181,0.15) 0%, transparent 65%);
+  animation-delay: 1s;
+}
 
-    /* ── AMBIENT GLOW ── */
-    .glow-orb {
-      animation: float 8s ease-in-out infinite alternate;
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-      filter: blur(80px);
-    }
-    @keyframes float { from { transform: scale(1); } to { transform: scale(1.15); } }
-    .glow-orb-1 {
-      width: 900px; height: 900px;
-      top: -200px; right: -200px;
-      background: radial-gradient(circle, rgba(107,72,181,0.22) 0%, transparent 65%);
-    }
-    .glow-orb-2 {
-      width: 800px; height: 800px;
-      bottom: 20vh; left: -150px;
-      background: radial-gradient(circle, rgba(107,72,181,0.18) 0%, transparent 65%);
-    }
-    .glow-orb-4 {
-      width: 700px; height: 700px;
-      top: 120vh; right: -200px;
-      background: radial-gradient(circle, rgba(107,72,181,0.14) 0%, transparent 65%);
-      animation-delay: 2s;
-    }
-    .glow-orb-5 {
-      width: 600px; height: 600px;
-      top: 220vh; left: -100px;
-      background: radial-gradient(circle, rgba(255,215,0,0.06) 0%, transparent 65%);
-      animation-delay: 4s;
-    }
-    .glow-orb-3 {
-      width: 600px; height: 600px;
-      top: 50vh; left: 50%;
-      background: radial-gradient(circle, rgba(255,215,0,0.07) 0%, transparent 65%);
-    }
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(13,10,20,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(107,72,181,0.2);
+  padding: 0 2rem;
+  display: flex; align-items:center; justify-content:space-between;
+  height: 52px;
+}
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight:700;
+  color: var(--purple-l);
+  letter-spacing: .08em;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display:flex; gap:1.5rem; list-style:none; }
+.nav-links a {
+  color: var(--muted); text-decoration:none;
+  font-size: 11px; font-weight:500; letter-spacing:.06em;
+  text-transform: uppercase; transition: color .2s;
+}
+.nav-links a:hover { color: var(--purple-xl); }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top:0; left:0; right:0; z-index:100;
-      background: rgba(13,10,20,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(107,72,181,0.2);
-      padding: 0 2rem;
-      display: flex; align-items:center; justify-content:space-between;
-      height: 52px;
-    }
-    .nav-logo {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px; font-weight:700;
-      color: var(--purple-l);
-      letter-spacing: .08em;
-    }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display:flex; gap:1.5rem; list-style:none; }
-    .nav-links a {
-      color: var(--muted); text-decoration:none;
-      font-size: 11px; font-weight:500; letter-spacing:.06em;
-      text-transform: uppercase; transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--purple-xl); }
+/* ── SECTIONS ── */
+section { position:relative; z-index:1; padding: 5rem 2rem; max-width:960px; margin:0 auto; }
+.section-eye {
+  display: flex; align-items:center; gap:.75rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; font-weight:700; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--purple-l);
+  margin-bottom: 1.5rem;
+}
+.section-eye::before {
+  content:'';
+  display:block; width:24px; height:1px;
+  background: var(--gold);
+}
 
-    /* ── SECTIONS ── */
-    section { position:relative; z-index:1; padding: 5rem 2rem; max-width:960px; margin:0 auto; }
-    .section-eye {
-      display: flex; align-items:center; gap:.75rem;
-      font-family:'JetBrains Mono',monospace;
-      font-size:10px; font-weight:700; letter-spacing:.18em;
-      text-transform:uppercase; color:var(--purple-l);
-      margin-bottom: 1.5rem;
-    }
-    .section-eye::before {
-      content:'';
-      display:block; width:24px; height:1px;
-      background: var(--gold);
-    }
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction:column; justify-content:center;
+  padding: 80px 2rem 4rem;
+  max-width: 960px; margin:0 auto;
+  position: relative; z-index: 1;
+}
+.hero-meta {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; color:var(--muted); letter-spacing:.15em;
+  text-transform:uppercase; margin-bottom:1.5rem;
+}
+h1 {
+  font-family:'Playfair Display',serif;
+  font-size: clamp(3rem,7vw,5.5rem);
+  line-height: 1.05; font-weight:900;
+  color: var(--white); margin-bottom:.5rem;
+}
+h1 em {
+  color: var(--purple-xl);
+  font-style:italic;
+}
+.hero-api-sub {
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px; color:var(--muted);
+  letter-spacing:.06em; margin-bottom:2rem;
+}
+.hero-api-sub .hl { color:var(--purple-l); }
+.brand-image-wrap { width:100vw; margin-left:calc(-50vw + 50%); margin-bottom:2.5rem; overflow:hidden; height:600px; position:relative; }
+.brand-image { width:100%; height:100%; display:block; border-radius:0; object-fit:contain; object-position:center center; background:#0d0a14; }
+.hero-tagline {
+  font-family:'Playfair Display',serif;
+  font-size: clamp(1rem,2vw,1.2rem);
+  font-weight:400; font-style:italic;
+  color:var(--muted); margin-bottom:2.5rem;
+  max-width:500px;
+}
+.hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:4rem; }
+.btn {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.6rem 1.3rem; border-radius:4px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; font-weight:700; letter-spacing:.08em;
+  text-decoration:none; text-transform:uppercase;
+  transition: all .2s; cursor:pointer; border:none;
+}
+.btn-primary { background:var(--purple); color:#fff; }
+.btn-primary:hover { background:var(--purple-l); transform:translateY(-1px); box-shadow:0 4px 16px rgba(107,72,181,.4); }
+.btn-outline { background:transparent; color:var(--purple-l); border:1px solid rgba(107,72,181,.4); }
+.btn-outline:hover { border-color:var(--purple-l); transform:translateY(-1px); }
 
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; flex-direction:column; justify-content:center;
-      padding: 80px 2rem 4rem;
-      max-width: 960px; margin:0 auto;
-    }
-    .hero-meta {
-      font-family:'JetBrains Mono',monospace;
-      font-size:10px; color:var(--muted); letter-spacing:.15em;
-      text-transform:uppercase; margin-bottom:1.5rem;
-    }
-    h1 {
-      font-family:'Playfair Display',serif;
-      font-size: clamp(3rem,7vw,5.5rem);
-      line-height: 1.05; font-weight:900;
-      color: var(--white); margin-bottom:.5rem;
-    }
-    h1 em {
-      color: var(--purple-xl);
-      font-style:italic;
-    }
-    .hero-api-sub {
-      font-family:'JetBrains Mono',monospace;
-      font-size:12px; color:var(--muted);
-      letter-spacing:.06em; margin-bottom:2rem;
-    }
-    .hero-api-sub .hl { color:var(--purple-l); }
-    .brand-image-wrap { width:100vw; margin-left:calc(-50vw + 50%); margin-bottom:2.5rem; overflow:hidden; height:600px; position:relative; }
-    .brand-image { width:100%; height:100%; display:block; border-radius:0; object-fit:contain; object-position:center center; background:#0d0a14; }
-    .hero-tagline {
-      font-family:'Playfair Display',serif;
-      font-size: clamp(1rem,2vw,1.2rem);
-      font-weight:400; font-style:italic;
-      color:var(--muted); margin-bottom:2.5rem;
-      max-width:500px;
-    }
-    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:4rem; }
-    .btn {
-      display:inline-flex; align-items:center; gap:.5rem;
-      padding:.6rem 1.3rem; border-radius:4px;
-      font-family:'JetBrains Mono',monospace;
-      font-size:11px; font-weight:700; letter-spacing:.08em;
-      text-decoration:none; text-transform:uppercase;
-      transition: all .2s; cursor:pointer; border:none;
-    }
-    .btn-primary { background:var(--purple); color:#fff; }
-    .btn-primary:hover { background:var(--purple-l); transform:translateY(-1px); box-shadow:0 4px 16px rgba(107,72,181,.4); }
-    .btn-outline { background:transparent; color:var(--purple-l); border:1px solid rgba(107,72,181,.4); }
-    .btn-outline:hover { border-color:var(--purple-l); transform:translateY(-1px); }
+/* JSON BLOCK */
+.json-block {
+  background: var(--bg2);
+  border: 1px solid rgba(107,72,181,.25);
+  border-radius: 8px; padding:1.5rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px; line-height:1.9;
+  max-width:520px;
+  position:relative;
+}
+.json-block::before {
+  content: 'GET /status';
+  position:absolute; top:-1px; left:1rem;
+  background:var(--bg2);
+  padding:0 .5rem;
+  font-size:10px; color:var(--dim);
+  letter-spacing:.1em;
+}
+.jk { color:var(--purple-l); }
+.jv { color:#a8d5a2; }
+.jg { color:var(--gold); }
+.jc { color:var(--dim); font-style:italic; }
+.jb { color:var(--muted); }
 
-    /* JSON BLOCK */
-    .json-block {
-      background: var(--bg2);
-      border: 1px solid rgba(107,72,181,.25);
-      border-radius: 8px; padding:1.5rem;
-      font-family:'JetBrains Mono',monospace;
-      font-size:12px; line-height:1.9;
-      max-width:520px;
-      position:relative;
-    }
-    .json-block::before {
-      content: 'GET /status';
-      position:absolute; top:-1px; left:1rem;
-      background:var(--bg2);
-      padding:0 .5rem;
-      font-size:10px; color:var(--dim);
-      letter-spacing:.1em;
-    }
-    .jk { color:var(--purple-l); }
-    .jv { color:#a8d5a2; }
-    .jg { color:var(--gold); }
-    .jc { color:var(--dim); font-style:italic; }
-    .jb { color:var(--muted); }
+/* STATS */
+.stats-row {
+  display:flex; gap:3rem; flex-wrap:wrap;
+  margin-top:3rem; padding-top:2rem;
+  border-top:1px solid rgba(107,72,181,.15);
+}
+.stat-n {
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem; color:var(--purple-xl);
+  font-weight:700; line-height:1;
+}
+.stat-n span { color:var(--gold); font-size:1.8rem; }
+.stat-label { font-size:10px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-top:.25rem; }
 
-    /* STATS */
-    .stats-row {
-      display:flex; gap:3rem; flex-wrap:wrap;
-      margin-top:3rem; padding-top:2rem;
-      border-top:1px solid rgba(107,72,181,.15);
-    }
-    .stat-n {
-      font-family:'Playfair Display',serif;
-      font-size:2.8rem; color:var(--purple-xl);
-      font-weight:700; line-height:1;
-    }
-    .stat-n span { color:var(--gold); font-size:1.8rem; }
-    .stat-label { font-size:10px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-top:.25rem; }
+/* ── PROJECTS ── */
+.projects-grid { display:grid; gap:1.25rem; }
+.project-card {
+  background:var(--bg2);
+  border:1px solid rgba(107,72,181,.2);
+  border-radius:10px; padding:1.75rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.project-card:hover { border-color:rgba(107,72,181,.5); box-shadow:0 4px 32px rgba(107,72,181,.1); }
+.project-eyebrow {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--purple-l);
+  margin-bottom:.75rem;
+}
+.project-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem; font-weight:700;
+  color:var(--white); margin-bottom:.6rem;
+}
+.project-desc { color:var(--muted); font-size:12.5px; line-height:1.85; margin-bottom:1rem; }
+.tags { display:flex; flex-wrap:wrap; gap:.4rem; }
+.tag {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; font-weight:700; letter-spacing:.08em;
+  background:rgba(107,72,181,.15); color:var(--purple-l);
+  border:1px solid rgba(107,72,181,.25);
+  border-radius:3px; padding:.2rem .55rem;
+}
 
-    /* ── PROJECTS ── */
-    .projects-grid { display:grid; gap:1.25rem; }
-    .project-card {
-      background:var(--bg2);
-      border:1px solid rgba(107,72,181,.2);
-      border-radius:10px; padding:1.75rem;
-      transition: border-color .2s, box-shadow .2s;
-    }
-    .project-card:hover { border-color:rgba(107,72,181,.5); box-shadow:0 4px 32px rgba(107,72,181,.1); }
-    .project-eyebrow {
-      font-family:'JetBrains Mono',monospace;
-      font-size:9px; font-weight:700; letter-spacing:.15em;
-      text-transform:uppercase; color:var(--purple-l);
-      margin-bottom:.75rem;
-    }
-    .project-title {
-      font-family:'Playfair Display',serif;
-      font-size:1.3rem; font-weight:700;
-      color:var(--white); margin-bottom:.6rem;
-    }
-    .project-desc { color:var(--muted); font-size:12.5px; line-height:1.85; margin-bottom:1rem; }
-    .tags { display:flex; flex-wrap:wrap; gap:.4rem; }
-    .tag {
-      font-family:'JetBrains Mono',monospace;
-      font-size:9px; font-weight:700; letter-spacing:.08em;
-      background:rgba(107,72,181,.15); color:var(--purple-l);
-      border:1px solid rgba(107,72,181,.25);
-      border-radius:3px; padding:.2rem .55rem;
-    }
+/* ── BUGS ── */
+.bug-stat-header {
+  background:var(--bg2);
+  border:1px solid rgba(107,72,181,.2);
+  border-radius:10px; padding:1.5rem 2rem;
+  margin-bottom:2rem;
+}
+.bug-stat-top {
+  display:flex; align-items:baseline; gap:1rem;
+  margin-bottom:1.25rem;
+}
+.bug-total-n {
+  font-family:'Playfair Display',serif;
+  font-size:3rem; color:var(--purple-xl); font-weight:700; line-height:1;
+}
+.bug-total-label { font-size:12px; color:var(--muted); }
+.bug-detail-count {
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; color:var(--purple-l);
+}
+.equalizer { display:flex; flex-direction:column; gap:.6rem; }
+.eq-row { display:flex; align-items:center; gap:.75rem; }
+.eq-label {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; color:var(--muted); width:90px; flex-shrink:0;
+}
+.eq-bar-wrap { flex:1; background:rgba(255,255,255,.06); border-radius:2px; height:6px; }
+.eq-bar { height:100%; border-radius:2px; transition: width .6s ease; }
+.eq-count {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; color:var(--muted); width:20px; text-align:right;
+}
+.bug-group { margin-bottom:3rem; }
+.bug-group-label {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--dim);
+  display:flex; align-items:center; gap:.75rem;
+  margin-bottom:1rem;
+}
+.bug-group-label::after { content:''; flex:1; height:1px; background:rgba(107,72,181,.15); }
+.bug-card {
+  background:var(--bg2);
+  border:1px solid rgba(107,72,181,.15);
+  border-left:3px solid var(--red);
+  border-radius:0 8px 8px 0;
+  padding:1.25rem 1.5rem;
+  margin-bottom:.85rem;
+}
+.bug-card.high { border-left-color:var(--orange); }
+.bug-card.security { border-left-color:var(--blue); }
+.bug-card-eye {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; margin-bottom:.4rem;
+}
+.bug-card-eye .sev-crit { color:var(--red); }
+.bug-card-eye .sev-high { color:var(--orange); }
+.bug-card-eye .sev-sec { color:var(--blue); }
+.bug-card-eye .dot { color:var(--dim); margin:0 .35rem; }
+.bug-card-title {
+  font-family:'Playfair Display',serif;
+  font-size:1rem; font-weight:700;
+  color:var(--white); margin-bottom:.4rem;
+}
+.bug-card-desc { font-size:12px; color:var(--muted); line-height:1.8; }
+.bug-privacy {
+  background:rgba(107,72,181,.08);
+  border:1px solid rgba(107,72,181,.2);
+  border-radius:6px; padding:1rem 1.25rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; color:var(--dim);
+  margin-top:1rem; line-height:1.7;
+}
 
-    /* ── BUGS ── */
-    /* stats bar */
-    .bug-stat-header {
-      background:var(--bg2);
-      border:1px solid rgba(107,72,181,.2);
-      border-radius:10px; padding:1.5rem 2rem;
-      margin-bottom:2rem;
-    }
-    .bug-stat-top {
-      display:flex; align-items:baseline; gap:1rem;
-      margin-bottom:1.25rem;
-    }
-    .bug-total-n {
-      font-family:'Playfair Display',serif;
-      font-size:3rem; color:var(--purple-xl); font-weight:700; line-height:1;
-    }
-    .bug-total-label { font-size:12px; color:var(--muted); }
-    .bug-detail-count {
-      font-family:'JetBrains Mono',monospace;
-      font-size:11px; color:var(--purple-l);
-    }
-    .equalizer { display:flex; flex-direction:column; gap:.6rem; }
-    .eq-row { display:flex; align-items:center; gap:.75rem; }
-    .eq-label {
-      font-family:'JetBrains Mono',monospace;
-      font-size:10px; color:var(--muted); width:90px; flex-shrink:0;
-    }
-    .eq-bar-wrap { flex:1; background:rgba(255,255,255,.06); border-radius:2px; height:6px; }
-    .eq-bar { height:100%; border-radius:2px; transition: width .6s ease; }
-    .eq-count {
-      font-family:'JetBrains Mono',monospace;
-      font-size:10px; color:var(--muted); width:20px; text-align:right;
-    }
+/* ── AUTOMATION ── */
+.automation-card {
+  background:var(--bg2);
+  border:1px solid rgba(107,72,181,.2);
+  border-radius:10px; padding:2.5rem;
+  display:flex; gap:2rem; align-items:flex-start;
+}
+.automation-icon { font-size:2.5rem; flex-shrink:0; }
+.automation-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem; font-weight:700;
+  color:var(--white); margin-bottom:.5rem;
+}
+.automation-desc { color:var(--muted); font-size:12.5px; line-height:1.85; margin-bottom:1.25rem; }
+.automation-stack { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.25rem; }
 
-    /* bug group */
-    .bug-group { margin-bottom:3rem; }
-    .bug-group-label {
-      font-family:'JetBrains Mono',monospace;
-      font-size:10px; font-weight:700; letter-spacing:.15em;
-      text-transform:uppercase; color:var(--dim);
-      display:flex; align-items:center; gap:.75rem;
-      margin-bottom:1rem;
-    }
-    .bug-group-label::after { content:''; flex:1; height:1px; background:rgba(107,72,181,.15); }
+/* ── POSTMAN ── */
+.postman-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+@media(max-width:640px){ .postman-grid{ grid-template-columns:1fr; } }
+.postman-bug-card {
+  background:var(--bg2);
+  border:1px solid rgba(107,72,181,.2);
+  border-left:3px solid var(--gold);
+  border-radius:0 8px 8px 0;
+  padding:1.5rem;
+}
+.postman-bug-eye {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gold);
+  margin-bottom:.5rem;
+}
+.postman-bug-title {
+  font-family:'Playfair Display',serif;
+  font-size:1rem; font-weight:700;
+  color:var(--white); margin-bottom:1rem;
+}
+.code-block {
+  background:var(--bg);
+  border:1px solid rgba(107,72,181,.15);
+  border-radius:6px; padding:1rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; line-height:1.8;
+  overflow-x:auto;
+}
+.c-purple { color:var(--purple-l); }
+.c-green { color:#a8d5a2; }
+.c-red { color:var(--red); }
+.c-gold { color:var(--gold); }
+.c-dim { color:var(--dim); font-style:italic; }
+.postman-list { list-style:none; }
+.postman-list li {
+  font-size:12px; color:var(--muted);
+  padding:.3rem 0; border-bottom:1px solid rgba(107,72,181,.08);
+  display:flex; align-items:center; gap:.5rem;
+}
+.postman-list li::before { content:'✓'; color:var(--purple-l); font-weight:700; }
+.postman-list li.dim::before { content:'○'; color:var(--dim); }
+.postman-list li.dim { color:var(--dim); }
 
-    .bug-card {
-      background:var(--bg2);
-      border:1px solid rgba(107,72,181,.15);
-      border-left:3px solid var(--red);
-      border-radius:0 8px 8px 0;
-      padding:1.25rem 1.5rem;
-      margin-bottom:.85rem;
-    }
-    .bug-card.high { border-left-color:var(--orange); }
-    .bug-card.security { border-left-color:var(--blue); }
-    .bug-card-eye {
-      font-family:'JetBrains Mono',monospace;
-      font-size:9px; font-weight:700; letter-spacing:.12em;
-      text-transform:uppercase; margin-bottom:.4rem;
-    }
-    .bug-card-eye .sev-crit { color:var(--red); }
-    .bug-card-eye .sev-high { color:var(--orange); }
-    .bug-card-eye .sev-sec  { color:var(--blue); }
-    .bug-card-eye .dot { color:var(--dim); margin:0 .35rem; }
-    .bug-card-title {
-      font-family:'Playfair Display',serif;
-      font-size:1rem; font-weight:700;
-      color:var(--white); margin-bottom:.4rem;
-    }
-    .bug-card-desc { font-size:12px; color:var(--muted); line-height:1.8; }
-    .bug-privacy {
-      background:rgba(107,72,181,.08);
-      border:1px solid rgba(107,72,181,.2);
-      border-radius:6px; padding:1rem 1.25rem;
-      font-family:'JetBrains Mono',monospace;
-      font-size:11px; color:var(--dim);
-      margin-top:1rem; line-height:1.7;
-    }
+/* ── TECH STACK ── */
+.stack-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; }
+.stack-card {
+  background:var(--bg2);
+  border:1px solid rgba(107,72,181,.15);
+  border-radius:8px; padding:1.25rem;
+  transition: border-color .2s;
+}
+.stack-card:hover { border-color:rgba(107,72,181,.4); }
+.stack-icon { font-size:1.2rem; margin-bottom:.6rem; }
+.stack-title { font-size:12px; font-weight:700; color:var(--white); margin-bottom:.6rem; font-family:'JetBrains Mono',monospace; }
+.stack-items { list-style:none; }
+.stack-items li { font-size:11px; color:var(--muted); padding:.12rem 0; }
 
-    /* ── AUTOMATION ── */
-    .automation-card {
-      background:var(--bg2);
-      border:1px solid rgba(107,72,181,.2);
-      border-radius:10px; padding:2.5rem;
-      display:flex; gap:2rem; align-items:flex-start;
-    }
-    .automation-icon { font-size:2.5rem; flex-shrink:0; }
-    .automation-title {
-      font-family:'Playfair Display',serif;
-      font-size:1.4rem; font-weight:700;
-      color:var(--white); margin-bottom:.5rem;
-    }
-    .automation-desc { color:var(--muted); font-size:12.5px; line-height:1.85; margin-bottom:1.25rem; }
-    .automation-stack { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.25rem; }
+/* ── FOOTER ── */
+footer {
+  position:relative; z-index:1;
+  border-top:1px solid rgba(107,72,181,.15);
+  padding:3rem 2rem; text-align:center;
+}
+.footer-name {
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem; font-weight:400; color:var(--white);
+  margin-bottom:.25rem;
+}
+.footer-sub {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; color:var(--muted);
+  letter-spacing:.15em; text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.footer-links { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; }
+.footer-links a {
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; color:var(--muted);
+  text-decoration:none; letter-spacing:.06em;
+  transition:color .2s;
+}
+.footer-links a:hover { color:var(--purple-xl); }
 
-    /* ── POSTMAN ── */
-    .postman-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
-    @media(max-width:640px){ .postman-grid{ grid-template-columns:1fr; } }
-    .postman-bug-card {
-      background:var(--bg2);
-      border:1px solid rgba(107,72,181,.2);
-      border-left:3px solid var(--gold);
-      border-radius:0 8px 8px 0;
-      padding:1.5rem;
-    }
-    .postman-bug-eye {
-      font-family:'JetBrains Mono',monospace;
-      font-size:9px; font-weight:700; letter-spacing:.12em;
-      text-transform:uppercase; color:var(--gold);
-      margin-bottom:.5rem;
-    }
-    .postman-bug-title {
-      font-family:'Playfair Display',serif;
-      font-size:1rem; font-weight:700;
-      color:var(--white); margin-bottom:1rem;
-    }
-    .code-block {
-      background:var(--bg);
-      border:1px solid rgba(107,72,181,.15);
-      border-radius:6px; padding:1rem;
-      font-family:'JetBrains Mono',monospace;
-      font-size:11px; line-height:1.8;
-      overflow-x:auto;
-    }
-    .c-purple { color:var(--purple-l); }
-    .c-green  { color:#a8d5a2; }
-    .c-red    { color:var(--red); }
-    .c-gold   { color:var(--gold); }
-    .c-dim    { color:var(--dim); font-style:italic; }
-    .postman-list { list-style:none; }
-    .postman-list li {
-      font-size:12px; color:var(--muted);
-      padding:.3rem 0; border-bottom:1px solid rgba(107,72,181,.08);
-      display:flex; align-items:center; gap:.5rem;
-    }
-    .postman-list li::before { content:'✓'; color:var(--purple-l); font-weight:700; }
-    .postman-list li.dim::before { content:'○'; color:var(--dim); }
-    .postman-list li.dim { color:var(--dim); }
-
-    /* ── TECH STACK ── */
-    .stack-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; }
-    .stack-card {
-      background:var(--bg2);
-      border:1px solid rgba(107,72,181,.15);
-      border-radius:8px; padding:1.25rem;
-      transition: border-color .2s;
-    }
-    .stack-card:hover { border-color:rgba(107,72,181,.4); }
-    .stack-icon { font-size:1.2rem; margin-bottom:.6rem; }
-    .stack-title { font-size:12px; font-weight:700; color:var(--white); margin-bottom:.6rem; font-family:'JetBrains Mono',monospace; }
-    .stack-items { list-style:none; }
-    .stack-items li { font-size:11px; color:var(--muted); padding:.12rem 0; }
-
-    /* ── FOOTER ── */
-    footer {
-      position:relative; z-index:1;
-      border-top:1px solid rgba(107,72,181,.15);
-      padding:3rem 2rem; text-align:center;
-    }
-    .footer-name {
-      font-family:'Playfair Display',serif;
-      font-size:1.8rem; font-weight:400; color:var(--white);
-      margin-bottom:.25rem;
-    }
-    .footer-sub {
-      font-family:'JetBrains Mono',monospace;
-      font-size:10px; color:var(--muted);
-      letter-spacing:.15em; text-transform:uppercase;
-      margin-bottom:1.5rem;
-    }
-    .footer-links { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; }
-    .footer-links a {
-      font-family:'JetBrains Mono',monospace;
-      font-size:11px; color:var(--muted);
-      text-decoration:none; letter-spacing:.06em;
-      transition:color .2s;
-    }
-    .footer-links a:hover { color:var(--purple-xl); }
-
-    /* ABOUT GRID */
-    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
-    @media(max-width:640px){ .about-grid{ grid-template-columns:1fr; } }
-    .about-prose p { color:var(--muted); font-size:13px; line-height:1.9; margin-bottom:1rem; }
-    .about-prose strong { color:var(--white); }
-    .about-photo-row { display:flex; align-items:center; gap:1.5rem; margin-bottom:1.75rem; }
-    .about-photo {
-      width:90px; height:90px; border-radius:50%;
-      object-fit:cover; object-position:top;
-      border:2px solid rgba(107,72,181,.4); flex-shrink:0;
-    }
-    .thought-bubble {
-      position:relative;
-      background:var(--bg3); border:1px solid rgba(107,72,181,.3);
-      border-radius:12px; padding:.4rem .9rem;
-      font-family:'JetBrains Mono',monospace;
-      font-size:11px; color:var(--muted); white-space:nowrap;
-    }
-    .thought-bubble::before {
-      content:'';
-      position:absolute; left:-7px; top:50%;
-      transform:translateY(-50%);
-      width:0; height:0;
-      border-top:5px solid transparent;
-      border-bottom:5px solid transparent;
-      border-right:7px solid rgba(107,72,181,.3);
-    }
-    .profile-code {
-      background:var(--bg);
-      border:1px solid rgba(107,72,181,.2);
-      border-radius:8px; padding:1.25rem;
-      font-family:'JetBrains Mono',monospace;
-      font-size:11.5px; line-height:1.9;
-    }
-    .pc-fn { color:var(--purple-l); }
-    .pc-key { color:var(--muted); }
-    .pc-val { color:#a8d5a2; }
-    .pc-num { color:var(--gold); }
-    .pc-com { color:var(--dim); font-style:italic; }
-
-    h2.sh {
-      font-family:'Playfair Display',serif;
-      font-size:clamp(1.8rem,3.5vw,2.5rem);
-      font-weight:700; color:var(--white);
-      margin-bottom:1.5rem; line-height:1.2;
-    }
-    p.lead { color:#9a90b8; font-size:13px; margin-bottom:2rem; }
-  </style>
+/* ABOUT GRID */
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+@media(max-width:640px){ .about-grid{ grid-template-columns:1fr; } }
+.about-prose p { color:var(--muted); font-size:13px; line-height:1.9; margin-bottom:1rem; }
+.about-prose strong { color:var(--white); }
+.about-photo-row { display:flex; align-items:center; gap:1.5rem; margin-bottom:1.75rem; }
+.about-photo {
+  width:90px; height:90px; border-radius:50%;
+  object-fit:cover; object-position:top;
+  border:2px solid rgba(107,72,181,.4); flex-shrink:0;
+}
+.thought-bubble {
+  position:relative;
+  background:var(--bg3); border:1px solid rgba(107,72,181,.3);
+  border-radius:12px; padding:.4rem .9rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; color:var(--muted); white-space:nowrap;
+}
+.thought-bubble::before {
+  content:'';
+  position:absolute; left:-7px; top:50%;
+  transform:translateY(-50%);
+  width:0; height:0;
+  border-top:5px solid transparent;
+  border-bottom:5px solid transparent;
+  border-right:7px solid rgba(107,72,181,.3);
+}
+.profile-code {
+  background:var(--bg);
+  border:1px solid rgba(107,72,181,.2);
+  border-radius:8px; padding:1.25rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px; line-height:1.9;
+}
+.pc-fn { color:var(--purple-l); }
+.pc-key { color:var(--muted); }
+.pc-val { color:#a8d5a2; }
+.pc-num { color:var(--gold); }
+.pc-com { color:var(--dim); font-style:italic; }
+h2.sh {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.5rem);
+  font-weight:700; color:var(--white);
+  margin-bottom:1.5rem; line-height:1.2;
+}
+p.lead { color:#9a90b8; font-size:13px; margin-bottom:2rem; }
+</style>
 </head>
 <body>
 
@@ -471,357 +484,333 @@
 <div class="glow-orb glow-orb-3"></div>
 <div class="glow-orb glow-orb-4"></div>
 <div class="glow-orb glow-orb-5"></div>
+<div class="glow-orb glow-orb-6"></div>
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">A<span>.</span>D<span>.</span></span>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#bugs">Bugs</a></li>
-    <li><a href="#automation">Automation</a></li>
-    <li><a href="#api">API</a></li>
-    <li><a href="#stack">Stack</a></li>
-  </ul>
+<span class="nav-logo">A<span>.</span>D<span>.</span></span>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#bugs">Bugs</a></li>
+<li><a href="#automation">Automation</a></li>
+<li><a href="#api">API</a></li>
+<li><a href="#stack">Stack</a></li>
+</ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <p class="hero-meta">QA Engineer Portfolio · Tbilisi, Georgia</p>
-  <div class="brand-image-wrap">
-    <img src="Brandlogo.png" alt="Observation is my A.P.I." class="brand-image"/>
-  </div>
-
-
-  <p class="hero-tagline">QA Engineer who notices what others miss. Open to opportunities worldwide.</p>
-  <div class="hero-btns">
-    <a class="btn btn-primary" href="Ana_Danelia_QA_Tester_2026-07-28.pdf">⬇ Download CV</a>
-    <a class="btn btn-outline" href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
-    <a class="btn btn-outline" href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
-  </div>
-
-  <div class="json-block">
-    {<br/>
-    &nbsp;&nbsp;<span class="jk">"name"</span>: <span class="jv">"Ana Danelia"</span>,<br/>
-    &nbsp;&nbsp;<span class="jk">"role"</span>: <span class="jv">"Junior QA Engineer"</span>,<br/>
-    &nbsp;&nbsp;<span class="jk">"core_tool"</span>: <span class="jv">"observation"</span>,<br/>
-    &nbsp;&nbsp;<span class="jk">"built_in_feature"</span>: <span class="jv">"pattern_recognition"</span>,<br/>
-    &nbsp;&nbsp;<span class="jk">"favorite_thought"</span>: <span class="jg">"There has to be more."</span>,<br/>
-    &nbsp;&nbsp;<span class="jk">"debugging_mode"</span>: <span class="jv">"curiosity"</span>,<br/>
-    &nbsp;&nbsp;<span class="jk">"current_state"</span>: <span class="jv">"open_to_opportunities"</span><br/>
-    <span class="jb">}</span>
-  </div>
-
-  <div class="stats-row">
-    <div><div class="stat-n">39<span>+</span></div><div class="stat-label">Bugs Logged</div></div>
-    <div><div class="stat-n">57</div><div class="stat-label">Test Cases</div></div>
-    <div><div class="stat-n">328</div><div class="stat-label">Test Scenarios</div></div>
-    <div><div class="stat-n">3</div><div class="stat-label">Projects Tested</div></div>
-  </div>
+<p class="hero-meta">QA Engineer Portfolio · Tbilisi, Georgia</p>
+<div class="brand-image-wrap">
+<img src="Brandlogo.png" alt="Observation is my A.P.I." class="brand-image"/>
+</div>
+<p class="hero-tagline">QA Engineer who notices what others miss. Open to opportunities worldwide.</p>
+<div class="hero-btns">
+<a class="btn btn-primary" href="Ana_Danelia_QA_Tester_2026-07-28.pdf">⬇ Download CV</a>
+<a class="btn btn-outline" href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
+<a class="btn btn-outline" href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
+</div>
+<div class="json-block">
+{<br/>
+&nbsp;&nbsp;<span class="jk">"name"</span>: <span class="jv">"Ana Danelia"</span>,<br/>
+&nbsp;&nbsp;<span class="jk">"role"</span>: <span class="jv">"Junior QA Engineer"</span>,<br/>
+&nbsp;&nbsp;<span class="jk">"core_tool"</span>: <span class="jv">"observation"</span>,<br/>
+&nbsp;&nbsp;<span class="jk">"built_in_feature"</span>: <span class="jv">"pattern_recognition"</span>,<br/>
+&nbsp;&nbsp;<span class="jk">"favorite_thought"</span>: <span class="jg">"There has to be more."</span>,<br/>
+&nbsp;&nbsp;<span class="jk">"debugging_mode"</span>: <span class="jv">"curiosity"</span>,<br/>
+&nbsp;&nbsp;<span class="jk">"current_state"</span>: <span class="jv">"open_to_opportunities"</span><br/>
+<span class="jb">}</span>
+</div>
+<div class="stats-row">
+<div><div class="stat-n">39<span>+</span></div><div class="stat-label">Bugs Logged</div></div>
+<div><div class="stat-n">57</div><div class="stat-label">Test Cases</div></div>
+<div><div class="stat-n">328</div><div class="stat-label">Test Scenarios</div></div>
+<div><div class="stat-n">3</div><div class="stat-label">Projects Tested</div></div>
+</div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-eye">About</div>
-  <h2 class="sh">Pattern recognition is the skill.</h2>
-  <div class="about-grid">
-    <div class="about-prose">
-      <div class="about-photo-row">
-        <img src="ana_jpg.jpeg" alt="Ana Danelia" class="about-photo"/>
-        <div class="thought-bubble">💭 observing...</div>
-      </div>
-      <p>In software systems, an API is an interface — a way to communicate with a system and understand how it behaves. In my testing work, observation becomes that interface.</p>
-      <p>Before writing a bug report, I watch how a system behaves under real user interaction — the small details, the moments when expected and actual behavior begin to diverge.</p>
-      <p>Testing is not only verification. It is exploration. I'm drawn to exploratory approaches and the tour-based ideas of <strong>James Whittaker</strong>.</p>
-    </div>
-    <div class="profile-code">
-      <span class="pc-fn">Dani.profile()</span><br/><br/>
-      <span class="pc-key">background</span> → <span class="pc-val">"8yr Hotline Operator @ Magticom"</span><br/>
-      <span class="pc-key">first_qa_signal</span> → <span class="pc-val">2021, call center test</span><br/>
-      <span class="pc-key">course_score</span> → <span class="pc-num">100 / 100</span><br/>
-      <span class="pc-key">internship</span> → <span class="pc-val">"ODIN P2P, Feb–Jul 2026"</span><br/>
-      <span class="pc-key">automation</span> → <span class="pc-val">"Mar–Jul 2026, Quality Academy"</span><br/>
-      <span class="pc-key">tools</span> → <span class="pc-val">["Postman", "Jira", "Java"]</span><br/>
-      <span class="pc-key">volunteer</span> → <span class="pc-val">"autism.ge QA"</span><br/>
-      <span class="pc-key">path</span> → <span class="pc-val">"Manual → Auto → Security"</span><br/>
-      <span class="pc-com">// I chose QA. Waited for it.</span><br/>
-      <span class="pc-com">// Building it seriously.</span>
-    </div>
-  </div>
+<div class="section-eye">About</div>
+<h2 class="sh">Pattern recognition is the skill.</h2>
+<div class="about-grid">
+<div class="about-prose">
+<div class="about-photo-row">
+<img src="ana_jpg.jpeg" alt="Ana Danelia" class="about-photo"/>
+<div class="thought-bubble">💭 observing...</div>
+</div>
+<p>In software systems, an API is an interface — a way to communicate with a system and understand how it behaves. In my testing work, observation becomes that interface.</p>
+<p>Before writing a bug report, I watch how a system behaves under real user interaction — the small details, the moments when expected and actual behavior begin to diverge.</p>
+<p>Testing is not only verification. It is exploration. I'm drawn to exploratory approaches and the tour-based ideas of <strong>James Whittaker</strong>.</p>
+</div>
+<div class="profile-code">
+<span class="pc-fn">Dani.profile()</span><br/><br/>
+<span class="pc-key">background</span> → <span class="pc-val">"8yr Hotline Operator @ Magticom"</span><br/>
+<span class="pc-key">first_qa_signal</span> → <span class="pc-val">2021, call center test</span><br/>
+<span class="pc-key">course_score</span> → <span class="pc-num">100 / 100</span><br/>
+<span class="pc-key">internship</span> → <span class="pc-val">"ODIN P2P, Feb–Jul 2026"</span><br/>
+<span class="pc-key">automation</span> → <span class="pc-val">"Mar–Jul 2026, Quality Academy"</span><br/>
+<span class="pc-key">tools</span> → <span class="pc-val">["Postman", "Jira", "Java"]</span><br/>
+<span class="pc-key">volunteer</span> → <span class="pc-val">"autism.ge QA"</span><br/>
+<span class="pc-key">path</span> → <span class="pc-val">"Manual → Auto → Security"</span><br/>
+<span class="pc-com">// I chose QA. Waited for it.</span><br/>
+<span class="pc-com">// Building it seriously.</span>
+</div>
+</div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-eye">Projects</div>
-  <h2 class="sh">Testing Experience</h2>
-  <p class="lead">Real-world testing across mobile, web, and API domains.</p>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-eyebrow">UAT Internship · Feb–Jul 2026 · Remote</div>
-      <div class="project-title">ODIN — P2P Parcel Delivery</div>
-      <p class="project-desc">6-month intensive UAT internship on a React Native iOS/Android app. 328 test scenarios across 13 modules. Managed defect lifecycle in Jira — root cause analysis, severity classification, fix verification. Notable: flight notification timing hypothesis discovered through real flight data analysis across two routes.</p>
-      <div class="tags"><span class="tag">React Native</span><span class="tag">Mobile</span><span class="tag">UAT</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">Jira</span></div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-eyebrow">Independent Testing · Jan 2026 · Web</div>
-      <div class="project-title">GPI Holding — Insurance Platform</div>
-      <p class="project-desc">Independent exploratory testing on a live insurance platform. Found 5 bugs including 2 security-level issues: autofill returns a stranger's personal data, and an invalid citizenship/document combination is accepted without validation.</p>
-      <div class="tags"><span class="tag">Web</span><span class="tag">Security</span><span class="tag">Exploratory</span><span class="tag">Chrome</span><span class="tag">Windows</span><span class="tag">BVA</span></div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-eyebrow">Pro Bono UAT · Jun–Jul 2026 · Web</div>
-      <div class="project-title">autism.ge — Charity Project</div>
-      <p class="project-desc">Pro bono UAT for an NGO donation platform. Risk-based approach prioritizing authentication and payment flows. Found 14 issues across Critical, High, and Medium severity — including a payment false error where WordPress backend reports failure despite a successful Visa/Google Pay transaction. Documented with screen recording.</p>
-      <div class="tags"><span class="tag">Pro Bono</span><span class="tag">UAT</span><span class="tag">WordPress</span><span class="tag">Payments</span><span class="tag">Risk-Based</span></div>
-    </div>
-
-  </div>
+<div class="section-eye">Projects</div>
+<h2 class="sh">Testing Experience</h2>
+<p class="lead">Real-world testing across mobile, web, and API domains.</p>
+<div class="projects-grid">
+<div class="project-card">
+<div class="project-eyebrow">UAT Internship · Feb–Jul 2026 · Remote</div>
+<div class="project-title">ODIN — P2P Parcel Delivery</div>
+<p class="project-desc">6-month intensive UAT internship on a React Native iOS/Android app. 328 test scenarios across 13 modules. Managed defect lifecycle in Jira — root cause analysis, severity classification, fix verification. Notable: flight notification timing hypothesis discovered through real flight data analysis across two routes.</p>
+<div class="tags"><span class="tag">React Native</span><span class="tag">Mobile</span><span class="tag">UAT</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">Jira</span></div>
+</div>
+<div class="project-card">
+<div class="project-eyebrow">Independent Testing · Jan 2026 · Web</div>
+<div class="project-title">GPI Holding — Insurance Platform</div>
+<p class="project-desc">Independent exploratory testing on a live insurance platform. Found 5 bugs including 2 security-level issues: autofill returns a stranger's personal data, and an invalid citizenship/document combination is accepted without validation.</p>
+<div class="tags"><span class="tag">Web</span><span class="tag">Security</span><span class="tag">Exploratory</span><span class="tag">Chrome</span><span class="tag">Windows</span><span class="tag">BVA</span></div>
+</div>
+<div class="project-card">
+<div class="project-eyebrow">Pro Bono UAT · Jun–Jul 2026 · Web</div>
+<div class="project-title">autism.ge — Charity Project</div>
+<p class="project-desc">Pro bono UAT for an NGO donation platform. Risk-based approach prioritizing authentication and payment flows. Found 14 issues across Critical, High, and Medium severity — including a payment false error where WordPress backend reports failure despite a successful Visa/Google Pay transaction. Documented with screen recording.</p>
+<div class="tags"><span class="tag">Pro Bono</span><span class="tag">UAT</span><span class="tag">WordPress</span><span class="tag">Payments</span><span class="tag">Risk-Based</span></div>
+</div>
+</div>
 </section>
 
 <!-- BUGS -->
 <section id="bugs">
-  <div class="section-eye">Bug Reports</div>
-  <h2 class="sh">Found in the Wild</h2>
-  <p class="lead">Bugs logged across UAT internship, independent testing, and pro bono work.</p>
+<div class="section-eye">Bug Reports</div>
+<h2 class="sh">Found in the Wild</h2>
+<p class="lead">Bugs logged across UAT internship, independent testing, and pro bono work.</p>
 
-  <!-- STATS BAR -->
-  <div class="bug-stat-header">
-    <div class="bug-stat-top">
-      <div class="bug-total-n">39+</div>
-      <div>
-        <div class="bug-total-label">bugs logged across 3 projects</div>
-        <div class="bug-detail-count">11 documented in detail below</div>
-      </div>
-    </div>
-    <div class="equalizer">
-      <div class="eq-row">
-        <div class="eq-label">🔴 Critical</div>
-        <div class="eq-bar-wrap"><div class="eq-bar" style="width:45%;background:#e05555;"></div></div>
-        <div class="eq-count">5</div>
-      </div>
-      <div class="eq-row">
-        <div class="eq-label">🟠 High</div>
-        <div class="eq-bar-wrap"><div class="eq-bar" style="width:55%;background:#e07a30;"></div></div>
-        <div class="eq-count">6</div>
-      </div>
-      <div class="eq-row">
-        <div class="eq-label">🔒 Security</div>
-        <div class="eq-bar-wrap"><div class="eq-bar" style="width:27%;background:#4a90d9;"></div></div>
-        <div class="eq-count">3</div>
-      </div>
-      <div class="eq-row">
-        <div class="eq-label">💳 Payment</div>
-        <div class="eq-bar-wrap"><div class="eq-bar" style="width:18%;background:#FFD700;"></div></div>
-        <div class="eq-count">2</div>
-      </div>
-      <div class="eq-row">
-        <div class="eq-label">📱 Mobile/UI</div>
-        <div class="eq-bar-wrap"><div class="eq-bar" style="width:27%;background:#9b7ed4;"></div></div>
-        <div class="eq-count">3</div>
-      </div>
-      <div class="eq-row">
-        <div class="eq-label">🧭 Navigation</div>
-        <div class="eq-bar-wrap"><div class="eq-bar" style="width:18%;background:#6b9b7d;"></div></div>
-        <div class="eq-count">2</div>
-      </div>
-    </div>
-  </div>
+<div class="bug-stat-header">
+<div class="bug-stat-top">
+<div class="bug-total-n">39+</div>
+<div>
+<div class="bug-total-label">bugs logged across 3 projects</div>
+<div class="bug-detail-count">11 documented in detail below</div>
+</div>
+</div>
+<div class="equalizer">
+<div class="eq-row">
+<div class="eq-label">🔴 Critical</div>
+<div class="eq-bar-wrap"><div class="eq-bar" style="width:45%;background:#e05555;"></div></div>
+<div class="eq-count">5</div>
+</div>
+<div class="eq-row">
+<div class="eq-label">🟠 High</div>
+<div class="eq-bar-wrap"><div class="eq-bar" style="width:55%;background:#e07a30;"></div></div>
+<div class="eq-count">6</div>
+</div>
+<div class="eq-row">
+<div class="eq-label">🔒 Security</div>
+<div class="eq-bar-wrap"><div class="eq-bar" style="width:27%;background:#4a90d9;"></div></div>
+<div class="eq-count">3</div>
+</div>
+<div class="eq-row">
+<div class="eq-label">💳 Payment</div>
+<div class="eq-bar-wrap"><div class="eq-bar" style="width:18%;background:#FFD700;"></div></div>
+<div class="eq-count">2</div>
+</div>
+<div class="eq-row">
+<div class="eq-label">📱 Mobile/UI</div>
+<div class="eq-bar-wrap"><div class="eq-bar" style="width:27%;background:#9b7ed4;"></div></div>
+<div class="eq-count">3</div>
+</div>
+<div class="eq-row">
+<div class="eq-label">🧭 Navigation</div>
+<div class="eq-bar-wrap"><div class="eq-bar" style="width:18%;background:#6b9b7d;"></div></div>
+<div class="eq-count">2</div>
+</div>
+</div>
+</div>
 
-  <!-- autism.ge -->
-  <div class="bug-group">
-    <div class="bug-group-label">autism.ge — Notable Findings</div>
+<div class="bug-group">
+<div class="bug-group-label">autism.ge — Notable Findings</div>
+<div class="bug-card">
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-04<span class="dot">·</span>Payment Processing</div>
+<div class="bug-card-title">WordPress Backend Returns Error Despite Successful Payment</div>
+<div class="bug-card-desc">Payment completes successfully via Visa and Google Pay — confirmation email delivered with correct subscription details. Simultaneously, WordPress backend displays an error on the post-redirect page. Business risk: donors may believe payment failed and attempt to pay again, risking duplicate charges. Documented with screen recording of full payment flow.</div>
+</div>
+<div class="bug-card">
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-01<span class="dot">·</span>Authentication</div>
+<div class="bug-card-title">Missing "Forgot Password" Functionality</div>
+<div class="bug-card-desc">No password recovery mechanism exists on the login page. Users who forget their password have no self-service way to regain account access — permanently locked out without support intervention.</div>
+</div>
+<div class="bug-card">
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-03<span class="dot">·</span>Subscriptions</div>
+<div class="bug-card-title">Active Subscriptions Not Displaying on Subscriptions Page</div>
+<div class="bug-card-desc">Despite confirmed active subscription, the Subscriptions page appears empty. Users cannot verify or manage their own recurring donations — high risk of confusion and unintended cancellations.</div>
+</div>
+<div class="bug-card high">
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-05<span class="dot">·</span>Session Management</div>
+<div class="bug-card-title">Auth Page Accessible After Logout</div>
+<div class="bug-card-desc">After clicking Logout, the authentication page remains accessible in a state suggesting the session was not properly invalidated. Potential security concern — backend session verification needed.</div>
+</div>
+<div class="bug-card high">
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-08<span class="dot">·</span>UX</div>
+<div class="bug-card-title">"Registration" Button Shown to Already-Authorized Users</div>
+<div class="bug-card-desc">The payment flow displays a "Registration" button for users who are already logged in. Misleading UX — implies account creation is required when it is not. Label should read "Payment" for authorized users.</div>
+</div>
+</div>
 
-    <div class="bug-card">
-      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-04<span class="dot">·</span>Payment Processing</div>
-      <div class="bug-card-title">WordPress Backend Returns Error Despite Successful Payment</div>
-      <div class="bug-card-desc">Payment completes successfully via Visa and Google Pay — confirmation email delivered with correct subscription details. Simultaneously, WordPress backend displays an error on the post-redirect page. Business risk: donors may believe payment failed and attempt to pay again, risking duplicate charges. Documented with screen recording of full payment flow.</div>
-    </div>
+<div class="bug-group">
+<div class="bug-group-label">ODIN P2P — Notable Findings</div>
+<div class="bug-card">
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>ODIN-995<span class="dot">·</span>Mobile UI</div>
+<div class="bug-card-title">Time Picker Crash on Chat Screen</div>
+<div class="bug-card-desc">Tapping the time picker on the chat screen causes the app to crash completely. Reproducible 100% of the time on Android 14 / Realme 10. Users lose active chat session and must restart the app.</div>
+</div>
+<div class="bug-card high">
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-974<span class="dot">·</span>Navigation</div>
+<div class="bug-card-title">Phone Country Code Auto-Changes on Back Navigation</div>
+<div class="bug-card-desc">When user navigates back from a screen, the phone country code field resets to a different value without user input. Affects international users — incorrect code submitted silently.</div>
+</div>
+<div class="bug-card high">
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-1013<span class="dot">·</span>Navigation</div>
+<div class="bug-card-title">System Back Button Breaks Trip Flow</div>
+<div class="bug-card-desc">Pressing the system back button during trip creation breaks the flow — user is redirected incorrectly and trip data is lost. Expected: back navigation preserves state.</div>
+</div>
+<div class="bug-privacy">
+🔒 All bugs are fully documented with reproduction steps, severity classification, and environment details. Following the completion of a 6-month intensive UAT internship, screenshots remain the property of the company and are not publicly available.
+</div>
+</div>
 
-    <div class="bug-card">
-      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-01<span class="dot">·</span>Authentication</div>
-      <div class="bug-card-title">Missing "Forgot Password" Functionality</div>
-      <div class="bug-card-desc">No password recovery mechanism exists on the login page. Users who forget their password have no self-service way to regain account access — permanently locked out without support intervention.</div>
-    </div>
-
-    <div class="bug-card">
-      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-03<span class="dot">·</span>Subscriptions</div>
-      <div class="bug-card-title">Active Subscriptions Not Displaying on Subscriptions Page</div>
-      <div class="bug-card-desc">Despite confirmed active subscription, the Subscriptions page appears empty. Users cannot verify or manage their own recurring donations — high risk of confusion and unintended cancellations.</div>
-    </div>
-
-    <div class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-05<span class="dot">·</span>Session Management</div>
-      <div class="bug-card-title">Auth Page Accessible After Logout</div>
-      <div class="bug-card-desc">After clicking Logout, the authentication page remains accessible in a state suggesting the session was not properly invalidated. Potential security concern — backend session verification needed.</div>
-    </div>
-
-    <div class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-08<span class="dot">·</span>UX</div>
-      <div class="bug-card-title">"Registration" Button Shown to Already-Authorized Users</div>
-      <div class="bug-card-desc">The payment flow displays a "Registration" button for users who are already logged in. Misleading UX — implies account creation is required when it is not. Label should read "Payment" for authorized users.</div>
-    </div>
-  </div>
-
-  <!-- ODIN -->
-  <div class="bug-group">
-    <div class="bug-group-label">ODIN P2P — Notable Findings</div>
-
-    <div class="bug-card">
-      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>ODIN-995<span class="dot">·</span>Mobile UI</div>
-      <div class="bug-card-title">Time Picker Crash on Chat Screen</div>
-      <div class="bug-card-desc">Tapping the time picker on the chat screen causes the app to crash completely. Reproducible 100% of the time on Android 14 / Realme 10. Users lose active chat session and must restart the app.</div>
-    </div>
-
-    <div class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-974<span class="dot">·</span>Navigation</div>
-      <div class="bug-card-title">Phone Country Code Auto-Changes on Back Navigation</div>
-      <div class="bug-card-desc">When user navigates back from a screen, the phone country code field resets to a different value without user input. Affects international users — incorrect code submitted silently.</div>
-    </div>
-
-    <div class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-1013<span class="dot">·</span>Navigation</div>
-      <div class="bug-card-title">System Back Button Breaks Trip Flow</div>
-      <div class="bug-card-desc">Pressing the system back button during trip creation breaks the flow — user is redirected incorrectly and trip data is lost. Expected: back navigation preserves state.</div>
-    </div>
-
-    <div class="bug-privacy">
-      🔒 All bugs are fully documented with reproduction steps, severity classification, and environment details. Following the completion of a 6-month intensive UAT internship, screenshots remain the property of the company and are not publicly available.
-    </div>
-  </div>
-
-  <!-- GPI -->
-  <div class="bug-group">
-    <div class="bug-group-label">GPI Holding — Notable Findings</div>
-
-    <div class="bug-card security">
-      <div class="bug-card-eye"><span class="sev-sec">High · Security</span><span class="dot">·</span>GPI-ANN-13</div>
-      <div class="bug-card-title">Autofill Returns Stranger's Personal Data</div>
-      <div class="bug-card-desc">Chrome autofill populates personal data fields with another user's information from a previous session. A complete stranger's name, ID, and contact details appear pre-filled. Critical data privacy violation on a live insurance platform.</div>
-    </div>
-
-    <div class="bug-card security">
-      <div class="bug-card-eye"><span class="sev-sec">High · Security</span><span class="dot">·</span>GPI-ANN-11</div>
-      <div class="bug-card-title">Invalid Citizenship + Document Combination Accepted</div>
-      <div class="bug-card-desc">Afghan citizenship combined with a Georgian ID number passes validation without error. The system accepts an impossible document combination — bypassing core identity verification logic.</div>
-    </div>
-
-    <div class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>GPI-ANN-12<span class="dot">·</span>BVA</div>
-      <div class="bug-card-title">Calendar Allows 366-Day Insurance Period</div>
-      <div class="bug-card-desc">Boundary value testing revealed the calendar accepts a 366-day period for a non-leap year — one day beyond the legal maximum. Core business validation logic not enforced.</div>
-    </div>
-  </div>
+<div class="bug-group">
+<div class="bug-group-label">GPI Holding — Notable Findings</div>
+<div class="bug-card security">
+<div class="bug-card-eye"><span class="sev-sec">High · Security</span><span class="dot">·</span>GPI-ANN-13</div>
+<div class="bug-card-title">Autofill Returns Stranger's Personal Data</div>
+<div class="bug-card-desc">Chrome autofill populates personal data fields with another user's information from a previous session. A complete stranger's name, ID, and contact details appear pre-filled. Critical data privacy violation on a live insurance platform.</div>
+</div>
+<div class="bug-card security">
+<div class="bug-card-eye"><span class="sev-sec">High · Security</span><span class="dot">·</span>GPI-ANN-11</div>
+<div class="bug-card-title">Invalid Citizenship + Document Combination Accepted</div>
+<div class="bug-card-desc">Afghan citizenship combined with a Georgian ID number passes validation without error. The system accepts an impossible document combination — bypassing core identity verification logic.</div>
+</div>
+<div class="bug-card high">
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>GPI-ANN-12<span class="dot">·</span>BVA</div>
+<div class="bug-card-title">Calendar Allows 366-Day Insurance Period</div>
+<div class="bug-card-desc">Boundary value testing revealed the calendar accepts a 366-day period for a non-leap year — one day beyond the legal maximum. Core business validation logic not enforced.</div>
+</div>
+</div>
 </section>
 
 <!-- AUTOMATION -->
 <section id="automation">
-  <div class="section-eye">Automation</div>
-  <h2 class="sh">Automation Projects</h2>
-  <p class="lead">Java · Selenium · TestNG · Maven — Quality Academy, Mar–Jul 2026.</p>
-  <div class="automation-card">
-    <div class="automation-icon">🤖</div>
-    <div>
-      <div class="automation-title">Selenium Framework</div>
-      <div class="automation-desc">Completed Java/Selenium automation course at Quality Academy. Page Object Model framework, TestNG annotations, explicit/implicit waits, Maven build management. Project documentation and test suite coming soon.</div>
-      <div class="automation-stack">
-        <span class="tag">Java</span><span class="tag">Selenium WebDriver</span><span class="tag">TestNG</span><span class="tag">Maven</span><span class="tag">POM</span><span class="tag">Git</span>
-      </div>
-      <a class="btn btn-outline" href="https://github.com/anadanelia369" target="_blank">⌥ View on GitHub</a>
-    </div>
-  </div>
+<div class="section-eye">Automation</div>
+<h2 class="sh">Automation Projects</h2>
+<p class="lead">Java · Selenium · TestNG · Maven — Quality Academy, Mar–Jul 2026.</p>
+<div class="automation-card">
+<div class="automation-icon">🤖</div>
+<div>
+<div class="automation-title">Selenium Framework</div>
+<div class="automation-desc">Completed Java/Selenium automation course at Quality Academy. Page Object Model framework, TestNG annotations, explicit/implicit waits, Maven build management. Project documentation and test suite coming soon.</div>
+<div class="automation-stack">
+<span class="tag">Java</span><span class="tag">Selenium WebDriver</span><span class="tag">TestNG</span><span class="tag">Maven</span><span class="tag">POM</span><span class="tag">Git</span>
+</div>
+<a class="btn btn-outline" href="https://github.com/anadanelia369" target="_blank">⌥ View on GitHub</a>
+</div>
+</div>
 </section>
 
 <!-- API TESTING -->
 <section id="api">
-  <div class="section-eye">API Testing</div>
-  <h2 class="sh">Postman Diary</h2>
-  <p class="lead">Structured API testing practice using the Simple Grocery Store API. Started March 8, 2026.</p>
-  <div class="postman-grid">
-    <div class="postman-bug-card">
-      <div class="postman-bug-eye">🐛 Notable Bug Found</div>
-      <div class="postman-bug-title">GET /products?limit=3 returns 20 products instead of 3</div>
-      <div class="code-block">
-        pm.test(<span class="c-green">"Status code is 200"</span>, function () {<br/>
-        &nbsp;&nbsp;pm.response.to.have.status(<span class="c-gold">200</span>);<br/>
-        });<br/><br/>
-        pm.test(<span class="c-green">"Exactly 3 products (limit=3)"</span>, function () {<br/>
-        &nbsp;&nbsp;<span class="c-purple">const</span> json = pm.response.json();<br/>
-        &nbsp;&nbsp;pm.expect(json.length).to.equal(<span class="c-gold">3</span>);<br/>
-        });<br/><br/>
-        console.log(<span class="c-green">"Products returned: "</span><br/>
-        &nbsp;&nbsp;+ pm.response.json().length);<br/><br/>
-        <span class="c-dim">// ✅ PASSED — Status code 200</span><br/>
-        <span class="c-dim">// ❌ FAILED — expected 20 to equal 3</span><br/>
-        <span class="c-dim">// BUG: limit param not implemented</span>
-      </div>
-    </div>
-
-    <div>
-      <p style="color:var(--muted);font-size:13px;margin-bottom:1.25rem;">Day-by-day structured learning diary.</p>
-      <ul class="postman-list">
-        <li>Environment setup · BaseURL · GET /products</li>
-        <li>Query params vs path params</li>
-        <li>POST /carts · GET /carts/{cartId}</li>
-        <li>Status code experiments (400/401/403/404)</li>
-        <li>pm.test assertions</li>
-        <li>JavaScript in Postman — let/const, loops</li>
-        <li class="dim">JSON assertions (in progress)</li>
-      </ul>
-    </div>
-  </div>
+<div class="section-eye">API Testing</div>
+<h2 class="sh">Postman Diary</h2>
+<p class="lead">Structured API testing practice using the Simple Grocery Store API. Started March 8, 2026.</p>
+<div class="postman-grid">
+<div class="postman-bug-card">
+<div class="postman-bug-eye">🐛 Notable Bug Found</div>
+<div class="postman-bug-title">GET /products?limit=3 returns 20 products instead of 3</div>
+<div class="code-block">
+pm.test(<span class="c-green">"Status code is 200"</span>, function () {<br/>
+&nbsp;&nbsp;pm.response.to.have.status(<span class="c-gold">200</span>);<br/>
+});<br/><br/>
+pm.test(<span class="c-green">"Exactly 3 products (limit=3)"</span>, function () {<br/>
+&nbsp;&nbsp;<span class="c-purple">const</span> json = pm.response.json();<br/>
+&nbsp;&nbsp;pm.expect(json.length).to.equal(<span class="c-gold">3</span>);<br/>
+});<br/><br/>
+console.log(<span class="c-green">"Products returned: "</span><br/>
+&nbsp;&nbsp;+ pm.response.json().length);<br/><br/>
+<span class="c-dim">// ✅ PASSED — Status code 200</span><br/>
+<span class="c-dim">// ❌ FAILED — expected 20 to equal 3</span><br/>
+<span class="c-dim">// BUG: limit param not implemented</span>
+</div>
+</div>
+<div>
+<p style="color:var(--muted);font-size:13px;margin-bottom:1.25rem;">Day-by-day structured learning diary.</p>
+<ul class="postman-list">
+<li>Environment setup · BaseURL · GET /products</li>
+<li>Query params vs path params</li>
+<li>POST /carts · GET /carts/{cartId}</li>
+<li>Status code experiments (400/401/403/404)</li>
+<li>pm.test assertions</li>
+<li>JavaScript in Postman — let/const, loops</li>
+<li class="dim">JSON assertions (in progress)</li>
+</ul>
+</div>
+</div>
 </section>
 
 <!-- TECH STACK -->
 <section id="stack">
-  <div class="section-eye">Skills & Tools</div>
-  <h2 class="sh">Tech Stack</h2>
-  <p class="lead">Tools and methodologies used across projects.</p>
-  <div class="stack-grid">
-    <div class="stack-card">
-      <div class="stack-icon">🧪</div>
-      <div class="stack-title">Testing Types</div>
-      <ul class="stack-items"><li>Manual</li><li>Functional</li><li>Regression</li><li>Exploratory</li><li>Smoke</li><li>Mobile</li><li>Localization</li><li>UX</li></ul>
-    </div>
-    <div class="stack-card">
-      <div class="stack-icon">📐</div>
-      <div class="stack-title">Test Design</div>
-      <ul class="stack-items"><li>EP</li><li>BVA</li><li>Decision Tables</li><li>State Transition</li><li>I SLICED UP FUN</li></ul>
-    </div>
-    <div class="stack-card">
-      <div class="stack-icon">🗂️</div>
-      <div class="stack-title">Test Management</div>
-      <ul class="stack-items"><li>Jira</li><li>Linear</li><li>Testiny</li><li>TestCaseLab</li><li>Qase.io</li></ul>
-    </div>
-    <div class="stack-card">
-      <div class="stack-icon">🔌</div>
-      <div class="stack-title">API Testing</div>
-      <ul class="stack-items"><li>Postman</li><li>REST API</li><li>Swagger</li><li>pm.test</li><li>JSON assertions</li></ul>
-    </div>
-    <div class="stack-card">
-      <div class="stack-icon">🤖</div>
-      <div class="stack-title">Automation</div>
-      <ul class="stack-items"><li>Java</li><li>Selenium WebDriver</li><li>TestNG</li><li>Maven</li><li>Git · GitHub</li></ul>
-    </div>
-    <div class="stack-card">
-      <div class="stack-icon">🔍</div>
-      <div class="stack-title">Other Tools</div>
-      <ul class="stack-items"><li>DevTools</li><li>Figma</li><li>Jam.dev</li><li>SQL basics</li><li>IntelliJ IDEA</li></ul>
-    </div>
-  </div>
+<div class="section-eye">Skills & Tools</div>
+<h2 class="sh">Tech Stack</h2>
+<p class="lead">Tools and methodologies used across projects.</p>
+<div class="stack-grid">
+<div class="stack-card">
+<div class="stack-icon">🧪</div>
+<div class="stack-title">Testing Types</div>
+<ul class="stack-items"><li>Manual</li><li>Functional</li><li>Regression</li><li>Exploratory</li><li>Smoke</li><li>Mobile</li><li>Localization</li><li>UX</li></ul>
+</div>
+<div class="stack-card">
+<div class="stack-icon">📐</div>
+<div class="stack-title">Test Design</div>
+<ul class="stack-items"><li>EP</li><li>BVA</li><li>Decision Tables</li><li>State Transition</li><li>I SLICED UP FUN</li></ul>
+</div>
+<div class="stack-card">
+<div class="stack-icon">🗂️</div>
+<div class="stack-title">Test Management</div>
+<ul class="stack-items"><li>Jira</li><li>Linear</li><li>Testiny</li><li>TestCaseLab</li><li>Qase.io</li></ul>
+</div>
+<div class="stack-card">
+<div class="stack-icon">🔌</div>
+<div class="stack-title">API Testing</div>
+<ul class="stack-items"><li>Postman</li><li>REST API</li><li>Swagger</li><li>pm.test</li><li>JSON assertions</li></ul>
+</div>
+<div class="stack-card">
+<div class="stack-icon">🤖</div>
+<div class="stack-title">Automation</div>
+<ul class="stack-items"><li>Java</li><li>Selenium WebDriver</li><li>TestNG</li><li>Maven</li><li>Git · GitHub</li></ul>
+</div>
+<div class="stack-card">
+<div class="stack-icon">🔍</div>
+<div class="stack-title">Other Tools</div>
+<ul class="stack-items"><li>DevTools</li><li>Figma</li><li>Jam.dev</li><li>SQL basics</li><li>IntelliJ IDEA</li></ul>
+</div>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-name">Ana Danelia</div>
-  <div class="footer-sub">Manual QA · API Testing · Automation</div>
-  <div class="footer-links">
-    <a href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
-    <a href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
-    <a href="Ana_Danelia_QA_Tester_2026-07-28.pdf">⬇ CV</a>
-  </div>
+<div class="footer-name">Ana Danelia</div>
+<div class="footer-sub">Manual QA · API Testing · Automation</div>
+<div class="footer-links">
+<a href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
+<a href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
+<a href="Ana_Danelia_QA_Tester_2026-07-28.pdf">⬇ CV</a>
+</div>
 </footer>
 
 </body>
