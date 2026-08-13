@@ -41,26 +41,40 @@
 
     /* ── AMBIENT GLOW ── */
     .glow-orb {
+      animation: float 8s ease-in-out infinite alternate;
       position: fixed;
       border-radius: 50%;
       pointer-events: none;
       z-index: 0;
       filter: blur(80px);
     }
+    @keyframes float { from { transform: scale(1); } to { transform: scale(1.15); } }
     .glow-orb-1 {
-      width: 600px; height: 600px;
+      width: 900px; height: 900px;
       top: -200px; right: -200px;
-      background: radial-gradient(circle, rgba(107,72,181,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(107,72,181,0.22) 0%, transparent 65%);
     }
     .glow-orb-2 {
-      width: 500px; height: 500px;
+      width: 800px; height: 800px;
       bottom: 20vh; left: -150px;
-      background: radial-gradient(circle, rgba(107,72,181,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(107,72,181,0.18) 0%, transparent 65%);
+    }
+    .glow-orb-4 {
+      width: 700px; height: 700px;
+      top: 120vh; right: -200px;
+      background: radial-gradient(circle, rgba(107,72,181,0.14) 0%, transparent 65%);
+      animation-delay: 2s;
+    }
+    .glow-orb-5 {
+      width: 600px; height: 600px;
+      top: 220vh; left: -100px;
+      background: radial-gradient(circle, rgba(255,215,0,0.06) 0%, transparent 65%);
+      animation-delay: 4s;
     }
     .glow-orb-3 {
-      width: 300px; height: 300px;
+      width: 600px; height: 600px;
       top: 50vh; left: 50%;
-      background: radial-gradient(circle, rgba(255,215,0,0.04) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,215,0,0.07) 0%, transparent 65%);
     }
 
     /* ── NAV ── */
@@ -455,6 +469,8 @@
 <div class="glow-orb glow-orb-1"></div>
 <div class="glow-orb glow-orb-2"></div>
 <div class="glow-orb glow-orb-3"></div>
+<div class="glow-orb glow-orb-4"></div>
+<div class="glow-orb glow-orb-5"></div>
 
 <!-- NAV -->
 <nav>
