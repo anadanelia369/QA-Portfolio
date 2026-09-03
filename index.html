@@ -38,60 +38,30 @@ body {
   position: relative;
 }
 
-/* ── AMBIENT GLOW ──
-   FIX: position changed from `fixed` to `absolute`.
-   `fixed` anchors an element to the VIEWPORT — its top/bottom offsets
-   are measured against the visible screen only, so anything placed
-   beyond 100vh (e.g. top: 220vh) sits permanently off-screen and can
-   never be scrolled into view. `absolute` anchors the element to the
-   nearest positioned ancestor — here, since no wrapping element sets
-   its own position, that resolves to the full document (via <body>,
-   which is now explicitly `position: relative` above to make this
-   the containing block). This lets each orb sit at a fixed point in
-   the PAGE rather than the SCREEN, so scrolling reveals them in turn
-   instead of leaving the lower ones stranded outside the viewport. */
-.glow-orb {
-  animation: float 8s ease-in-out infinite alternate;
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
+/* ── AMBIENT EDGE RIBBONS ──
+   Purple + gold zigzag ribbon, tiled seamlessly down the full page
+   with background-repeat: repeat-y. Because a single tile repeats
+   edge-to-edge by construction, there is no manual positioning and
+   therefore no possibility of a gap forming between copies — unlike
+   the earlier orb approach, this needs no per-viewport math at all. */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 260px;
   z-index: 0;
-  filter: blur(80px);
+  pointer-events: none;
+  background-repeat: repeat-y;
+  background-size: 260px 400px;
 }
-@keyframes float { from { transform: scale(1); } to { transform: scale(1.15); } }
-
-.glow-orb-1 {
-  width: 900px; height: 900px;
-  top: -200px; right: -200px;
-  background: radial-gradient(circle, rgba(107,72,181,0.22) 0%, transparent 65%);
+body::before {
+  left: 0;
+  background-image: url('ribbon-tile-left_2026-08-21.png');
 }
-.glow-orb-2 {
-  width: 800px; height: 800px;
-  top: 60vh; left: -150px;
-  background: radial-gradient(circle, rgba(107,72,181,0.18) 0%, transparent 65%);
-}
-.glow-orb-3 {
-  width: 600px; height: 600px;
-  top: 130vh; left: 50%;
-  background: radial-gradient(circle, rgba(255,215,0,0.07) 0%, transparent 65%);
-}
-.glow-orb-4 {
-  width: 700px; height: 700px;
-  top: 220vh; right: -200px;
-  background: radial-gradient(circle, rgba(107,72,181,0.14) 0%, transparent 65%);
-  animation-delay: 2s;
-}
-.glow-orb-5 {
-  width: 600px; height: 600px;
-  top: 310vh; left: -100px;
-  background: radial-gradient(circle, rgba(255,215,0,0.06) 0%, transparent 65%);
-  animation-delay: 4s;
-}
-.glow-orb-6 {
-  width: 750px; height: 750px;
-  top: 400vh; right: -150px;
-  background: radial-gradient(circle, rgba(107,72,181,0.15) 0%, transparent 65%);
-  animation-delay: 1s;
+body::after {
+  right: 0;
+  background-image: url('ribbon-tile-right_2026-08-21.png');
 }
 
 /* ── NAV ── */
@@ -479,12 +449,8 @@ p.lead { color:#9a90b8; font-size:13px; margin-bottom:2rem; }
 </head>
 <body>
 
-<div class="glow-orb glow-orb-1"></div>
-<div class="glow-orb glow-orb-2"></div>
-<div class="glow-orb glow-orb-3"></div>
-<div class="glow-orb glow-orb-4"></div>
-<div class="glow-orb glow-orb-5"></div>
-<div class="glow-orb glow-orb-6"></div>
+<!-- edge ribbons now applied via body::before/::after in CSS -->
+<!-- (no divs needed — background-repeat handles it) -->
 
 <!-- NAV -->
 <nav>
