@@ -419,11 +419,11 @@ footer {
   .nav-links a { font-size: 9.5px; white-space: nowrap; }
 
   /* ribbons: narrower on small screens so they don't eat into content */
-  body::before, body::after { width: 90px; background-size: 90px 138px; }
+  body::before, body::after { width: 32px; background-size: 32px 49px; }
 
-  /* sections: less side padding, content has more room */
-  section { padding: 3rem 1.25rem; }
-  #hero { padding: 70px 1.25rem 3rem; min-height: auto; }
+  /* sections: padding matches ribbon width exactly — content clears the ribbon with zero overlap */
+  section { padding: 3rem 2rem; }
+  #hero { padding: 70px 2rem 3rem; min-height: auto; }
 
   h1 { font-size: clamp(2.2rem, 11vw, 3.2rem); }
 
@@ -432,7 +432,13 @@ footer {
   .stats-row { gap: 1.5rem; }
   .stat-n { font-size: 2rem; }
 
-  .json-block { max-width: 100%; font-size: 11px; }
+  .json-block {
+    max-width: 100%;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
   .about-grid { gap: 1.75rem; }
   .about-photo-row { flex-wrap: wrap; gap: 1rem; }
