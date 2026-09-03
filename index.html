@@ -402,6 +402,53 @@ footer {
 /* ABOUT GRID */
 .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
 @media(max-width:640px){ .about-grid{ grid-template-columns:1fr; } }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  /* nav: shrink logo/links to fit, allow horizontal scroll instead of overflow-clipping */
+  nav { padding: 0 1rem; }
+  .nav-logo { font-size: 11px; }
+  .nav-links {
+    gap: .9rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 68vw;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { font-size: 9.5px; white-space: nowrap; }
+
+  /* ribbons: narrower on small screens so they don't eat into content */
+  body::before, body::after { width: 90px; background-size: 90px 138px; }
+
+  /* sections: less side padding, content has more room */
+  section { padding: 3rem 1.25rem; }
+  #hero { padding: 70px 1.25rem 3rem; min-height: auto; }
+
+  h1 { font-size: clamp(2.2rem, 11vw, 3.2rem); }
+
+  .brand-image-wrap { height: 260px; border-radius: 8px; margin-bottom: 1.75rem; }
+
+  .stats-row { gap: 1.5rem; }
+  .stat-n { font-size: 2rem; }
+
+  .json-block { max-width: 100%; font-size: 11px; }
+
+  .about-grid { gap: 1.75rem; }
+  .about-photo-row { flex-wrap: wrap; gap: 1rem; }
+
+  .bug-stat-top { flex-wrap: wrap; }
+  .eq-label { width: 76px; font-size: 9px; }
+
+  .automation-card { flex-direction: column; padding: 1.75rem; }
+
+  .postman-grid { grid-template-columns: 1fr; }
+
+  .hero-btns { gap: .6rem; }
+  .btn { font-size: 10px; padding: .55rem 1rem; }
+
+  .footer-links { gap: 1rem; }
+}
 .about-prose p { color:var(--muted); font-size:13px; line-height:1.9; margin-bottom:1rem; }
 .about-prose strong { color:var(--white); }
 .about-photo-row { display:flex; align-items:center; gap:1.5rem; margin-bottom:1.75rem; }
