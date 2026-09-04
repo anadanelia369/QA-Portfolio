@@ -151,10 +151,10 @@ h1 em {
   text-decoration:none; text-transform:uppercase;
   transition: all .2s; cursor:pointer; border:none;
 }
-.btn-primary { background:var(--purple); color:#fff; }
-.btn-primary:hover { background:var(--purple-l); transform:translateY(-1px); box-shadow:0 4px 16px rgba(107,72,181,.4); }
-.btn-outline { background:transparent; color:var(--purple-l); border:1px solid rgba(107,72,181,.4); }
-.btn-outline:hover { border-color:var(--purple-l); transform:translateY(-1px); }
+.btn-primary { background:var(--gold); color:#2a1052; }
+.btn-primary:hover { background:#ffe066; transform:translateY(-1px); box-shadow:0 4px 16px rgba(255,215,0,.4); }
+.btn-outline { background:var(--gold); color:#2a1052; border:1px solid var(--gold-s); }
+.btn-outline:hover { background:#ffe066; border-color:#ffe066; transform:translateY(-1px); }
 
 /* JSON BLOCK */
 .json-block {
@@ -188,10 +188,10 @@ h1 em {
 }
 .stat-n {
   font-family:'Playfair Display',serif;
-  font-size:2.8rem; color:var(--purple-xl);
+  font-size:2.8rem; color:var(--gold);
   font-weight:700; line-height:1;
 }
-.stat-n span { color:var(--gold); font-size:1.8rem; }
+.stat-n span { color:var(--green); font-size:1.8rem; }
 .stat-label { font-size:10px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-top:.25rem; }
 
 /* ── PROJECTS ── */
@@ -206,7 +206,7 @@ h1 em {
 .project-eyebrow {
   font-family:'JetBrains Mono',monospace;
   font-size:9px; font-weight:700; letter-spacing:.15em;
-  text-transform:uppercase; color:var(--purple-l);
+  text-transform:uppercase; color:var(--gold);
   margin-bottom:.75rem;
 }
 .project-title {
@@ -219,8 +219,8 @@ h1 em {
 .tag {
   font-family:'JetBrains Mono',monospace;
   font-size:9px; font-weight:700; letter-spacing:.08em;
-  background:rgba(107,72,181,.15); color:var(--purple-l);
-  border:1px solid rgba(107,72,181,.25);
+  background:rgba(255,215,0,.12); color:var(--gold);
+  border:1px solid rgba(255,215,0,.35);
   border-radius:3px; padding:.2rem .55rem;
 }
 
@@ -237,8 +237,9 @@ h1 em {
 }
 .bug-total-n {
   font-family:'Playfair Display',serif;
-  font-size:3rem; color:var(--purple-xl); font-weight:700; line-height:1;
+  font-size:3rem; color:var(--gold); font-weight:700; line-height:1;
 }
+.bug-total-n .plus { color:var(--green); }
 .bug-total-label { font-size:12px; color:var(--muted); }
 .bug-detail-count {
   font-family:'JetBrains Mono',monospace;
@@ -284,6 +285,7 @@ h1 em {
 .bug-card-eye .sev-high { color:var(--orange); }
 .bug-card-eye .sev-sec { color:var(--blue); }
 .bug-card-eye .dot { color:var(--dim); margin:0 .35rem; }
+.bug-card-eye .cat-label { color:var(--gold); font-weight:700; }
 .bug-card-title {
   font-family:'Playfair Display',serif;
   font-size:1rem; font-weight:700;
@@ -291,11 +293,11 @@ h1 em {
 }
 .bug-card-desc { font-size:12px; color:var(--muted); line-height:1.8; }
 .bug-privacy {
-  background:rgba(107,72,181,.08);
-  border:1px solid rgba(107,72,181,.2);
+  background:rgba(255,215,0,.08);
+  border:1px solid rgba(255,215,0,.25);
   border-radius:6px; padding:1rem 1.25rem;
   font-family:'JetBrains Mono',monospace;
-  font-size:11px; color:var(--dim);
+  font-size:11px; color:var(--gold);
   margin-top:1rem; line-height:1.7;
 }
 
@@ -497,7 +499,7 @@ h2.sh {
   font-weight:700; color:var(--white);
   margin-bottom:1.5rem; line-height:1.2;
 }
-p.lead { color:#c2bcdf; font-size:13px; margin-bottom:2rem; }
+p.lead { color:var(--gold); font-size:13px; margin-bottom:2rem; }
 </style>
 </head>
 <body>
@@ -616,7 +618,7 @@ p.lead { color:#c2bcdf; font-size:13px; margin-bottom:2rem; }
 
 <div class="bug-stat-header">
 <div class="bug-stat-top">
-<div class="bug-total-n">40+</div>
+<div class="bug-total-n">40<span class="plus">+</span></div>
 <div>
 <div class="bug-total-label">bugs logged across 3 projects</div>
 <div class="bug-detail-count">13 documented in detail below</div>
@@ -659,37 +661,37 @@ p.lead { color:#c2bcdf; font-size:13px; margin-bottom:2rem; }
 <div class="bug-group">
 <div class="bug-group-label">autism.ge — Notable Findings</div>
 <div class="bug-card">
-<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-04<span class="dot">·</span>Payment Processing</div>
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-04<span class="dot">·</span><span class="cat-label">Payment Processing</span></div>
 <div class="bug-card-title">WordPress Backend Returns Error Despite Successful Payment</div>
 <div class="bug-card-desc">Payment completes successfully via Visa and Google Pay — confirmation email delivered with correct subscription details. Simultaneously, WordPress backend displays an error on the post-redirect page. Business risk: donors may believe payment failed and attempt to pay again, risking duplicate charges. Documented with screen recording of full payment flow.</div>
 </div>
 <div class="bug-card">
-<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-01<span class="dot">·</span>Authentication</div>
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-01<span class="dot">·</span><span class="cat-label">Authentication</span></div>
 <div class="bug-card-title">Missing "Forgot Password" Functionality</div>
 <div class="bug-card-desc">No password recovery mechanism exists on the login page. Users who forget their password have no self-service way to regain account access — permanently locked out without support intervention.</div>
 </div>
 <div class="bug-card">
-<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-03<span class="dot">·</span>Subscriptions</div>
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-03<span class="dot">·</span><span class="cat-label">Subscriptions</span></div>
 <div class="bug-card-title">Active Subscriptions Not Displaying on Subscriptions Page</div>
 <div class="bug-card-desc">Despite confirmed active subscription, the Subscriptions page appears empty. Users cannot verify or manage their own recurring donations — high risk of confusion and unintended cancellations.</div>
 </div>
 <div class="bug-card high">
-<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-05<span class="dot">·</span>Session Management</div>
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-05<span class="dot">·</span><span class="cat-label">Session Management</span></div>
 <div class="bug-card-title">Auth Page Accessible After Logout</div>
 <div class="bug-card-desc">After clicking Logout, the authentication page remains accessible in a state suggesting the session was not properly invalidated. Potential security concern — backend session verification needed.</div>
 </div>
 <div class="bug-card high">
-<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-08<span class="dot">·</span>UX</div>
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-08<span class="dot">·</span><span class="cat-label">UX</span></div>
 <div class="bug-card-title">"Registration" Button Shown to Already-Authorized Users</div>
 <div class="bug-card-desc">The payment flow displays a "Registration" button for users who are already logged in. Misleading UX — implies account creation is required when it is not. Label should read "Payment" for authorized users.</div>
 </div>
 <div class="bug-card">
-<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-06<span class="dot">·</span>Authentication</div>
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-06<span class="dot">·</span><span class="cat-label">Authentication</span></div>
 <div class="bug-card-title">Password Reset and Registration Block New Users Before Payment</div>
 <div class="bug-card-desc">Both password reset and registration flows fail, preventing new users from reaching the donation/payment step entirely. Payment processing itself was independently verified as functional — a test donation completed successfully, isolating the defect specifically to the authentication layer. Given recent WordPress backend changes, this is a likely regression candidate for developer review. Documented with screen recordings.</div>
 </div>
 <div class="bug-card high">
-<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-07<span class="dot">·</span>Architecture</div>
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-07<span class="dot">·</span><span class="cat-label">Architecture</span></div>
 <div class="bug-card-title">Registration Tightly Coupled to Donation Flow</div>
 <div class="bug-card-desc">Registration currently exists as part of the donation flow rather than as an independent function. Recommended: decouple registration into its own standalone flow — reduces the blast radius of future donation-flow changes and allows account creation without requiring a payment action.</div>
 </div>
@@ -698,17 +700,17 @@ p.lead { color:#c2bcdf; font-size:13px; margin-bottom:2rem; }
 <div class="bug-group">
 <div class="bug-group-label">ODIN P2P — Notable Findings</div>
 <div class="bug-card">
-<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>ODIN-995<span class="dot">·</span>Mobile UI</div>
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>ODIN-995<span class="dot">·</span><span class="cat-label">Mobile UI</span></div>
 <div class="bug-card-title">Time Picker Crash on Chat Screen</div>
 <div class="bug-card-desc">Tapping the time picker on the chat screen causes the app to crash completely. Reproducible 100% of the time on Android 14 / Realme 10. Users lose active chat session and must restart the app.</div>
 </div>
 <div class="bug-card high">
-<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-974<span class="dot">·</span>Navigation</div>
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-974<span class="dot">·</span><span class="cat-label">Navigation</span></div>
 <div class="bug-card-title">Phone Country Code Auto-Changes on Back Navigation</div>
 <div class="bug-card-desc">When user navigates back from a screen, the phone country code field resets to a different value without user input. Affects international users — incorrect code submitted silently.</div>
 </div>
 <div class="bug-card high">
-<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-1013<span class="dot">·</span>Navigation</div>
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-1013<span class="dot">·</span><span class="cat-label">Navigation</span></div>
 <div class="bug-card-title">System Back Button Breaks Trip Flow</div>
 <div class="bug-card-desc">Pressing the system back button during trip creation breaks the flow — user is redirected incorrectly and trip data is lost. Expected: back navigation preserves state.</div>
 </div>
@@ -730,7 +732,7 @@ p.lead { color:#c2bcdf; font-size:13px; margin-bottom:2rem; }
 <div class="bug-card-desc">Afghan citizenship combined with a Georgian ID number passes validation without error. The system accepts an impossible document combination — bypassing core identity verification logic.</div>
 </div>
 <div class="bug-card high">
-<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>GPI-ANN-12<span class="dot">·</span>BVA</div>
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>GPI-ANN-12<span class="dot">·</span><span class="cat-label">BVA</span></div>
 <div class="bug-card-title">Calendar Allows 366-Day Insurance Period</div>
 <div class="bug-card-desc">Boundary value testing revealed the calendar accepts a 366-day period for a non-leap year — one day beyond the legal maximum. Core business validation logic not enforced.</div>
 </div>
