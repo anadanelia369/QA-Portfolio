@@ -529,6 +529,7 @@ p.lead { color:#9a90b8; font-size:13px; margin-bottom:2rem; }
 <a class="btn btn-primary" href="Ana_Danelia_Manual_QA_Engineer.pdf">⬇ Download CV</a>
 <a class="btn btn-outline" href="https://linkedin.com/in/ana-danelia-42567139b" target="_blank">🔗 LinkedIn</a>
 <a class="btn btn-outline" href="https://github.com/anadanelia369/QA-Portfolio" target="_blank">⌥ GitHub</a>
+<a class="btn btn-outline" href="https://github.com/anadanelia369/Debug-Diary" target="_blank">🔍 Debug Diary</a>
 </div>
 <div class="json-block">
 {<br/>
@@ -542,7 +543,7 @@ p.lead { color:#9a90b8; font-size:13px; margin-bottom:2rem; }
 <span class="jb">}</span>
 </div>
 <div class="stats-row">
-<div><div class="stat-n">39<span>+</span></div><div class="stat-label">Bugs Logged</div></div>
+<div><div class="stat-n">40<span>+</span></div><div class="stat-label">Bugs Logged</div></div>
 <div><div class="stat-n">57</div><div class="stat-label">Test Cases</div></div>
 <div><div class="stat-n">328</div><div class="stat-label">Test Scenarios</div></div>
 <div><div class="stat-n">3</div><div class="stat-label">Projects Tested</div></div>
@@ -614,17 +615,17 @@ p.lead { color:#9a90b8; font-size:13px; margin-bottom:2rem; }
 
 <div class="bug-stat-header">
 <div class="bug-stat-top">
-<div class="bug-total-n">39+</div>
+<div class="bug-total-n">40+</div>
 <div>
 <div class="bug-total-label">bugs logged across 3 projects</div>
-<div class="bug-detail-count">11 documented in detail below</div>
+<div class="bug-detail-count">13 documented in detail below</div>
 </div>
 </div>
 <div class="equalizer">
 <div class="eq-row">
 <div class="eq-label">🔴 Critical</div>
-<div class="eq-bar-wrap"><div class="eq-bar" style="width:45%;background:#e05555;"></div></div>
-<div class="eq-count">5</div>
+<div class="eq-bar-wrap"><div class="eq-bar" style="width:50%;background:#e05555;"></div></div>
+<div class="eq-count">6</div>
 </div>
 <div class="eq-row">
 <div class="eq-label">🟠 High</div>
@@ -681,6 +682,16 @@ p.lead { color:#9a90b8; font-size:13px; margin-bottom:2rem; }
 <div class="bug-card-title">"Registration" Button Shown to Already-Authorized Users</div>
 <div class="bug-card-desc">The payment flow displays a "Registration" button for users who are already logged in. Misleading UX — implies account creation is required when it is not. Label should read "Payment" for authorized users.</div>
 </div>
+<div class="bug-card">
+<div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-06<span class="dot">·</span>Authentication</div>
+<div class="bug-card-title">Password Reset and Registration Block New Users Before Payment</div>
+<div class="bug-card-desc">Both password reset and registration flows fail, preventing new users from reaching the donation/payment step entirely. Payment processing itself was independently verified as functional — a test donation completed successfully, isolating the defect specifically to the authentication layer. Given recent WordPress backend changes, this is a likely regression candidate for developer review. Documented with screen recordings.</div>
+</div>
+<div class="bug-card high">
+<div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-07<span class="dot">·</span>Architecture</div>
+<div class="bug-card-title">Registration Tightly Coupled to Donation Flow</div>
+<div class="bug-card-desc">Registration currently exists as part of the donation flow rather than as an independent function. Recommended: decouple registration into its own standalone flow — reduces the blast radius of future donation-flow changes and allows account creation without requiring a payment action.</div>
+</div>
 </div>
 
 <div class="bug-group">
@@ -729,16 +740,16 @@ p.lead { color:#9a90b8; font-size:13px; margin-bottom:2rem; }
 <section id="automation">
 <div class="section-eye">Automation</div>
 <h2 class="sh">Automation Projects</h2>
-<p class="lead">Java · Selenium · TestNG · Maven — Quality Academy, Mar–Jul 2026.</p>
+<p class="lead">Java · Selenium · TestNG · Maven · RestAssured — Quality Academy, Mar–Jul 2026.</p>
 <div class="automation-card">
 <div class="automation-icon">🤖</div>
 <div>
-<div class="automation-title">Selenium Framework</div>
-<div class="automation-desc">Completed Java/Selenium automation course at Quality Academy. Page Object Model framework, TestNG annotations, explicit/implicit waits, Maven build management. Project documentation and test suite coming soon.</div>
+<div class="automation-title">GPI Calendar — Selenium Automation Framework</div>
+<div class="automation-desc">Built a Java/Selenium automation framework for the GPI travel-insurance calendar — 7/7 tests passing (6 UI + 1 API). Page Object Model with PageFactory, dynamic date generation (LocalDate), Georgian Locale date formatting, Explicit Wait strategy throughout (no fixed sleeps), Log4j2 logging, and ExtentReports for stakeholder-readable results. Includes a standalone RestAssured GET test against a public API.</div>
 <div class="automation-stack">
-<span class="tag">Java</span><span class="tag">Selenium WebDriver</span><span class="tag">TestNG</span><span class="tag">Maven</span><span class="tag">POM</span><span class="tag">Git</span>
+<span class="tag">Java</span><span class="tag">Selenium WebDriver</span><span class="tag">TestNG</span><span class="tag">Maven</span><span class="tag">POM + PageFactory</span><span class="tag">RestAssured</span><span class="tag">Log4j2</span><span class="tag">ExtentReports</span>
 </div>
-<a class="btn btn-outline" href="https://github.com/anadanelia369" target="_blank">⌥ View on GitHub</a>
+<a class="btn btn-outline" href="https://github.com/anadanelia369/GpiCalendarAutomation" target="_blank">⌥ View on GitHub</a>
 </div>
 </div>
 </section>
