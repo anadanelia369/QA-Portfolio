@@ -16,8 +16,9 @@
   --purple: #6b48b5;
   --purple-l: #9b7ed4;
   --purple-xl: #c4a8f0;
-  --gold: #FFD700;
-  --gold-s: #c8a800;
+  --gold: #d4af37;
+  --gold-s: #a9861f;
+  --gold-pale: #f0c94a;
   --white: #f0eeff;
   --muted: #b6aed4;
   --dim: #8a7fa8;
@@ -151,10 +152,10 @@ h1 em {
   text-decoration:none; text-transform:uppercase;
   transition: all .2s; cursor:pointer; border:none;
 }
-.btn-primary { background:var(--gold); color:#2a1052; }
-.btn-primary:hover { background:#ffe066; transform:translateY(-1px); box-shadow:0 4px 16px rgba(255,215,0,.4); }
-.btn-outline { background:var(--gold); color:#2a1052; border:1px solid var(--gold-s); }
-.btn-outline:hover { background:#ffe066; border-color:#ffe066; transform:translateY(-1px); }
+.btn-primary { background:linear-gradient(135deg,#fff6d8,#f0c94a 55%,#c99a1e); color:#2a1052; }
+.btn-primary:hover { background:linear-gradient(135deg,#fff9e8,#f5d772 55%,#d4af37); transform:translateY(-1px); box-shadow:0 4px 16px rgba(212,175,55,.4); }
+.btn-outline { background:linear-gradient(135deg,#fff6d8,#f0c94a 55%,#c99a1e); color:#2a1052; border:1px solid var(--gold-s); }
+.btn-outline:hover { background:linear-gradient(135deg,#fff9e8,#f5d772 55%,#d4af37); border-color:#d4af37; transform:translateY(-1px); }
 
 /* JSON BLOCK */
 .json-block {
@@ -388,18 +389,18 @@ footer {
 }
 .footer-sub {
   font-family:'JetBrains Mono',monospace;
-  font-size:10px; color:var(--muted);
+  font-size:10px; color:var(--gold);
   letter-spacing:.15em; text-transform:uppercase;
   margin-bottom:1.5rem;
 }
 .footer-links { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; }
 .footer-links a {
   font-family:'JetBrains Mono',monospace;
-  font-size:11px; color:var(--muted);
+  font-size:11px; color:var(--purple-l);
   text-decoration:none; letter-spacing:.06em;
   transition:color .2s;
 }
-.footer-links a:hover { color:var(--purple-xl); }
+.footer-links a:hover { color:var(--gold); }
 
 /* ABOUT GRID */
 .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
@@ -754,7 +755,7 @@ p.lead { color:var(--gold); font-size:13px; margin-bottom:2rem; }
 </div>
 <div class="automation-links" style="display:flex;flex-wrap:wrap;gap:.6rem;">
 <a class="btn btn-outline" href="https://github.com/anadanelia369/GpiCalendarAutomation" target="_blank">⌥ Source Code</a>
-<a class="btn btn-outline" href="https://github.com/anadanelia369/GpiCalendarAutomation/blob/master/docs/report.jpg" target="_blank">▤ Test Report</a>
+<a class="btn btn-outline" href="https://github.com/anadanelia369/GpiCalendarAutomation/blob/master/docs/report-screenshot.png" target="_blank">▤ Test Report</a>
 <a class="btn btn-outline" href="https://github.com/anadanelia369/QA-Portfolio#gpi-holding--20-test-cases" target="_blank">▣ Test Cases</a>
 <a class="btn btn-outline" href="https://github.com/anadanelia369/Debug-Diary" target="_blank">↗ Debug Notes</a>
 </div>
