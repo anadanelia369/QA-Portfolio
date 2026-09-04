@@ -280,10 +280,15 @@ p.lead{color:var(--gold);font-size:13px;margin-bottom:2rem}
 .tag{
   font-family:'JetBrains Mono',monospace;
   font-size:9px;font-weight:700;letter-spacing:.08em;
-  background:rgba(255,215,0,.12);color:var(--gold);
-  border:1px solid rgba(255,215,0,.35);
+  background:rgba(155,126,212,.10);color:var(--purple-l);
+  border:1px solid rgba(155,126,212,.30);
   border-radius:3px;padding:.2rem .55rem;
 }
+.tag-mobile{background:rgba(155,126,212,.14);color:var(--purple-xl);border-color:rgba(155,126,212,.48)}
+.tag-web{background:rgba(74,180,220,.10);color:#74cbe8;border-color:rgba(74,180,220,.34)}
+.tag-security{background:rgba(74,144,217,.11);color:#79b5ee;border-color:rgba(74,144,217,.38)}
+.tag-payment{background:rgba(212,175,55,.12);color:var(--gold-pale);border-color:rgba(212,175,55,.40)}
+.tag-default{background:rgba(155,126,212,.08);color:var(--muted);border-color:rgba(155,126,212,.22)}
 
 .bug-stat-header{padding:1.5rem 2rem;margin-bottom:2rem}
 .bug-stat-top{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.25rem}
@@ -297,10 +302,19 @@ p.lead{color:var(--gold);font-size:13px;margin-bottom:2rem}
 .finding-types{display:flex;flex-wrap:wrap;gap:.5rem}
 .finding-type{
   font-family:'JetBrains Mono',monospace;
-  font-size:10px;color:var(--muted);
-  border:1px solid rgba(107,72,181,.25);
+  font-size:10px;
+  border:1px solid;
   border-radius:4px;padding:.35rem .6rem;
 }
+.finding-type.critical{color:var(--red);border-color:rgba(224,85,85,.45);background:rgba(224,85,85,.08)}
+.finding-type.high{color:var(--orange);border-color:rgba(224,122,48,.45);background:rgba(224,122,48,.08)}
+.finding-type.security{color:#79b5ee;border-color:rgba(74,144,217,.45);background:rgba(74,144,217,.08)}
+.finding-type.payment{color:var(--gold-pale);border-color:rgba(212,175,55,.45);background:rgba(212,175,55,.08)}
+.finding-type.mobile{color:var(--purple-xl);border-color:rgba(155,126,212,.45);background:rgba(155,126,212,.08)}
+.finding-type.navigation{color:#72d7a0;border-color:rgba(76,175,125,.45);background:rgba(76,175,125,.08)}
+.finding-type.business{color:#e5b8ff;border-color:rgba(190,120,230,.42);background:rgba(190,120,230,.08)}
+.finding-type.ux{color:#f4a2cf;border-color:rgba(244,162,207,.42);background:rgba(244,162,207,.08)}
+.finding-type.web{color:#74cbe8;border-color:rgba(74,180,220,.38);background:rgba(74,180,220,.07)}
 .bug-group{margin-bottom:3rem}
 .bug-group-label{
   font-family:'JetBrains Mono',monospace;
@@ -323,7 +337,17 @@ p.lead{color:var(--gold);font-size:13px;margin-bottom:2rem}
 .bug-card-eye .sev-high{color:var(--orange)}
 .bug-card-eye .sev-sec-label{color:var(--blue)}
 .bug-card-eye .dot{color:var(--dim);margin:0 .35rem}
+.bug-card-eye .bug-id{color:var(--green);font-weight:700}
 .bug-card-eye .cat-label{color:var(--gold);font-weight:700}
+.bug-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
+.bug-tag{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.06em;border:1px solid;border-radius:3px;padding:.22rem .55rem}
+.bug-tag.business-logic{color:#e5b8ff;border-color:rgba(190,120,230,.42);background:rgba(190,120,230,.08)}
+.bug-tag.web{color:#74cbe8;border-color:rgba(74,180,220,.38);background:rgba(74,180,220,.07)}
+.bug-tag.mobile{color:var(--purple-xl);border-color:rgba(155,126,212,.45);background:rgba(155,126,212,.08)}
+.bug-tag.security{color:#79b5ee;border-color:rgba(74,144,217,.40);background:rgba(74,144,217,.08)}
+.bug-tag.payment{color:var(--gold-pale);border-color:rgba(212,175,55,.40);background:rgba(212,175,55,.08)}
+.bug-tag.ux{color:#f4a2cf;border-color:rgba(244,162,207,.40);background:rgba(244,162,207,.08)}
+.bug-tag.auth{color:#b8a6ff;border-color:rgba(120,100,220,.38);background:rgba(120,100,220,.08)}
 .bug-card-title{font-size:1rem;margin-bottom:.4rem}
 .bug-card-desc{font-size:12px;color:var(--muted);line-height:1.8}
 .bug-privacy{
@@ -577,21 +601,21 @@ footer{
       <div class="project-eyebrow">UAT Internship · Feb–Jul 2026 · Remote</div>
       <h3 class="project-title">ODIN — P2P Parcel Delivery</h3>
       <p class="project-desc">6-month intensive UAT internship on a React Native iOS/Android app. 328 test scenarios across 13 modules. Managed defect lifecycle in Jira — root cause analysis, severity classification, and fix verification. Notable: a flight-notification timing hypothesis discovered through real flight-data analysis across two routes.</p>
-      <div class="tags"><span class="tag">React Native</span><span class="tag">Mobile</span><span class="tag">UAT</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">Jira</span></div>
+      <div class="tags"><span class="tag tag-default">React Native</span><span class="tag tag-mobile">Mobile</span><span class="tag tag-default">UAT</span><span class="tag tag-mobile">Android</span><span class="tag tag-mobile">iOS</span><span class="tag tag-default">Jira</span></div>
     </article>
 
     <article class="project-card">
       <div class="project-eyebrow">Independent Testing · Jan 2026 · Web</div>
       <h3 class="project-title">GPI Holding — Insurance Platform</h3>
       <p class="project-desc">Independent exploratory testing on an insurance platform. Found 5 bugs, including privacy/security findings involving browser autofill and an invalid citizenship/document combination, plus a calendar boundary-value defect.</p>
-      <div class="tags"><span class="tag">Web</span><span class="tag">Security</span><span class="tag">Exploratory</span><span class="tag">Chrome</span><span class="tag">Windows</span><span class="tag">BVA</span></div>
+      <div class="tags"><span class="tag tag-web">🌐 Web</span><span class="tag tag-security">Security</span><span class="tag tag-default">Exploratory</span><span class="tag tag-default">Chrome</span><span class="tag tag-default">Windows</span><span class="tag tag-default">BVA</span></div>
     </article>
 
     <article class="project-card">
       <div class="project-eyebrow">Pro Bono UAT · Jun–Jul 2026 · Web</div>
       <h3 class="project-title">autism.ge — Charity Project</h3>
       <p class="project-desc">Pro bono UAT for an NGO donation platform. Risk-based testing prioritized authentication and payment flows. Found 14 issues across Critical, High, and Medium severity, including a payment false-error state where the transaction succeeds while the post-redirect flow reports failure.</p>
-      <div class="tags"><span class="tag">Pro Bono</span><span class="tag">UAT</span><span class="tag">WordPress</span><span class="tag">Payments</span><span class="tag">Risk-Based</span></div>
+      <div class="tags"><span class="tag tag-default">Pro Bono</span><span class="tag tag-default">UAT</span><span class="tag tag-default">WordPress</span><span class="tag tag-payment">Payments</span><span class="tag tag-default">Risk-Based</span></div>
     </article>
   </div>
 </section>
@@ -610,13 +634,15 @@ footer{
       </div>
     </div>
     <div class="finding-types" aria-label="Selected finding categories">
-      <span class="finding-type">Critical</span>
-      <span class="finding-type">High</span>
-      <span class="finding-type">Security / Privacy</span>
-      <span class="finding-type">Payment</span>
-      <span class="finding-type">Mobile / UI</span>
-      <span class="finding-type">Navigation</span>
-      <span class="finding-type">Business Logic</span>
+      <span class="finding-type critical">Critical</span>
+      <span class="finding-type high">High</span>
+      <span class="finding-type security">Security / Privacy</span>
+      <span class="finding-type payment">Payment</span>
+      <span class="finding-type mobile">Mobile / UI</span>
+      <span class="finding-type navigation">Navigation</span>
+      <span class="finding-type business">Business Logic</span>
+      <span class="finding-type ux">UX</span>
+      <span class="finding-type web">🌐 Web</span>
     </div>
   </div>
 
@@ -624,43 +650,50 @@ footer{
     <div class="bug-group-label">autism.ge — Notable Findings</div>
 
     <article class="bug-card critical">
-      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-04<span class="dot">·</span><span class="cat-label">Payment Processing</span></div>
+      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span><span class="bug-id">BUG-04</span><span class="dot">·</span><span class="cat-label">Payment Processing</span></div>
+      <div class="bug-tags"><span class="bug-tag payment">Payment</span><span class="bug-tag business-logic">Business Logic</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">WordPress Backend Returns Error Despite Successful Payment</h3>
       <p class="bug-card-desc">Payment completes successfully via Visa and Google Pay, and a confirmation email is delivered with the expected subscription details. At the same time, the post-redirect flow displays an error. Business risk: donors may believe payment failed and attempt to pay again. Documented with a screen recording of the full payment flow.</p>
     </article>
 
     <article class="bug-card critical">
-      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-01<span class="dot">·</span><span class="cat-label">Authentication</span></div>
+      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span><span class="bug-id">BUG-01</span><span class="dot">·</span><span class="cat-label">Authentication</span></div>
+      <div class="bug-tags"><span class="bug-tag auth">Authentication</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Missing "Forgot Password" Functionality</h3>
       <p class="bug-card-desc">No password-recovery mechanism exists on the login page. Users who forget their password have no self-service way to regain access and must rely on support intervention.</p>
     </article>
 
     <article class="bug-card critical">
-      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-03<span class="dot">·</span><span class="cat-label">Subscriptions</span></div>
+      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span><span class="bug-id">BUG-03</span><span class="dot">·</span><span class="cat-label">Subscriptions</span></div>
+      <div class="bug-tags"><span class="bug-tag business-logic">Business Logic</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Active Subscriptions Not Displaying on Subscriptions Page</h3>
       <p class="bug-card-desc">Despite a confirmed active subscription, the Subscriptions page appears empty. Users cannot verify or manage recurring donations, creating confusion around account state and subscription management.</p>
     </article>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-05<span class="dot">·</span><span class="cat-label">Session Management</span></div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">BUG-05</span><span class="dot">·</span><span class="cat-label">Session Management</span></div>
+      <div class="bug-tags"><span class="bug-tag security">Security / Privacy</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Auth Page Accessible After Logout</h3>
       <p class="bug-card-desc">After Logout, the authentication page remains accessible in a state suggesting that session invalidation may be incomplete. Backend session verification is required to confirm the security impact.</p>
     </article>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-08<span class="dot">·</span><span class="cat-label">UX</span></div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">BUG-08</span><span class="dot">·</span><span class="cat-label">UX</span></div>
+      <div class="bug-tags"><span class="bug-tag ux">UX</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">"Registration" Button Shown to Already-Authorized Users</h3>
       <p class="bug-card-desc">The payment flow displays a "Registration" button for users who are already logged in. The label implies account creation is required when it is not, creating avoidable friction and confusion.</p>
     </article>
 
     <article class="bug-card critical">
-      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>BUG-06<span class="dot">·</span><span class="cat-label">Authentication</span></div>
+      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span><span class="bug-id">BUG-06</span><span class="dot">·</span><span class="cat-label">Authentication</span></div>
+      <div class="bug-tags"><span class="bug-tag auth">Authentication</span><span class="bug-tag business-logic">Business Logic</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Password Reset and Registration Block New Users Before Payment</h3>
       <p class="bug-card-desc">Password reset and registration flows fail, preventing new users from reaching the donation/payment step. Payment processing was independently verified as functional, isolating the observed failure to the authentication layer. Documented with screen recordings.</p>
     </article>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>BUG-07<span class="dot">·</span><span class="cat-label">Architecture</span></div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">BUG-07</span><span class="dot">·</span><span class="cat-label">Architecture</span></div>
+      <div class="bug-tags"><span class="bug-tag business-logic">Business Logic</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Registration Tightly Coupled to Donation Flow</h3>
       <p class="bug-card-desc">Registration exists as part of the donation flow rather than as an independent function. Decoupling the flows would reduce the blast radius of future donation-flow changes and allow account creation independently.</p>
     </article>
@@ -670,19 +703,22 @@ footer{
     <div class="bug-group-label">ODIN P2P — Notable Findings</div>
 
     <article class="bug-card critical">
-      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span>ODIN-995<span class="dot">·</span><span class="cat-label">Mobile UI</span></div>
+      <div class="bug-card-eye"><span class="sev-crit">Critical</span><span class="dot">·</span><span class="bug-id">ODIN-995</span><span class="dot">·</span><span class="cat-label">Mobile UI</span></div>
+      <div class="bug-tags"><span class="bug-tag mobile">Mobile / UI</span></div>
       <h3 class="bug-card-title">Time Picker Crash on Chat Screen</h3>
       <p class="bug-card-desc">Tapping the time picker on the chat screen causes the app to crash. Reproducible on Android 14 / Realme 10. Users lose the active chat session and must restart the app.</p>
     </article>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-974<span class="dot">·</span><span class="cat-label">Navigation</span></div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">ODIN-974</span><span class="dot">·</span><span class="cat-label">Navigation</span></div>
+      <div class="bug-tags"><span class="bug-tag mobile">Mobile / UI</span><span class="bug-tag business-logic">Business Logic</span></div>
       <h3 class="bug-card-title">Phone Country Code Auto-Changes on Back Navigation</h3>
       <p class="bug-card-desc">When the user navigates back from a screen, the phone country-code field resets to a different value without user input. This can affect international users and silently alter submitted data.</p>
     </article>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>ODIN-1013<span class="dot">·</span><span class="cat-label">Navigation</span></div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">ODIN-1013</span><span class="dot">·</span><span class="cat-label">Navigation</span></div>
+      <div class="bug-tags"><span class="bug-tag mobile">Mobile / UI</span><span class="bug-tag business-logic">Business Logic</span></div>
       <h3 class="bug-card-title">System Back Button Breaks Trip Flow</h3>
       <p class="bug-card-desc">Pressing the system back button during trip creation breaks the flow and can result in incorrect redirection and lost trip data. Expected behavior: preserve relevant state during back navigation.</p>
     </article>
@@ -696,19 +732,22 @@ footer{
     <div class="bug-group-label">GPI Holding — Notable Findings</div>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="sev-sec-label">Security / Privacy</span><span class="dot">·</span>GPI-ANN-13</div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">GPI-ANN-13</span><span class="dot">·</span><span class="cat-label cat-security">Security / Privacy</span></div>
+      <div class="bug-tags"><span class="bug-tag security">Security / Privacy</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Browser Autofill Returns Another User's Personal Data</h3>
       <p class="bug-card-desc">During testing, Chrome autofill populated personal-data fields with another user's information from a previous session. The observation was treated as a privacy/security finding and requires environment and application-level investigation.</p>
     </article>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="sev-sec-label">Security</span><span class="dot">·</span>GPI-ANN-11</div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">GPI-ANN-11</span><span class="dot">·</span><span class="cat-label cat-security">Security</span></div>
+      <div class="bug-tags"><span class="bug-tag security">Security</span><span class="bug-tag business-logic">Business Logic</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Invalid Citizenship + Document Combination Accepted</h3>
       <p class="bug-card-desc">An Afghan citizenship value combined with a Georgian ID number passes validation without an error. The system accepts an inconsistent identity-document combination, indicating a validation gap.</p>
     </article>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span>GPI-ANN-12<span class="dot">·</span><span class="cat-label">BVA</span></div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">GPI-ANN-12</span><span class="dot">·</span><span class="cat-label">BVA</span></div>
+      <div class="bug-tags"><span class="bug-tag business-logic">Business Logic</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Calendar Allows 366-Day Insurance Period</h3>
       <p class="bug-card-desc">Boundary-value testing revealed that the calendar accepts a 366-day insurance period for a non-leap year — one day beyond the intended boundary.</p>
     </article>
@@ -726,7 +765,7 @@ footer{
       <h3 class="automation-title">GPI Calendar — Selenium Automation Framework</h3>
       <p class="automation-desc">Built a Java/Selenium automation framework for the GPI travel-insurance calendar — 7/7 tests passing (6 UI + 1 API). Uses Page Object Model with PageFactory, dynamic date generation with LocalDate, Georgian Locale date formatting, explicit waits, Log4j2 logging, and ExtentReports. Includes a standalone RestAssured GET test against a public API.</p>
       <div class="automation-stack">
-        <span class="tag">Java</span><span class="tag">Selenium WebDriver</span><span class="tag">TestNG</span><span class="tag">Maven</span><span class="tag">POM + PageFactory</span><span class="tag">RestAssured</span><span class="tag">Log4j2</span><span class="tag">ExtentReports</span>
+        <span class="tag tag-default">Java</span><span class="tag tag-web">Selenium WebDriver</span><span class="tag tag-default">TestNG</span><span class="tag tag-default">Maven</span><span class="tag tag-default">POM + PageFactory</span><span class="tag tag-web">RestAssured</span><span class="tag tag-default">Log4j2</span><span class="tag tag-default">ExtentReports</span>
       </div>
       <div class="automation-links">
         <a class="btn btn-outline" href="https://github.com/anadanelia369/GpiCalendarAutomation" target="_blank" rel="noopener noreferrer">⌥ Source Code</a>
