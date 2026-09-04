@@ -452,7 +452,7 @@ footer{
   }
   .nav-links a{font-size:9.5px}
   section{
-    width:min(594px,calc(100% - 5rem));
+    width:min(594px,calc(100% - 8rem));
     max-width:960px;
     min-width:0;
     padding:3.5rem 0;
@@ -489,7 +489,7 @@ footer{
   .project-card,.stack-card,.bug-card,.automation-card,.postman-bug-card{min-width:0}
 }
 @media(max-width:480px){
-  section{width:calc(100% - 4rem)}
+  section{width:calc(100% - 8rem)}
   .stack-grid{grid-template-columns:1fr}
   .stats-row{gap:1.25rem}
   .stat-n{font-size:1.8rem}
@@ -732,14 +732,14 @@ footer{
     <div class="bug-group-label">GPI Holding — Notable Findings</div>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">GPI-ANN-13</span><span class="dot">·</span><span class="cat-label cat-security">Security / Privacy</span></div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="sev-sec-label">Security / Privacy</span><span class="dot">·</span><span class="bug-id">GPI-ANN-13</span></div>
       <div class="bug-tags"><span class="bug-tag security">Security / Privacy</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Browser Autofill Returns Another User's Personal Data</h3>
       <p class="bug-card-desc">During testing, Chrome autofill populated personal-data fields with another user's information from a previous session. The observation was treated as a privacy/security finding and requires environment and application-level investigation.</p>
     </article>
 
     <article class="bug-card high">
-      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">GPI-ANN-11</span><span class="dot">·</span><span class="cat-label cat-security">Security</span></div>
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="sev-sec-label">Security</span><span class="dot">·</span><span class="bug-id">GPI-ANN-11</span></div>
       <div class="bug-tags"><span class="bug-tag security">Security</span><span class="bug-tag business-logic">Business Logic</span><span class="bug-tag web">🌐 Web</span></div>
       <h3 class="bug-card-title">Invalid Citizenship + Document Combination Accepted</h3>
       <p class="bug-card-desc">An Afghan citizenship value combined with a Georgian ID number passes validation without an error. The system accepts an inconsistent identity-document combination, indicating a validation gap.</p>
