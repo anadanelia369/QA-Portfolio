@@ -630,7 +630,7 @@ footer{
       <div class="bug-total-n">40<span class="plus">+</span></div>
       <div>
         <div class="bug-total-label">bugs / issues logged across 3 projects</div>
-        <div class="bug-detail-count">12 documented in detail below</div>
+        <div class="bug-detail-count">18 documented in detail below</div>
       </div>
     </div>
     <div class="finding-types" aria-label="Selected finding categories">
@@ -721,6 +721,48 @@ footer{
       <div class="bug-tags"><span class="bug-tag mobile">Mobile / UI</span><span class="bug-tag business-logic">Business Logic</span></div>
       <h3 class="bug-card-title">System Back Button Breaks Trip Flow</h3>
       <p class="bug-card-desc">Pressing the system back button during trip creation breaks the flow and can result in incorrect redirection and lost trip data. Expected behavior: preserve relevant state during back navigation.</p>
+    </article>
+
+    <article class="bug-card high">
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">ODIN-1063</span><span class="dot">·</span><span class="cat-label">Withdrawal Limits</span></div>
+      <div class="bug-tags"><span class="bug-tag payment">Payment</span><span class="bug-tag business-logic">Business Logic</span></div>
+      <h3 class="bug-card-title">No Upper Limit Enforced on Withdrawal Amount</h3>
+      <p class="bug-card-desc">The withdrawal flow does not enforce a maximum amount per transaction. Without a defined ceiling, the system is exposed to unintended large-value transfers with no built-in safeguard.</p>
+    </article>
+
+    <article class="bug-card high">
+      <div class="bug-card-eye"><span class="sev-high">High</span><span class="dot">·</span><span class="bug-id">ODIN-1012</span><span class="dot">·</span><span class="cat-label">Withdraw / Cashout</span></div>
+      <div class="bug-tags"><span class="bug-tag payment">Payment</span><span class="bug-tag business-logic">Business Logic</span></div>
+      <h3 class="bug-card-title">Withdraw Screen Shows Generic Backend Error</h3>
+      <p class="bug-card-desc">During the cashout flow, the withdraw screen surfaces a generic backend error (<code>mobile.withdraw.something_went_wrong</code>) instead of a specific, actionable message. Traced to a backend-side issue rather than a client-side defect.</p>
+    </article>
+
+    <article class="bug-card">
+      <div class="bug-card-eye">Medium<span class="dot">·</span><span class="bug-id">ODIN-1112</span><span class="dot">·</span><span class="cat-label">Notifications</span></div>
+      <div class="bug-tags"><span class="bug-tag business-logic">Business Logic</span></div>
+      <h3 class="bug-card-title">Incorrect Content Sent in Push Notification to Sender</h3>
+      <p class="bug-card-desc">The sender receives a push notification containing content that does not match the actual event — risking confusion about order/trip status communicated through the notification.</p>
+    </article>
+
+    <article class="bug-card">
+      <div class="bug-card-eye">Medium<span class="dot">·</span><span class="bug-id">ODIN-1019</span><span class="dot">·</span><span class="cat-label">Mobile UI</span></div>
+      <div class="bug-tags"><span class="bug-tag mobile">Mobile / UI</span></div>
+      <h3 class="bug-card-title">Completed Tab Label Not Fully Visible on Trips Dashboard</h3>
+      <p class="bug-card-desc">On the Trips Dashboard, the "Completed" tab label is partially covered by the filter icon and requires a swipe to read in full. Reproduced on Android 14 / Realme 10. Expected: all tab labels fully visible without requiring interaction.</p>
+    </article>
+
+    <article class="bug-card">
+      <div class="bug-card-eye">Medium<span class="dot">·</span><span class="bug-id">ODIN-1052</span><span class="dot">·</span><span class="cat-label">UX</span></div>
+      <div class="bug-tags"><span class="bug-tag ux">UX</span><span class="bug-tag mobile">Mobile / UI</span></div>
+      <h3 class="bug-card-title">Focus Jumps from Phone Number to City Field on Account Verification</h3>
+      <p class="bug-card-desc">Tapping the Phone Number input on the Account Verification screen unexpectedly shifts keyboard focus to the City input instead, disrupting the intended entry flow.</p>
+    </article>
+
+    <article class="bug-card">
+      <div class="bug-card-eye">Medium<span class="dot">·</span><span class="bug-id">ODIN-1023</span><span class="dot">·</span><span class="cat-label">Mobile UI</span></div>
+      <div class="bug-tags"><span class="bug-tag mobile">Mobile / UI</span></div>
+      <h3 class="bug-card-title">Send/Take Buttons Misaligned in Odin's Vault Banner</h3>
+      <p class="bug-card-desc">In the Odin's Vault banner, the Send and Take button layout is broken, and the notification icon is visually overlapped as a result — affecting both usability and visual polish.</p>
     </article>
 
     <div class="bug-privacy">
