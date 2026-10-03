@@ -864,25 +864,6 @@ footer{
   <p class="lead">Structured API testing practice using the Simple Grocery Store API. Started March 8, 2026.</p>
 
   <div class="postman-grid">
-    <article class="postman-bug-card">
-      <div class="postman-bug-eye">🐛 Notable Bug Found</div>
-      <h3 class="postman-bug-title">GET /products?limit=3 returns 20 products instead of 3</h3>
-      <div class="code-block">pm.test(<span class="c-green">"Status code is 200"</span>, function () {
-  pm.response.to.have.status(<span class="c-gold">200</span>);
-});
-
-pm.test(<span class="c-green">"Exactly 3 products (limit=3)"</span>, function () {
-  <span class="c-purple">const</span> json = pm.response.json();
-  pm.expect(json.length).to.equal(<span class="c-gold">3</span>);
-});
-
-console.log(<span class="c-green">"Products returned: "</span>
-  + pm.response.json().length);
-
-<span class="c-dim">// PASSED — Status code 200</span>
-<span class="c-dim">// FAILED — expected 20 to equal 3</span>
-<span class="c-dim">// Finding: limit parameter not reflected in response</span></div>
-    </article>
 
     <div>
       <p style="color:var(--muted);font-size:13px;margin-bottom:1.25rem;">Day-by-day structured learning diary.</p>
