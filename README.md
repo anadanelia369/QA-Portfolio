@@ -158,7 +158,6 @@ Structured **Postman Diary** using the [Grocery Store API](https://simple-grocer
 
 Topics covered: Collections, Environments (`{{BaseURL}}`), Status code testing (200/201/400/401/403/404), JavaScript assertions (`pm.test`, `pm.expect`, `.to.eql`, `.to.exist`), Query params vs path params, POST/GET flows, Cart creation.
 
-**Notable finding:** `GET /products?limit=3` returns 20 products instead of 3 — the `limit` parameter is not implemented on this endpoint. Verified via `console.log(pm.response.json().length)` in Postman Console.
 
 → [API Testing folder](api-testing/)
 

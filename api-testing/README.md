@@ -26,17 +26,4 @@ pm.test("Response has products", () => {
 });
 ```
 
-## Notable Bug Found
-
-**`GET /products?limit=3` returns 20 products instead of 3**
-
-The `limit` query parameter is not implemented on this endpoint. Verified via:
-```javascript
-console.log(pm.response.json().length); // returns 20, not 3
-```
-
-This demonstrates: parameter validation testing, using Postman Console for debugging, and identifying backend defects during API testing.
-
-## Screenshots
-
 ![Postman limit bug](https://raw.githubusercontent.com/anadanelia369/QA-Portfolio/main/assets/postman-limit-bug.png)
