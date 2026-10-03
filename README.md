@@ -152,16 +152,7 @@ Pro bono UAT for NGO website. Risk-based approach focused on donation flow and p
 
 ---
 
-## 🔧 API Testing
 
-Structured **Postman Diary** using the [Grocery Store API](https://simple-grocery-store-api.click).
-
-Topics covered: Collections, Environments (`{{BaseURL}}`), Status code testing (200/201/400/401/403/404), JavaScript assertions (`pm.test`, `pm.expect`, `.to.eql`, `.to.exist`), Query params vs path params, POST/GET flows, Cart creation.
-
-
-→ [API Testing folder](api-testing/)
-
----
 
 ## ⚙️ How I Work
 
