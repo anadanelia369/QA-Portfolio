@@ -69,7 +69,7 @@ Risk-based UAT of a live WordPress donation site for an NGO, focused on authenti
 
 Independent exploratory testing project. Web (Chrome). Found 4 documented bugs, including 2 security-level issues (autofill data leak, invalid citizenship and document combination accepted). 20 test cases cover the travel period calendar with EP and BVA.
 
-[Test cases](test-cases/GPI) | [Bug reports](bug-reports/GPI)
+[Test cases](test-cases/GPI/GPI-test-cases-overview.csv) | [Bug reports](bug-reports/GPI)
 
 ### ODIN: P2P parcel delivery app
 
