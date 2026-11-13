@@ -23,7 +23,7 @@ Based in Tbilisi, Georgia (GMT+4). Open to remote QA opportunities.
 
 **In progress**
 
-- Learning AI fundamentals for QA, using [Evidently AI](https://www.evidentlyai.com) materials
+- Interested in AI testing, learning AI fundamentals for QA using [Evidently AI](https://www.evidentlyai.com) materials
 - Reading *Taking Testing Seriously* by James Bach and Michael Bolton
 
 ---
@@ -52,7 +52,7 @@ Paid freelance project ([Upwork](https://www.upwork.com/freelancers/~01f07891821
 
 ### Freelance crowdtesting (2026)
 
-Paid and unpaid test cycles on Testlio, Test.io, uTest, Tester Work and Ubertesters, on real devices (phone, tablet, Android TV) and desktop browsers. Client names are not published, in line with platform policies.
+Paid and unpaid test cycles on Testlio, Test.io, uTest, Tester Work and Ubertesters, on real devices (phone, tablet, Android TV) and desktop browsers. Currently participating in Test.io cycles. Client names are not published, in line with platform policies.
 
 - **Recognition:** [Testlio Freelancer of the Month](https://www.linkedin.com/posts/testlio-community_we-created-freelancer-of-the-month-to-celebrate-activity-7513242201838211074-875_), September 2026, for the highest Community Engagement Score and thorough issue reports.
 - **Cycles:** e-commerce, food delivery, streaming and mobile apps. Scope-restricted work (severity limits, staging only, no order placement, language-specific stores). Reports include a screencast, the requested device and clear reproduction steps.
@@ -132,6 +132,13 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 | GPI Holding | GPI-ANN-13 | Autofill Returns a Stranger's Personal Data | High | Open |
 | GPI Holding | GPI-ANN-14 | Clinic List Truncated on iPad Air Resolution | Low | Open |
 
+
+### Text-to-speech skips "++" in programming language names
+
+Found while listening to an audiobook of "Thinking in Java" in a text-to-speech app: the narrator read "C++" as "C". I tested more inputs and found where it starts to fail. Read correctly: C+, 2+2, +1, C#, .NET, Node.js. Skipped: C++, 2++, 1++, ++2. A single "+" works, two in a row do not. This changes the meaning of the text, because C and C++ are different languages. Written up with three answers: what fails, where exactly it starts to fail, and why it matters to the user.
+
+[Read the LinkedIn post](https://lnkd.in/p/dP4z6ZHs)
+
 ---
 
 ## 🛠️ Skills and tools
@@ -139,10 +146,10 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 - **Testing types:** Manual, Functional, Regression, Exploratory, Smoke, Mobile, Cross-browser, Localization, UX
 - **Test design:** Equivalence Partitioning (EP), Boundary Value Analysis (BVA), Decision Tables, State Transition Testing
 - **Test management:** Jira, Testiny, TestCaseLab, Qase.io
-- **Bug tracking:** Jira, Linear, ClickUp, Jam.dev, Trello
+- **Bug tracking:** Jira, Linear, Jam.dev, Trello
 - **API testing:** Postman (Collections, Environments, Assertions, Runner), REST API, Swagger
 - **API testing in CI:** Newman, GitHub Actions
-- **Automation:** Java, Selenium WebDriver, TestNG, Maven, Page Object Model
+- **Automation:** Java, Selenium WebDriver, TestNG, Maven, Page Object Model, IntelliJ IDEA
 - **Debugging and diagnostics:** Browser DevTools, ADB, Logcat, Android Studio, Charles Proxy
 - **Other:** basic SQL, basic HTML/CSS, Git
 
@@ -157,13 +164,12 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 
 ---
 
-## 🎓 Learning and recognition
+## 🎓 Learning and certificates
 
 - **Completed:** [Quality Academy](https://www.linkedin.com/company/quality-academy-%E2%80%A2-%E1%83%AE%E1%83%90%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AE%E1%83%98%E1%83%A1-%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%90/) Manual QA course (Oct 2025 - Jan 2026)
 - **Completed:** [Quality Academy](https://www.linkedin.com/company/quality-academy-%E2%80%A2-%E1%83%AE%E1%83%90%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AE%E1%83%98%E1%83%A1-%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%90/) Java/Selenium course (Mar - Jul 2026)
 - **Completed:** uTest Academy, Introduction to Testing certification cycle (bug report and test case both approved)
-- **Certificates:** Tester Work (Functional Testing, Payment Testing, KYC Testing), Testlio (Freelancer Conduct Guidelines, Usability 101, Usability 102)
-- **Recognition:** [Testlio Freelancer of the Month](https://www.linkedin.com/posts/testlio-community_we-created-freelancer-of-the-month-to-celebrate-activity-7513242201838211074-875_), September 2026
+- **Certificates:** Tester Work (Functional Testing, Payment Testing, KYC Testing), Testlio (Usability 101, Usability 102), Ubertesters (onboarding completed)
 
 ---
 
