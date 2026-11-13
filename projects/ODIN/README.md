@@ -20,6 +20,7 @@ Manual QA tester. Responsible for functional, UX, localization and exploratory t
 
 - **State management in multi-step flows:** ODIN-974 (the phone country code silently changes on back navigation) and ODIN-1013 (the System Back button makes Trip B show Trip A's data).
 - **Crash in a core feature:** ODIN-995, the Time Picker in the Sender-Traveler chat freezes and crashes the app on first use, reproduced on two Android devices (Realme 10 and a Samsung tablet).
+- **Password validation inconsistency across flows (finding, suggestion ticket):** while testing the Change Password and Forgot Password flows, I noticed that Forgot Password had no regex validation, while Change Password and Register both enforced it. I raised it with the team, and it was classified as an improvement suggestion, not a bug. It is not part of the six documented bug reports below.
 - **Flight notification timing hypothesis:** identified a backend notification timing issue through hypothesis-based exploratory testing, using two real flights with different durations (LHR to AMS about 1h20m, LHR to JFK about 8h10m). Shared proactively with the Team Lead and a Developer. [Read the observation](https://github.com/anadanelia369/QA-Portfolio/blob/main/projects/ODIN/flight-notification-observation.md)
 
 ## Documented bug reports
