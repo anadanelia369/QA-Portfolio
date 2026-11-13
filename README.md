@@ -1,256 +1,163 @@
-# Ana Danelia
+# 🔍 Ana Danelia | QA Portfolio
 
-## Manual QA Tester | Web & Mobile Testing | API Testing | Bug Reports
+**Manual QA Engineer | Web & Mobile | API Testing | Java/Selenium Automation**
 
-I test web and mobile applications, design test cases, investigate defects, and write clear, reproducible bug reports. I also build Java/Selenium automation tests and API test collections.
+[![Portfolio website](https://img.shields.io/badge/Portfolio_website-6b48b5?style=for-the-badge)](https://anadanelia369.github.io/QA-Portfolio/)
+[![API tests repo](https://img.shields.io/badge/API_tests_repo-d4af37?style=for-the-badge)](https://github.com/anadanelia369/Grocery-API-Postman-Tests)
+[![Selenium repo](https://img.shields.io/badge/Selenium_repo-4caf7d?style=for-the-badge)](https://github.com/anadanelia369/GpiCalendarAutomation)
+[![Open to work on LinkedIn](https://img.shields.io/badge/Open_to_work_on_LinkedIn-e07a30?style=for-the-badge)](https://linkedin.com/in/ana-danelia-42567139b)
 
-**Based in Tbilisi, Georgia (GMT+4) | Open to remote QA opportunities**
+Manual QA engineer with hands-on UAT experience at ODIN, a Georgian P2P parcel delivery app (React Native, iOS/Android), plus independent web testing of an insurance platform (GPI Holding) and a pro bono UAT of a charity donation website (autism.ge). Strongest area: state-management and data-consistency defects in multi-step flows.
 
-[Portfolio website](https://anadanelia369.github.io/QA-Portfolio/) | [LinkedIn](https://linkedin.com/in/ana-danelia-42567139b) | [GitHub](https://github.com/anadanelia369)
+Skilled in bug reporting, test case design (EP, BVA, Decision Tables), REST API validation with Postman, and Java + Selenium test automation.
 
-### What I bring
+> "Every system has two realities: expected behavior and actual behavior. QA lives in the space between them."
 
-- Manual testing for web, Android, iOS and Android TV applications
-- Test case design using Equivalence Partitioning, Boundary Value Analysis and Decision Tables
-- Clear, reproducible bug reports with severity, impact, environment and evidence
-- REST API testing with Postman, assertions and negative scenarios
-- Java, Selenium WebDriver, TestNG, Page Object Model, Maven and RestAssured
-- Practical experience with Jira, Testiny, Qase.io, browser DevTools, ADB and Logcat
+> "Observation is my API. It's the interface through which I investigate systems and learn how they really behave."
 
 ---
 
-## Highlights
+## 📊 By the numbers
 
-| Area | Result |
+| Metric | Count |
 |---|---|
-| ODIN UAT internship | 328 test scenarios, 37 test cases and 20+ bugs filed in Jira |
-| autism.ge UAT | 14 findings, including 4 Critical defects, on a live donation website |
-| GPI Holding web testing | 20 test cases and 4 documented defects, including security-related findings |
-| Simple Grocery Store API | Postman API test collection with Newman and GitHub Actions |
-| Java/Selenium automation | Test framework using Java, Selenium WebDriver, TestNG, Page Object Model and Maven |
-| Crowdtesting | Paid and unpaid cycles on Testlio, Test.io, uTest, Tester Work and Ubertesters |
-| Recognition | Testlio Freelancer of the Month, September 2026 |
+| 🐞 ODIN bugs (Jira) | 20+ filed, 6 documented in detail here |
+| 🛡️ GPI Holding bugs | 4 documented here |
+| 💜 autism.ge findings | 14 (4 Critical, 4 High, 6 Medium) |
+| 📱 Language-learning app (paid) | 14 findings (7 Medium, 7 Low) |
+| ✅ Test cases | 57 total (37 ODIN + 20 GPI) |
+| 📋 Checklists | 328 scenarios across 13 modules (ODIN) |
+| 📱 Devices | Honor X8d (Android 16), Samsung Galaxy Tab A7 Lite (Android 14), Android TV, Windows laptop |
+| 🌐 Browsers | Chrome, Brave, Firefox, Edge |
+| 🏆 Recognition | Testlio Freelancer of the Month, September 2026 |
 
 ---
 
-## Featured projects
+## 🚀 Projects
 
-### 1. Simple Grocery Store API: API testing with CI/CD
+### 🔌 API testing with CI/CD: Simple Grocery Store API (in progress)
 
-**Type:** API testing  
-**Stack:** Postman, Newman, htmlextra, GitHub Actions  
-**Status:** In progress  
-**Repository:** [Grocery-API-Postman-Tests](https://github.com/anadanelia369/Grocery-API-Postman-Tests)
+Public repo: [Grocery-API-Postman-Tests](https://github.com/anadanelia369/Grocery-API-Postman-Tests)
 
-I created a Postman collection for a public REST API covering products, cart, orders and authentication.
+- 📬 Postman collection for a public REST API (products, cart, orders, auth). Each resource folder is split into Positive and Negative subfolders, with the base URL kept in a Postman Environment.
+- 🧪 Test design with the BINMEN mnemonic (Boundary, Invalid, Nulls, Method, Empty, Negatives): one parameter at a time, positive and negative cases, assertions on status code, body structure and data types.
+- 📌 Known Issues convention: tests assert the behavior from the API documentation. Where the real API differs (for example, invalid results values such as 0, abc or empty return 200 with the full list), the request keeps its failing test, is renamed with "[Known Issue]" and is explained in its Docs tab.
+- ⚙️ Newman + htmlextra: the collection runs from the command line and produces an HTML report.
+- 🔁 GitHub Actions: a workflow runs the collection with Newman on every run and uploads the HTML report as an artifact.
+- 🚧 Status: Status and Products folders are done. Cart, Orders and Auth are still being reworked.
 
-- Designed positive and negative test scenarios for each API resource
-- Applied boundary, invalid, null, empty and method-based test design
-- Added assertions for status codes, response body structure and data types
-- Separated test requests into Positive and Negative folders
-- Stored the base URL in a Postman Environment
-- Configured Newman and htmlextra to generate an HTML test report
-- Added a GitHub Actions workflow that runs the collection and uploads the report as an artifact
-- Documented API behavior that differs from the documentation as Known Issues
+### 🪲 Debug Diary: automation debugging notes
 
-**Completed:** Status and Products folders  
-**In progress:** Cart, Orders and Authentication folders
+Repo: [Debug-Diary](https://github.com/anadanelia369/Debug-Diary)
 
-### 2. GPI Calendar Automation: Java and Selenium
+> *Observation is my API.*
 
-**Type:** UI automation  
-**Stack:** Java, Selenium WebDriver, TestNG, Page Object Model, Maven, RestAssured  
-**Repository:** [GpiCalendarAutomation](https://github.com/anadanelia369/GpiCalendarAutomation)  
-**Debugging notes:** [Debug Diary](https://github.com/anadanelia369/Debug-Diary)
+12 short entries from my Java/Selenium/TestNG calendar automation project (GPI travel insurance calendar). Each entry has the same structure: what happened, what I found, what I changed. Examples:
 
-I built a Java/Selenium/TestNG automation framework for a travel insurance calendar.
+- ⏱️ **Race condition, not a slow page:** a test failed about 1 in 5 runs. The wait covered the input becoming visible, not the dropdown content rendering. Fixed with an explicit wait inside the getters instead of `Thread.sleep()`.
+- 🎭 **An assertion that could never fail:** it located the element by the same class it then checked. Rewritten with XPath and a real `aria-current="date"` assertion.
+- 💻 **Passed in the IDE, not in the terminal:** `mvn clean test` ran 6 of 7 tests because one class was missing from `testNG.xml`. IntelliJ's Run button had hidden the gap.
+- 📅 **Wrong only at the end of the month:** `plusDays(7)` landed in the next month while the calendar showed only the current one. `selectDate()` now clicks "Next month" when the target date is not visible.
 
-- Used the Page Object Model to separate page structure from test logic
-- Wrote automated tests for calendar navigation and date selection
-- Used Maven for project and dependency management
-- Investigated unstable tests, incorrect assertions and configuration issues
-- Replaced unnecessary waits with explicit waits where appropriate
-- Documented 12 debugging cases in the Debug Diary repository
+### 📱 Language-learning app: Paid QA Test
 
-**Example findings**
+Paid freelance project (Upwork, November 2026) on a mobile language-learning app with an AI practice chat. Android and iPhone. Tested the Explore, Chats and Rooms pages as a normal user, plus additional findings from registration, profile, practice and settings. 14 findings (7 Medium, 7 Low), no crashes. Highlights: the Android Back button ends an active call without asking, and a password rule shown in the hint is not enforced at registration or Change Password. Delivered as a PDF report with a separate screen recording. Published with the client's permission, without the app name or screens.
 
-- A test failed intermittently because the wait checked input visibility, not dropdown rendering
-- An assertion could not fail because it used the same locator for locating and checking the element
-- A test passed in IntelliJ but failed through Maven because one test class was missing from testNG.xml
-- A date calculation issue appeared only at the end of the month, when the selected date moved to the next month
+### 🌍 Freelance crowdtesting (2026)
 
-### 3. ODIN: P2P Parcel Delivery App
+Paid and unpaid test cycles on Testlio, Test.io, uTest, Tester Work and Ubertesters, on real devices (phone, tablet, Android TV) and desktop browsers. Client names are not published, in line with platform policies.
 
-**Type:** Manual mobile UAT  
-**Role:** UAT intern  
-**Period:** February 2026 to July 2026  
-**Platform:** React Native Android application  
-**Test cases:** [ODIN test cases](test-cases/ODIN)
+- 🏆 **Recognition:** Testlio Freelancer of the Month, September 2026, for the highest Community Engagement Score and thorough issue reports.
+- 🔄 **Cycles:** e-commerce, food delivery, streaming and mobile apps. Scope-restricted work (severity limits, staging only, no order placement, language-specific stores). Reports include a screencast, the requested device and clear reproduction steps.
+- 📚 **Lessons applied:** match the device the test requests, attach a screencast for functional bugs, check the severity scope before reporting.
+- 🔧 **Environment debugging:** on one cycle an authenticated proxy would not work on a Samsung tablet. I traced it with `adb logcat` to a Samsung Knox firmware error (NullPointerException in the VPN manager service) and worked around it by relaying traffic through Charles Proxy on a laptop.
+- 🎓 **uTest Academy:** passed the Introduction to Testing certification cycle (bug report and test case both approved).
+- 📜 **Certificates:** Tester Work (Functional Testing, Payment Testing, KYC Testing), Testlio (Freelancer Conduct Guidelines, Usability 101, Usability 102).
 
-I performed UAT for ODIN, a Georgian P2P parcel delivery application.
+### 💜 autism.ge: Charity Project
 
-- Created 328 test scenarios across 13 feature modules
-- Designed and documented 37 test cases
-- Filed 20+ defects in Jira
-- Documented 6 defects in detail in this portfolio
-- Tested multi-step flows, including orders, trips, offers, chat and notifications
-- Used hypothesis-based exploratory testing for flight notification timing
+Pro bono UAT for an NGO website. Risk-based approach focused on authentication, donation flow and payment processing. 14 findings, including a backend redirect error after a successful payment.
 
-**Selected defects**
+👉 [Read the full autism.ge report](projects/autism-ge/README.md)
 
-| Bug ID | Title | Severity |
-|---|---|---|
-| ODIN-974 | Phone Country Code Auto-Changes on Back Navigation | High |
-| ODIN-995 | Time Picker Crash on Chat Screen | High |
-| ODIN-1009 | Order Edit Shows Cached Data, Updates Multiple Times | Medium |
-| ODIN-1013 | System Back Button Shows Previous Trip's Data | High |
-| ODIN-1052 | Phone Number Input Focus Jumps to City Field on First Tap | Medium |
-| ODIN-1079 | Offers Tab Shows an Incomplete Delivery Date Range | Medium |
+### 🛡️ GPI Holding: Insurance Web Platform
 
-### 4. autism.ge: Charity Donation Website
+Independent exploratory testing project. Web (Chrome). Found 4 documented bugs, including 2 security-level issues (autofill data leak, invalid citizenship and document combination accepted).
 
-**Type:** Pro bono UAT  
-**Platform:** WordPress website  
-**Focus:** Authentication, donation flow and payment processing  
-**Full report:** [autism.ge report](projects/autism-ge/README.md)
+- ✅ 20 test cases (TC-GPI-01 to TC-GPI-20), covering the travel period calendar with EP and BVA
+- 🐞 4 bug reports (GPI-ANN-11 to GPI-ANN-14)
 
-I performed risk-based UAT for a live charity donation website.
+👉 [View the GPI test cases](test-cases/GPI)
 
-- Focused on high-risk areas: login, registration, donation flow and payment processing
-- Identified 14 findings
-- Reported 4 Critical, 4 High and 6 Medium issues
-- Found a WordPress error displayed after a successful payment
-- The site team fixed the reported payment-related issue after my report
+### 📦 ODIN: P2P Parcel Delivery App
+
+UAT internship (Feb 2026 - Jul 2026). Mobile testing on React Native (Android).
+
+- 📋 328 test scenarios across 13 feature modules
+- ✅ 37 test cases (TC-ODIN-01 to TC-ODIN-37)
+- 🐞 20+ bugs filed in Jira, 6 documented in detail
+- ✈️ Notable finding: **Flight Notification Timing Hypothesis**, hypothesis-based exploratory testing using real flight data
+
+👉 [View the ODIN test cases](test-cases/ODIN)
 
 ---
 
-## Additional testing experience
+## 🪲 Bug reports
 
-### GPI Holding: Insurance Web Platform
+### 📦 ODIN (UAT internship, Feb 2026 - Jul 2026)
 
-**Type:** Independent exploratory web testing  
-**Platform:** Web, Chrome  
-**Test cases:** [GPI test cases](test-cases/GPI)
+| Bug ID | Title | Type | Severity | Status |
+|---|---|---|---|---|
+| ODIN-974 | Phone Country Code Auto-Changes on Back Navigation | Functional | High | Done |
+| ODIN-995 | Time Picker Crash on Chat Screen | Functional | High | Done |
+| ODIN-1009 | Order Edit Shows Cached Data, Updates Multiple Times | Functional | Medium | Done |
+| ODIN-1013 | System Back Button Shows Previous Trip's Data | Functional | High | Done |
+| ODIN-1052 | Phone Number Input Focus Jumps to City Field on First Tap | UX / Focus | Medium | Done |
+| ODIN-1079 | Offers Tab Shows an Incomplete Delivery Date Range (17-17 instead of 17-18) | Functional | Medium | Done |
 
-I independently tested a travel insurance web platform.
+### 🛡️ GPI Holding (independent testing)
 
-- Created 20 test cases using Equivalence Partitioning and Boundary Value Analysis
-- Focused on the travel period calendar and form validation
-- Documented 4 defects
-- Identified 2 security-related issues: autofill data exposure and acceptance of an invalid citizenship and document combination
+| Bug ID | Title | Type | Severity | Status |
+|---|---|---|---|---|
+| GPI-ANN-11 | Afghan Citizenship + Georgian ID Accepted Without Validation | Security | High | Open |
+| GPI-ANN-12 | 366-Day Travel Period Accepted Without Validation | Functional | Medium | Open |
+| GPI-ANN-13 | Autofill Returns a Stranger's Personal Data | Security / Privacy | High | Open |
+| GPI-ANN-14 | Clinic List Truncated on iPad Air Resolution | UI / Visual | Low | Open |
 
-| Bug ID | Title | Severity |
-|---|---|---|
-| GPI-ANN-11 | Afghan Citizenship + Georgian ID Accepted Without Validation | High |
-| GPI-ANN-12 | 366-Day Travel Period Accepted Without Validation | Medium |
-| GPI-ANN-13 | Autofill Returns a Stranger's Personal Data | High |
-| GPI-ANN-14 | Clinic List Truncated on iPad Air Resolution | Low |
+### 💜 autism.ge (pro bono UAT)
 
-### Language-learning app: Paid QA test
+14 findings from a risk-based UAT of a live WordPress donation site: 4 Critical, 4 High, 6 Medium. Highlight: BUG-04, a WordPress error shown after a successful payment (fixed by the site team after the report).
 
-**Type:** Paid freelance mobile QA  
-**Platform:** Android and iOS  
-**Client permission:** Published without app name or screenshots
-
-I tested a mobile language-learning application with an AI practice chat.
-
-- Tested Explore, Chats and Rooms pages as a regular user
-- Also tested registration, profile, practice and settings
-- Delivered 14 findings: 7 Medium and 7 Low severity
-- Found that the Android Back button ended an active call without confirmation
-- Found that a password rule shown in the hint was not enforced during registration or password change
-- Delivered a PDF report and a separate screen recording
-
-### Freelance crowdtesting
-
-**Platforms:** Testlio, Test.io, uTest, Tester Work and Ubertesters  
-**Devices:** Android phone, Android tablet, Android TV and desktop browsers  
-**Project types:** E-commerce, food delivery, streaming and mobile applications
-
-I participate in paid and unpaid crowdtesting cycles on real devices and desktop browsers.
-
-- Follow platform-specific scope, severity and staging requirements
-- Test on the requested device, OS and browser configuration
-- Attach screencasts and clear reproduction steps to functional defects
-- Check severity limits and reporting rules before submitting a defect
-- Use ADB, Logcat and Charles Proxy for environment troubleshooting
-
-**Recognition**
-
-- Testlio Freelancer of the Month, September 2026
-- uTest Academy: Introduction to Testing certification cycle passed
-- Tester Work certificates: Functional Testing, Payment Testing and KYC Testing
-- Testlio certificates: Freelancer Conduct Guidelines, Usability 101 and Usability 102
+👉 [Read the full autism.ge report](projects/autism-ge/README.md)
 
 ---
 
-## How I work
+## 🧠 How I work
 
-### Test design
-
-- Use Equivalence Partitioning and Boundary Value Analysis for valid and invalid inputs
-- Use Decision Tables for complex business rules
-- Use State Transition Testing where user flows depend on changing states
-- Apply the I SLICED UP FUN framework for mobile testing
-
-### Bug reporting
-
-- Write clear, specific and reproducible defect titles
-- Include preconditions, numbered reproduction steps, actual result and expected result
-- Add severity, impact, environment, device, OS and reproducibility rate
-- Attach screenshots, screen recordings and logs when available
-- Compare behavior with Figma designs when designs are available
-- Clearly label root-cause assumptions as assumptions
-
-### API testing
-
-- Validate status codes, response bodies, data types and response structure
-- Test positive, negative, boundary, missing authentication and invalid input scenarios
-- Use Postman Collections, Environments, assertions and Runner
-- Run collections with Newman and generate HTML reports
-
-### Automation
-
-- Build tests with Java, Selenium WebDriver, TestNG and Maven
-- Apply the Page Object Model
-- Use explicit waits instead of fixed sleeps where possible
-- Investigate failures through logs, browser DevTools and controlled debugging
+- 🧩 **Test design:** EP and BVA for valid and invalid boundaries, Decision Tables for complex business logic. Mobile testing follows the I SLICED UP FUN framework.
+- 📝 **Bug reporting:** clear, reproducible titles. Every report includes preconditions, numbered action steps, actual vs expected result, severity and impact, device/OS/environment and reproducibility rate. Cross-checked against Figma designs. Root cause guesses are labeled as assumptions.
+- 🔌 **API testing:** status codes, response body structure, data types, positive and negative scenarios including invalid inputs, missing auth tokens and boundary values.
+- 🤖 **Automation:** Java + Selenium WebDriver + TestNG, Page Object Model, Maven. Completed the Quality Academy Java/Selenium course (Mar - Jul 2026).
 
 ---
 
-## Skills and tools
+## 🛠️ Skills and tools
 
-| Area | Tools and skills |
-|---|---|
-| Testing | Manual, functional, regression, exploratory, smoke, mobile, cross-browser, localization and UX testing |
-| Test design | Equivalence Partitioning, Boundary Value Analysis, Decision Tables, State Transition Testing |
-| Test management | Jira, Testiny, TestCaseLab, Qase.io |
-| Bug tracking | Jira, Linear, ClickUp, Jam.dev, Trello |
-| API testing | Postman, REST API, Swagger, Newman |
-| Automation | Java, Selenium WebDriver, TestNG, Page Object Model, Maven, RestAssured |
-| Debugging | Browser DevTools, ADB, Logcat, Android Studio, Charles Proxy |
-| CI/CD | GitHub Actions, Newman, htmlextra |
-| Other | Basic SQL, basic HTML/CSS, Git |
+- 🧪 **Testing types:** Manual, Functional, Regression, Exploratory, Smoke, Mobile, Cross-browser, Localization, UX
+- 📐 **Test design:** Equivalence Partitioning (EP), Boundary Value Analysis (BVA), Decision Tables, State Transition Testing
+- 🗂️ **Test management:** Jira, Testiny, TestCaseLab, Qase.io
+- 🐞 **Bug tracking:** Jira, Linear, ClickUp, Jam.dev, Trello
+- 🔌 **API testing:** Postman (Collections, Environments, Assertions, Runner), REST API, Swagger
+- 🔬 **Debugging and diagnostics:** Browser DevTools, ADB, Logcat, Android Studio, Charles Proxy
+- ⚙️ **API testing in CI:** Newman, GitHub Actions
+- 💡 **Other:** basic SQL, basic HTML/CSS, Git
 
 ---
 
-## Devices and browsers
+## 🔗 Links
 
-| Category | Details |
-|---|---|
-| Mobile devices | Honor X8d, Android 16; Samsung Galaxy Tab A7 Lite, Android 14 |
-| TV device | Android TV |
-| Computer | Windows laptop |
-| Browsers | Chrome, Brave, Firefox, Edge |
-
----
-
-## Links
-
-- [Portfolio website](https://anadanelia369.github.io/QA-Portfolio/)
-- [LinkedIn](https://linkedin.com/in/ana-danelia-42567139b)
-- [GitHub](https://github.com/anadanelia369)
-- [Simple Grocery Store API tests](https://github.com/anadanelia369/Grocery-API-Postman-Tests)
-- [Debug Diary](https://github.com/anadanelia369/Debug-Diary)
-- [GPI Calendar Automation](https://github.com/anadanelia369/GpiCalendarAutomation)
-- [CV: Ana_Danelia_QA_Engineer.pdf](Ana_Danelia_QA_Engineer.pdf)
+- 💼 LinkedIn: [linkedin.com/in/ana-danelia-42567139b](https://linkedin.com/in/ana-danelia-42567139b)
+- 🪲 Debug Diary: [github.com/anadanelia369/Debug-Diary](https://github.com/anadanelia369/Debug-Diary)
+- 🔌 API testing with CI/CD: [Grocery-API-Postman-Tests](https://github.com/anadanelia369/Grocery-API-Postman-Tests)
+- 🤖 Selenium automation: [GpiCalendarAutomation](https://github.com/anadanelia369/GpiCalendarAutomation)
+- 📄 CV: Ana_Danelia_QA_Engineer.pdf
