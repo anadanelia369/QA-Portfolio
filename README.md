@@ -21,6 +21,11 @@ Based in Tbilisi, Georgia (GMT+4). Open to remote QA opportunities.
 
 > "Observation is my API. It's the interface through which I investigate systems and learn how they really behave."
 
+**In progress**
+
+- Learning AI fundamentals for QA, using [Evidently AI](https://www.evidentlyai.com) materials
+- Reading *Taking Testing Seriously* by James Bach and Michael Bolton
+
 ---
 
 ## 📊 By the numbers
@@ -43,13 +48,13 @@ Based in Tbilisi, Georgia (GMT+4). Open to remote QA opportunities.
 
 ### Language-learning app: paid QA test
 
-Paid freelance project (Upwork, November 2026) on a mobile language-learning app with an AI practice chat. Android and iPhone. Tested the Explore, Chats and Rooms pages as a normal user, plus additional findings from registration, profile, practice and settings. 14 findings (7 Medium, 7 Low), no crashes. Highlights: the Android Back button ends an active call without asking, and a password rule shown in the hint is not enforced at registration or Change Password. Delivered as a PDF report with a separate screen recording. Published with the client's permission, without the app name or screens.
+Paid freelance project ([Upwork](https://www.upwork.com/freelancers/~01f0789182111f1160), November 2026) on a mobile language-learning app with an AI practice chat. Android and iPhone. Tested the Explore, Chats and Rooms pages as a normal user, plus additional findings from registration, profile, practice and settings. 14 findings (7 Medium, 7 Low), no crashes. Highlights: the Android Back button ends an active call without asking, and a password rule shown in the hint is not enforced at registration or Change Password. Delivered as a PDF report with a separate screen recording. Published with the client's permission, without the app name or screens.
 
 ### Freelance crowdtesting (2026)
 
 Paid and unpaid test cycles on Testlio, Test.io, uTest, Tester Work and Ubertesters, on real devices (phone, tablet, Android TV) and desktop browsers. Client names are not published, in line with platform policies.
 
-- **Recognition:** Testlio Freelancer of the Month, September 2026, for the highest Community Engagement Score and thorough issue reports.
+- **Recognition:** [Testlio Freelancer of the Month](https://www.linkedin.com/posts/testlio-community_we-created-freelancer-of-the-month-to-celebrate-activity-7513242201838211074-875_), September 2026, for the highest Community Engagement Score and thorough issue reports.
 - **Cycles:** e-commerce, food delivery, streaming and mobile apps. Scope-restricted work (severity limits, staging only, no order placement, language-specific stores). Reports include a screencast, the requested device and clear reproduction steps.
 - **Lessons applied:** match the device the test requests, attach a screencast for functional bugs, check the severity scope before reporting.
 - **Environment debugging:** on one cycle an authenticated proxy would not work on a Samsung tablet. I traced it with `adb logcat` to a Samsung Knox firmware error (NullPointerException in the VPN manager service) and worked around it by relaying traffic through Charles Proxy on a laptop.
@@ -154,10 +159,11 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 
 ## 🎓 Learning and recognition
 
-- **Completed:** Quality Academy Java/Selenium course (Mar - Jul 2026)
+- **Completed:** [Quality Academy](https://www.linkedin.com/company/quality-academy-%E2%80%A2-%E1%83%AE%E1%83%90%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AE%E1%83%98%E1%83%A1-%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%90/) Manual QA course (Oct 2025 - Jan 2026)
+- **Completed:** [Quality Academy](https://www.linkedin.com/company/quality-academy-%E2%80%A2-%E1%83%AE%E1%83%90%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AE%E1%83%98%E1%83%A1-%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%90/) Java/Selenium course (Mar - Jul 2026)
 - **Completed:** uTest Academy, Introduction to Testing certification cycle (bug report and test case both approved)
 - **Certificates:** Tester Work (Functional Testing, Payment Testing, KYC Testing), Testlio (Freelancer Conduct Guidelines, Usability 101, Usability 102)
-- **Recognition:** Testlio Freelancer of the Month, September 2026
+- **Recognition:** [Testlio Freelancer of the Month](https://www.linkedin.com/posts/testlio-community_we-created-freelancer-of-the-month-to-celebrate-activity-7513242201838211074-875_), September 2026
 
 ---
 
