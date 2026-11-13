@@ -2,7 +2,10 @@
 
 **Manual QA Engineer | Web & Mobile | API Testing | Java/Selenium Automation**
 
-[Portfolio website](https://anadanelia369.github.io/QA-Portfolio/) | [LinkedIn](https://linkedin.com/in/ana-danelia-42567139b) | [GitHub](https://github.com/anadanelia369) | [CV](Ana_Danelia_QA_Engineer.pdf)
+[![Portfolio website](https://img.shields.io/badge/Portfolio_website-6b48b5?style=for-the-badge)](https://anadanelia369.github.io/QA-Portfolio/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-d4af37?style=for-the-badge)](https://linkedin.com/in/ana-danelia-42567139b)
+[![GitHub](https://img.shields.io/badge/GitHub-4caf7d?style=for-the-badge)](https://github.com/anadanelia369)
+[![CV](https://img.shields.io/badge/CV-e07a30?style=for-the-badge)](https://github.com/anadanelia369/QA-Portfolio/blob/main/Ana_Danelia_QA_Engineer.pdf)
 
 Manual QA engineer with hands-on UAT experience at ODIN, a Georgian P2P parcel delivery app (React Native, iOS/Android), plus independent web testing of an insurance platform (GPI Holding) and a pro bono UAT of a charity donation website (autism.ge). Strongest area: state-management and data-consistency defects in multi-step flows.
 
@@ -14,13 +17,13 @@ Based in Tbilisi, Georgia (GMT+4). Open to remote QA opportunities.
 
 ---
 
-## About me
+## 👤 About me
 
 > "Observation is my API. It's the interface through which I investigate systems and learn how they really behave."
 
 ---
 
-## By the numbers
+## 📊 By the numbers
 
 | Metric | Count |
 |---|---|
@@ -36,7 +39,7 @@ Based in Tbilisi, Georgia (GMT+4). Open to remote QA opportunities.
 
 ---
 
-## Manual testing projects
+## 📱 Manual testing projects
 
 ### Language-learning app: paid QA test
 
@@ -76,7 +79,7 @@ UAT internship (Feb 2026 - Jul 2026). Mobile testing on React Native (Android).
 
 ---
 
-## Automation projects
+## 🤖 Automation projects
 
 ### GPI Calendar Automation: Java, Selenium, TestNG
 
@@ -109,7 +112,7 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 
 ---
 
-## Selected bug reports
+## 🐞 Selected bug reports
 
 | Project | Bug ID | Title | Severity | Status |
 |---|---|---|---|---|
@@ -126,7 +129,7 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 
 ---
 
-## Skills and tools
+## 🛠️ Skills and tools
 
 - **Testing types:** Manual, Functional, Regression, Exploratory, Smoke, Mobile, Cross-browser, Localization, UX
 - **Test design:** Equivalence Partitioning (EP), Boundary Value Analysis (BVA), Decision Tables, State Transition Testing
@@ -140,7 +143,7 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 
 ---
 
-## How I work
+## 🧠 How I work
 
 - **Test design:** EP and BVA for valid and invalid boundaries, Decision Tables for complex business logic. Mobile testing follows the I SLICED UP FUN framework.
 - **Bug reporting:** clear, reproducible titles. Every report includes preconditions, numbered action steps, actual vs expected result, severity and impact, device/OS/environment and reproducibility rate. Cross-checked against Figma designs. Root cause guesses are labeled as assumptions.
@@ -149,7 +152,7 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 
 ---
 
-## Learning and recognition
+## 🎓 Learning and recognition
 
 - **Completed:** Quality Academy Java/Selenium course (Mar - Jul 2026)
 - **Completed:** uTest Academy, Introduction to Testing certification cycle (bug report and test case both approved)
@@ -162,7 +165,7 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 
 ---
 
-## Contact
+## 📬 Contact
 
 Based in Tbilisi, Georgia (GMT+4). Open to remote QA opportunities.
 
