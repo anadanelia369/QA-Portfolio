@@ -104,14 +104,14 @@ Postman collection for a public REST API (products, cart, orders, auth). Each re
 
 [Repository: Grocery-API-Postman-Tests](https://github.com/anadanelia369/Grocery-API-Postman-Tests)
 
-### Debug Diary: automation debugging notes
+### Debug Diary: debugging notes
 
-12 short entries from my Java/Selenium/TestNG calendar automation project. Each entry has the same structure: what happened, what I found, what I changed. Examples:
+Short entries from my Java/Selenium/TestNG calendar automation project and other testing work.
 
 - **Race condition, not a slow page:** a test failed about 1 in 5 runs. The wait covered the input becoming visible, not the dropdown content rendering. Fixed with an explicit wait inside the getters instead of `Thread.sleep()`.
 - **An assertion that could never fail:** it located the element by the same class it then checked. Rewritten with XPath and a real `aria-current="date"` assertion.
 - **Passed in the IDE, not in the terminal:** `mvn clean test` ran 6 of 7 tests because one class was missing from `testNG.xml`. IntelliJ's Run button had hidden the gap.
-- **Wrong only at the end of the month:** `plusDays(7)` landed in the next month while the calendar showed only the current one. `selectDate()` now clicks "Next month" when the target date is not visible.
+- - **A generic error and the logs behind it:** a search flow showed only "Something happened". The console showed `400` with `Invalid station code.` and two later `400 Bad Request` failures. I could not prove the first explained the others, so the root cause stays unconfirmed in my notes.
 
 [Repository: Debug-Diary](https://github.com/anadanelia369/Debug-Diary)
 
