@@ -41,7 +41,8 @@ Based in Tbilisi, Georgia (GMT+4). Open to remote QA opportunities.
 | Devices | Honor X8d (Android 16), Samsung Galaxy Tab A7 Lite (Android 14), Android TV, Windows laptop |
 | Browsers | Chrome, Brave, Firefox, Edge |
 | Recognition | Testlio Freelancer of the Month, September 2026 |
-
+| API tests (Postman) | 50+ requests in Status, Products and Cart folders, 100+ tests, run with Newman in GitHub Actions |
+| Automation (Selenium/TestNG) | 7 automated tests: 6 UI tests and 1 API test |
 ---
 
 ## 📱 Manual testing projects
