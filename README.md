@@ -133,12 +133,6 @@ Short entries from my Java/Selenium/TestNG calendar automation project and other
 | GPI Holding | GPI-ANN-14 | Clinic List Truncated on iPad Air Resolution | Low | Open |
 
 
-### Text-to-speech skips "++" in programming language names
-
-Found while listening to an audiobook of "Thinking in Java" in a text-to-speech app: the narrator read "C++" as "C". I tested more inputs and found where it starts to fail. Read correctly: C+, 2+2, +1, C#, .NET, Node.js. Skipped: C++, 2++, 1++, ++2. A single "+" works, two in a row do not. This changes the meaning of the text, because C and C++ are different languages. Written up with three answers: what fails, where exactly it starts to fail, and why it matters to the user.
-
-[Read the LinkedIn post](https://lnkd.in/p/dP4z6ZHs)
-
 ---
 
 ## 🛠️ Skills and tools
