@@ -32,17 +32,17 @@ Based in Tbilisi, Georgia (GMT+4). Open to remote QA opportunities.
 
 | Metric | Count |
 |---|---|
+| Recognition | Testlio Freelancer of the Month, September 2026 |
+| Language-learning app (paid) | 14 findings (7 Medium, 7 Low) |
+| autism.ge findings | 14 (4 Critical, 4 High, 6 Medium) |
 | ODIN bugs (Jira) | 20+ filed, 6 documented in detail here |
 | GPI Holding bugs | 4 documented here |
-| autism.ge findings | 14 (4 Critical, 4 High, 6 Medium) |
-| Language-learning app (paid) | 14 findings (7 Medium, 7 Low) |
 | Test cases | 57 total (37 ODIN + 20 GPI) |
 | Checklists | 328 scenarios across 13 modules (ODIN) |
-| Devices | Honor X8d (Android 16), Samsung Galaxy Tab A7 Lite (Android 14), Android TV, Windows laptop |
-| Browsers | Chrome, Brave, Firefox, Edge |
-| Recognition | Testlio Freelancer of the Month, September 2026 |
 | API tests (Postman) | 50+ requests in Status, Products and Cart folders, 100+ tests, run with Newman in GitHub Actions |
 | Automation (Selenium/TestNG) | 7 automated tests: 6 UI tests and 1 API test |
+| Devices | Honor X8d (Android 16), Samsung Galaxy Tab A7 Lite (Android 14), Android TV, Windows laptop |
+| Browsers | Chrome, Brave, Firefox, Edge |
 ---
 
 ## 📱 Manual testing projects
